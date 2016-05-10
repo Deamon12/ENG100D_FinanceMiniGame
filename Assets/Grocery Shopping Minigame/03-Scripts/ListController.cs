@@ -9,7 +9,7 @@ public class ListController : MonoBehaviour
         private int[][] list = null;
 
         //number of product categories
-        const int numOfProdCategory = 5;
+        const int numOfProdCategory = 3;
         const int maxNumOfProd = 8;
 
         //Default Constructor

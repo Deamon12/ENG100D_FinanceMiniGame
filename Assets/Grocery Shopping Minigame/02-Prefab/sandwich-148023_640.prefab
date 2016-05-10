@@ -12,7 +12,7 @@ GameObject:
   - 60: {fileID: 6048150}
   - 114: {fileID: 11484420}
   - 50: {fileID: 5014856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: sandwich-148023_640
   m_TagString: product
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4693f2f6850de4f94ddc058e82761e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  products: []
+  minSwipeLength: 200
 --- !u!212 &21223508
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -173,14 +173,25 @@ public class GameController : MonoBehaviour {
 
         //Draw Grocery List
         firstItem = (GameObject)Instantiate(products[list.getListValue(0, 0)], new Vector3(-6.67f, 4.03f, -2), new Quaternion());
-        firstItem.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+        firstItem.transform.SetParent(GameObject.Find("GUI").transform,false);
+        firstItem.transform.position = new Vector3(-6.67f, 4.33f, 0);
+        firstItem.transform.localScale = new Vector3(20, 20, 0);
         Destroy(firstItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+
+        
+
         secondItem = (GameObject)Instantiate(products[list.getListValue(1, 0)], new Vector3(-6.67f, 3.09f, -2), new Quaternion());
-        secondItem.transform.localScale = new Vector3(0.5f, 0.5f, 0);
-        Destroy(secondItem.GetComponent<Rigidbody2D>());//Need to remove rigidbody 
+        secondItem.transform.SetParent(GameObject.Find("GUI").transform, false);
+        secondItem.transform.position = new Vector3(-6.67f, 3.39f, 0);
+        secondItem.transform.localScale = new Vector3(20, 20, 0);
+        Destroy(secondItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+
+
         thirdItem = (GameObject)Instantiate(products[list.getListValue(2, 0)], new Vector3(-6.67f, 1.88f, -2), new Quaternion());
-        thirdItem.transform.localScale = new Vector3(0.5f, 0.5f, 0);
-        Destroy(thirdItem.GetComponent<Rigidbody2D>());//Need to remove rigidbody 
+        thirdItem.transform.SetParent(GameObject.Find("GUI").transform, false);
+        thirdItem.transform.position = new Vector3(-6.67f, 2.18f, 0);
+        thirdItem.transform.localScale = new Vector3(20, 20, 0);
+        Destroy(thirdItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
 
         //Draw Quantity of Grocery list
         numOfFirstItem.text = "X" + list.getListValue(0, 1);

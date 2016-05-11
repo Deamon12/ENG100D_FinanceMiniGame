@@ -4,6 +4,16 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+    //list used to quickly get the correct price for each item:
+    public int[] priceArr = { 2, 4, 5, 1, 5, 5, 1, 1, 2, 5, 3, 3, 2, 3, 4, 3, 2, 5, 3, 2, 4, 4, 1, 5 };
+
+    //Global variable for the cash the user will have to pay
+    public static int need_to_pay;
+
+    //Global points variables
+    public static int goodPoints;
+    public static int badPoints;
+
     //When user swipe the product, this value will detect that the user buy the product or not.
     static private bool isCart = false;
 
@@ -13,6 +23,17 @@ public class GameController : MonoBehaviour {
     //Grocery List
     private ListController.List list;
     public GameObject[] products;
+
+    static public CouponListController.CouponList couponList;
+
+    static public CouponListController.CouponList getCouponList()
+    {
+        return couponList;
+    }
+    static public void setCouponListVal(int couponId, int optionId, int val)
+    {
+        couponList.setCouponListVal(couponId,optionId,val);
+    }
 
 
     //This will trace the index of current product
@@ -48,6 +69,8 @@ public class GameController : MonoBehaviour {
         return isCart;
     }
 
+
+
     //Accessor Function
     static public void setCurrProductExist(bool currentStatus)
     {
@@ -66,6 +89,15 @@ public class GameController : MonoBehaviour {
         list = new ListController.List();
         list.makeList();
         list.printList();
+
+        couponList = new CouponListController.CouponList();
+        couponList.makeCouponList();
+
+
+        //initialize score-related global variables
+        need_to_pay = 0;
+        goodPoints = 0;
+        badPoints = 0;
 
         //Assign Text UI
         numOfFirstItem = GameObject.Find("GUI").transform.Find("FirstList").GetComponent<Text>();
@@ -116,8 +148,11 @@ public class GameController : MonoBehaviour {
                     StartCoroutine(prefabAnimation(0));
                 }
 
+                //Add price of the bought item to the global price counter
+                need_to_pay += priceArr[currentProduct];
+
                 //Case : If the user accomplish all the grocery list, make new grocery list
-                if(list.isDone())
+                if (list.isDone())
                 {
                     list.makeList();
                     drawNewList();
@@ -146,12 +181,16 @@ public class GameController : MonoBehaviour {
     {
         GameObject sign = null;
         if (option == 1)
-        { 
-             sign = Instantiate(goodSignObj) as GameObject;
-        }
-        else if(option ==0)
         {
-             sign = Instantiate(badSignObj) as GameObject;
+            sign = Instantiate(goodSignObj) as GameObject;
+            TimerController.timer += 3.00f;
+            goodPoints += 100;
+        }
+        else if (option == 0)
+        {
+            sign = Instantiate(badSignObj) as GameObject;
+            TimerController.timer -= 5.00f;
+            badPoints += 200;
         }
         yield return new WaitForSeconds(2);
         Destroy(sign);
@@ -174,24 +213,32 @@ public class GameController : MonoBehaviour {
         //Draw Grocery List
         firstItem = (GameObject)Instantiate(products[list.getListValue(0, 0)], new Vector3(-6.67f, 4.03f, -2), new Quaternion());
         firstItem.transform.SetParent(GameObject.Find("GUI").transform,false);
-        firstItem.transform.position = new Vector3(-6.67f, 4.33f, 0);
-        firstItem.transform.localScale = new Vector3(20, 20, 0);
-        Destroy(firstItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+        RectTransform item = firstItem.GetComponent<RectTransform>();
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+        item.localPosition = new Vector3(-274,177,0);
+        item.localScale = new Vector3(20,20,0);
+        Destroy(item.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
 
-        
 
-        secondItem = (GameObject)Instantiate(products[list.getListValue(1, 0)], new Vector3(-6.67f, 3.09f, -2), new Quaternion());
+        secondItem = (GameObject)Instantiate(products[list.getListValue(1, 0)], new Vector3(-6.67f, 4.03f, -2), new Quaternion());
         secondItem.transform.SetParent(GameObject.Find("GUI").transform, false);
-        secondItem.transform.position = new Vector3(-6.67f, 3.39f, 0);
-        secondItem.transform.localScale = new Vector3(20, 20, 0);
-        Destroy(secondItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+        item = secondItem.GetComponent<RectTransform>();
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+        item.localPosition = new Vector3(-274, 127, 0);
+        item.localScale = new Vector3(20, 20, 0);
+        Destroy(item.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
 
-
-        thirdItem = (GameObject)Instantiate(products[list.getListValue(2, 0)], new Vector3(-6.67f, 1.88f, -2), new Quaternion());
+        thirdItem = (GameObject)Instantiate(products[list.getListValue(2, 0)], new Vector3(-6.67f, 4.03f, -2), new Quaternion());
         thirdItem.transform.SetParent(GameObject.Find("GUI").transform, false);
-        thirdItem.transform.position = new Vector3(-6.67f, 2.18f, 0);
-        thirdItem.transform.localScale = new Vector3(20, 20, 0);
-        Destroy(thirdItem.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+        item = thirdItem.GetComponent<RectTransform>();
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 50);
+        item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 50);
+        item.localPosition = new Vector3(-274, 77, 0);
+        item.localScale = new Vector3(20, 20, 0);
+        Destroy(item.GetComponent<Rigidbody2D>()); //Need to remove rigidbody 
+
 
         //Draw Quantity of Grocery list
         numOfFirstItem.text = "X" + list.getListValue(0, 1);

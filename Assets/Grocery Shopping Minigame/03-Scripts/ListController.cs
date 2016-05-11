@@ -5,7 +5,7 @@ public class ListController : MonoBehaviour
 {
     public class List
     {
-        ////List of product 
+        //List of product 
         private int[][] list = null;
 
         //number of product categories

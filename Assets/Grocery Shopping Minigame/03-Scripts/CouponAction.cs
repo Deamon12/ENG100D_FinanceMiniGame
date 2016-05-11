@@ -14,33 +14,39 @@ public class CouponAction : MonoBehaviour {
 	
 	}
     /**
-     *
+     * Description : If Coupon is clicked, This will be called.
+     *              This function update the selected coupon, and close the coupon list window.
      *
      */
     void OnMouseDown()
     {
-        GameController.getCouponList().printCouponList();
+        //Debug purpose
+        //GameController.getCouponList().printCouponList();
 
-        Debug.Log("Coupon Clicked : " + this);
-
+        //The followin code update selected coupon based on user selection.
+        //Case : If user selected first coupon
         if(this.name == "product_coupon_1")
         {
             GameController.couponList.selectCoupon(0);
         }
+        //Case : If user selected second coupon
         else if (this.name == "product_coupon_2")
         {
             GameController.couponList.selectCoupon(1);
         }
+        //Case : If user selected third coupon
         else if (this.name == "product_coupon_3")
         {
             GameController.couponList.selectCoupon(2);
         }
+        //Case : If user selected fourth coupon
         else if (this.name == "product_coupon_4")
         {
             GameController.couponList.selectCoupon(3);
         }
 
 
+        //Before close, delete all the child of coupon
         GameController.couponList.destroyCouponList();
 
 

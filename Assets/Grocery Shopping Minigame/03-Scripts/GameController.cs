@@ -24,16 +24,8 @@ public class GameController : MonoBehaviour {
     private ListController.List list;
     public GameObject[] products;
 
+    //Coupon List
     static public CouponListController.CouponList couponList;
-
-    static public CouponListController.CouponList getCouponList()
-    {
-        return couponList;
-    }
-    static public void setCouponListVal(int couponId, int optionId, int val)
-    {
-        couponList.setCouponListVal(couponId,optionId,val);
-    }
 
 
     //This will trace the index of current product
@@ -90,6 +82,7 @@ public class GameController : MonoBehaviour {
         list.makeList();
         list.printList();
 
+        //Initialize coupon list
         couponList = new CouponListController.CouponList();
         couponList.makeCouponList();
 

@@ -84,7 +84,14 @@ public class ProductAction : MonoBehaviour {
 
     public void DetectSwipe()
     {
-        if (Input.touches.Length > 0)
+		//Check velocity so that you can't use arrows keys until previous product is off-screen
+		if (Input.GetKey ("left") && rb.velocity.magnitude == 0) {
+			moveToCart ();
+			swipeDirection = Swipe.Left;
+		} else if (Input.GetKey ("right") && rb.velocity.magnitude == 0) {
+			moveToRight ();
+			swipeDirection = Swipe.Right;
+		} else if (Input.touches.Length > 0)
         {
             Touch t = Input.GetTouch(0);
 

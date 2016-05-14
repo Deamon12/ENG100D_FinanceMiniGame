@@ -16,5 +16,9 @@ public class RemainingMoney : MonoBehaviour {
 	void Update () {
         totRemMoney = CashierText.totalPrice - moneyP;
         remainder.text = "Need to Pay: $" + totRemMoney;
+        if(totRemMoney < 1 && TimerController.timer > 0)
+        {
+
+        }
 	}
 }

@@ -9,6 +9,8 @@ public class ProductAction : MonoBehaviour {
 
     //For Swipe implementation
     public float minSwipeLength = 200f;
+	public int brandId = -1;
+
     Vector2 firstPressPos;
     Vector2 secondPressPos;
     Vector2 currentSwipe;
@@ -61,6 +63,7 @@ public class ProductAction : MonoBehaviour {
             //Case : Product reaches to Cart(Swipe down)
             if (col.gameObject.name == "Cart")
             {
+				GameController.setSelectedBrand(brandId);
                 GameController.setIsCart(true);
             }
             //Case : Product reaches to Wall(Swipe Right)
@@ -85,14 +88,19 @@ public class ProductAction : MonoBehaviour {
     public void DetectSwipe()
     {
 		//Check velocity so that you can't use arrows keys until previous product is off-screen
-		if (Input.GetKey ("left") && rb.velocity.magnitude == 0) {
+		if (Input.GetKey ("1") && brandId == 0 && rb.velocity.magnitude == 0) {
 			moveToCart ();
 			swipeDirection = Swipe.Left;
-		} else if (Input.GetKey ("right") && rb.velocity.magnitude == 0) {
+		} else if (Input.GetKey ("2") && brandId == 1 && rb.velocity.magnitude == 0) {
+			moveToCart ();
+			swipeDirection = Swipe.Left;
+		} else if (Input.GetKey ("3") && brandId == 2 && rb.velocity.magnitude == 0) {
+			moveToCart ();
+			swipeDirection = Swipe.Left;
+		} else if (Input.GetKey ("space") && rb.velocity.magnitude == 0) {
 			moveToRight ();
 			swipeDirection = Swipe.Right;
-		} else if (Input.touches.Length > 0)
-        {
+		} else if (Input.touches.Length > 0) {
             Touch t = Input.GetTouch(0);
 
             if (t.phase == TouchPhase.Began)

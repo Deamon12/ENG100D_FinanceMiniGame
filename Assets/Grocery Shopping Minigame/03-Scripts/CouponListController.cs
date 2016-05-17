@@ -76,6 +76,7 @@ public class CouponListController : MonoBehaviour {
          */
         public void selectCoupon(int couponId)
         {
+			Debug.Log ("Selected coupon: " + couponId);
             couponList[4][0] = couponList[couponId][0];
             couponList[4][1] = couponList[couponId][1];
             couponList[4][2] = couponList[couponId][2];

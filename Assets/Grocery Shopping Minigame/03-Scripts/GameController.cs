@@ -4,9 +4,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    //list used to quickly get the correct price for each item:
-    public int[] priceArr = { 2, 4, 5, 1, 5, 5, 1, 1, 2, 5, 3, 3, 2, 3, 4, 3, 2, 5, 3, 2, 4, 4, 1, 5 };
-
     //Global variable for the cash the user will have to pay
     public static int need_to_pay;
 
@@ -20,6 +17,8 @@ public class GameController : MonoBehaviour {
     //False for no product on the screen
     static private bool currProductExist = false;
 
+	static private int selectedBrand = -1;
+
     //Grocery List
     private ListController.List list;
     public GameObject[] products;
@@ -27,6 +26,7 @@ public class GameController : MonoBehaviour {
     //Coupon List
     static public CouponListController.CouponList couponList;
 
+	private ProductOfferingModel currOffering;
 
     //This will trace the index of current product
     private int currentProduct;
@@ -68,6 +68,11 @@ public class GameController : MonoBehaviour {
     {
         currProductExist = currentStatus;
     }
+
+	static public void setSelectedBrand(int brandNum) {
+		selectedBrand = brandNum;
+	}
+
     static public void setIsCart(bool state)
     {
         isCart = state;
@@ -78,6 +83,7 @@ public class GameController : MonoBehaviour {
     void Start () {
         //Initialize productIndex and grocery list
         currentProduct = -1;
+		currOffering = null;
         list = new ListController.List();
         list.makeList();
         list.printList();
@@ -103,7 +109,12 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        spawnProduct();
+		if (!PointController.gameOver) {
+			spawnProduct ();
+		} else {
+			clearRemainingItems ();
+			setPriceLabelsForGameObjs (new GameObject[0]);
+		}
     }
 
     /**
@@ -117,6 +128,9 @@ public class GameController : MonoBehaviour {
         //Case : Product need to be spawn
         if (currProductExist == false)
         {
+			if (currOffering != null) {
+				clearRemainingItems ();
+			}
             //Case : Before we spaw new product, we need to add the previous product
             //       to the grocery list. If currentProduct is -1, this is for initial state, so we don't
             //       need to update grocery list for this state.
@@ -133,16 +147,16 @@ public class GameController : MonoBehaviour {
                     list.printList();
 
                     //Show Good Sign
-                    StartCoroutine(prefabAnimation(1));
+                   // StartCoroutine(prefabAnimation(1));
                 }
                 else
                 {
                     //Show Bad Sign
-                    StartCoroutine(prefabAnimation(0));
+                  //  StartCoroutine(prefabAnimation(0));
                 }
 
                 //Add price of the bought item to the global price counter
-                need_to_pay += priceArr[currentProduct];
+//                need_to_pay += priceArr[currentProduct];
 
                 //Case : If the user accomplish all the grocery list, make new grocery list
                 if (list.isDone())
@@ -155,13 +169,27 @@ public class GameController : MonoBehaviour {
                 }
             }
             
-            //Spaw products
-            Vector3 spawnPos = new Vector3(0, 3, 0);
+            //Spawn products
             currentProduct = Random.Range(0, list.getNumOfProdCategory());
-            GameObject product = (GameObject)Instantiate(products[currentProduct], spawnPos, new Quaternion());
+			Debug.Log ("Current Product: " + currentProduct);
+			currOffering = new ProductOfferingModel(products [currentProduct], currentProduct);
+			setPriceLabelsForGameObjs(currOffering.getGameObjects ());
             currProductExist = true;
         }
     }
+
+	void setPriceLabelsForGameObjs(GameObject[] gameObjs) {
+		GameObject.Find("GUI").transform.Find("Price1").GetComponent<Text>().text = gameObjs.Length < 1 ? "" : "$" + currOffering.getPriceForIndex(0).ToString();
+		GameObject.Find("GUI").transform.Find("Price2").GetComponent<Text>().text = gameObjs.Length < 2 ? "" : "$" + currOffering.getPriceForIndex(1).ToString();
+		GameObject.Find("GUI").transform.Find("Price3").GetComponent<Text>().text = gameObjs.Length < 3 ? "" : "$" + currOffering.getPriceForIndex(2).ToString();
+	}
+
+	void clearRemainingItems() {
+		GameObject[] objs = currOffering.getGameObjects ();
+		for (int currIndex = 0; currIndex < objs.Length; currIndex++) {
+			Destroy (objs [currIndex]);
+		}
+	}
 
     /**
      * @name : prefabAnimation

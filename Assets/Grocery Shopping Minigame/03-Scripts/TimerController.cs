@@ -18,13 +18,19 @@ public class TimerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(timer <= 0){
-			timer = 0;
-			PointController.gameOver = true;
-		}
-		else{
-			timer -= Time.deltaTime;
-			timerField.text = "Time: " + Mathf.Round(timer);
-		}
+        if (PointController.gameOver == false)
+        {
+            if (timer <= 0)
+            {
+                timer = 0;
+                PointController.gameOver = true;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+                timerField.text = "Time: " + Mathf.Round(timer);
+            }
+
+        }
 	}
 }

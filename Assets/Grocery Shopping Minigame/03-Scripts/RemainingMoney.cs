@@ -18,7 +18,7 @@ public class RemainingMoney : MonoBehaviour {
         remainder.text = "Need to Pay: $" + totRemMoney;
         if(totRemMoney < 1 && TimerController.timer > 0)
         {
-
+            PointController.gameOver = true;
         }
 	}
 }

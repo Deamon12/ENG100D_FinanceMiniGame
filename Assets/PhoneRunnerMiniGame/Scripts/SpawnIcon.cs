@@ -24,7 +24,7 @@ public class SpawnIcon : MonoBehaviour
             float camWidth = camHeight * Camera.main.aspect;
 
             //gets a random location relative to camera boundaries
-            Vector3 spawn_loc_vector = new Vector3(Random.Range(15, 19), Random.Range(-2, 3));
+            Vector3 spawn_loc_vector = new Vector3(Random.Range(15, 19), Random.Range(-1, 2));
             Icon newIcon = (Icon)GameObject.Instantiate(icon, spawn_loc_vector, new Quaternion());
             newIcon.initialize(this);
             last_spawn_time = Time.time;

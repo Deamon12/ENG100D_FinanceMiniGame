@@ -4,6 +4,7 @@ using System.Collections;
 public class GrabIcon : MonoBehaviour {
 
     public PhoneIconScore phoneScore;
+    public PhoneMeter phoneSlider;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +24,7 @@ public class GrabIcon : MonoBehaviour {
         {
             float value = myIcon.value;
             GameObject.Destroy(other.gameObject);
-            Debug.Log("Got the coin, value being " + value);
             phoneScore.addScore(value);
-
         }
     }
 }

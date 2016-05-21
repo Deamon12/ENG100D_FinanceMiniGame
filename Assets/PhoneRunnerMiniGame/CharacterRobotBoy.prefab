@@ -30,6 +30,8 @@ GameObject:
   - 114: {fileID: 11478834}
   - 114: {fileID: 11481094}
   - 61: {fileID: 6194380}
+  - 114: {fileID: 11451406}
+  - 114: {fileID: 11440464}
   m_Layer: 0
   m_Name: CharacterRobotBoy
   m_TagString: Player
@@ -71,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77056307, y: -1.4929665, z: 0}
+  m_LocalPosition: {x: -0.7705631, y: -1.4929665, z: 0}
   m_LocalScale: {x: 1.7715329, y: 1.7715304, z: 1}
   m_Children:
   - {fileID: 425242}
@@ -152,6 +154,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11440464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eda4ba75a85e9b45888a929be241288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11451406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab7f817cf59af64599d5415d104feb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneScore: {fileID: 0}
 --- !u!114 &11478834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 10
-  m_JumpForce: 800
+  m_JumpForce: 700
   m_CrouchSpeed: 0.25
   m_AirControl: 1
   m_WhatIsGround:

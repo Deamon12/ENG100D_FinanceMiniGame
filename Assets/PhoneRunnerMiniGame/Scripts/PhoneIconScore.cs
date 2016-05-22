@@ -5,10 +5,11 @@ using System.Collections;
 
 public class PhoneIconScore : MonoBehaviour {
     private float score = 0.0f;
+    //public Slider phoneMeter;
 
 	// Use this for initialization
 	void Start () {
-
+       // phoneMeter = GetComponent<Slider>();
     }
 	
 	// Update is called once per frame
@@ -18,16 +19,16 @@ public class PhoneIconScore : MonoBehaviour {
 
     public void addScore(float scoreIncrease)
     {
-        Debug.Log("entered phoneiconscore class");
         score += scoreIncrease;
-        Debug.Log("score increased");
         updateScore();
     }
 
     private void updateScore()
     {
-        Debug.Log("updateScore entered");
+
         gameObject.GetComponent<Text>().text = "Score: " + score;
+        Debug.Log("Score was added");
+       // phoneMeter.value += score;
     }
 
 }

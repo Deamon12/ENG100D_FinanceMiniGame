@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - tooth
+  - Fire
+  - beach_trash
+  - canvas
   layers:
   - Default
   - TransparentFX

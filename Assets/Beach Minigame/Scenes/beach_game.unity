@@ -330,7 +330,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 780379922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64, y: 152, z: 605}
+  m_LocalPosition: {x: -7, y: 163, z: 605}
   m_LocalScale: {x: 15.069567, y: 18.962166, z: 0.07546101}
   m_Children: []
   m_Father: {fileID: 1809646593}
@@ -523,9 +523,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash:
-  - {fileID: 190590, guid: 8f733069fd4c63f4c8fd210e7ade20f9, type: 2}
+  - {fileID: 131880, guid: 8f733069fd4c63f4c8fd210e7ade20f9, type: 2}
   animal:
   - {fileID: 111776, guid: 0dac540ba6e75904f9a4bda1c0e2e983, type: 2}
+  xrange: {x: -7, y: 7}
+  yrange: {x: -4, y: 0}
 --- !u!114 &1809646589
 MonoBehaviour:
   m_ObjectHideFlags: 0

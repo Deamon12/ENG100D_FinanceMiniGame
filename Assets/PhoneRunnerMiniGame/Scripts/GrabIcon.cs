@@ -1,18 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GrabIcon : MonoBehaviour {
 
     public PhoneIconScore phoneScore;
-    // public PhoneMeter phoneSlider;
+    public Slider phoneSlider;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        GameObject temp = GameObject.Find("phone_limit_slider");
+        phoneSlider = temp.GetComponent<Slider>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 
@@ -25,6 +27,8 @@ public class GrabIcon : MonoBehaviour {
             float value = myIcon.value;
             GameObject.Destroy(other.gameObject);
             phoneScore.addScore(value);
+            phoneSlider.value += 10;
+            Debug.Log("slider value: " + phoneSlider.value);
         }
     }
 }

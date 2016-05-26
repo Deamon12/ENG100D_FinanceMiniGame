@@ -21,6 +21,7 @@ public class GrabIcon : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         Icon myIcon = other.gameObject.GetComponent<Icon>();
+        Obstacle myObstacle = other.gameObject.GetComponent<Obstacle>();
 
         if (myIcon)
         {
@@ -29,6 +30,10 @@ public class GrabIcon : MonoBehaviour {
             phoneScore.addScore(value);
             phoneSlider.value += 10;
             Debug.Log("slider value: " + phoneSlider.value);
+        }
+        else if (myObstacle)
+        {
+            Debug.Log("Go to game over screen");
         }
     }
 }

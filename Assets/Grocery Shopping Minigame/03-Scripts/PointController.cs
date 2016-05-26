@@ -8,9 +8,10 @@ public class PointController : MonoBehaviour
 
     //Global boolean used to symbolize when a game-over state has been reached
     public static bool gameOver;
+	public static bool YouWin;
     public static float points;
 
-    public Text overField;
+	public static Text overField;
 
     // Use this for initialization
     void Start()
@@ -31,6 +32,10 @@ public class PointController : MonoBehaviour
         {
             overField.text = "Game Over! Points: " + points;
         }
+		else if(YouWin)
+		{
+			overField.text = "You win! Points: " + points;
+		}
     }
 
 }

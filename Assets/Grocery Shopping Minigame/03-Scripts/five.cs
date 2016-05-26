@@ -3,6 +3,7 @@ using System.Collections;
 
 //part of Cashier game
 public class five : MonoBehaviour {
+	public static int NumberOfFivesUsed = 0;
     public static int value = 5;   //this is the value of the $5 bill
 
     // Use this for initialization
@@ -21,5 +22,7 @@ public class five : MonoBehaviour {
     {
 		//increment moneyP by the 
         RemainingMoney.moneyP = RemainingMoney.moneyP + value;
+
+		NumberOfFivesUsed += 1;
     }
 }

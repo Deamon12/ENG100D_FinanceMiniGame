@@ -25,7 +25,8 @@ public class TimerController : MonoBehaviour {
                 timer = 0;
                 PointController.gameOver = true;
             }
-            else
+
+			else
             {
                 timer -= Time.deltaTime;
                 timerField.text = "Time: " + Mathf.Round(timer);

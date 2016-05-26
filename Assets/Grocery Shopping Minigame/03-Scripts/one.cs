@@ -3,6 +3,7 @@ using System.Collections;
 
 //part of Cashier game
 public class one : MonoBehaviour {
+	public static int NumberOfOnesUsed = 0;
     public static int value = 1;     //this is the dollar bill value
 
     // Use this for initialization
@@ -21,5 +22,7 @@ public class one : MonoBehaviour {
     public void onClick()
     {
         RemainingMoney.moneyP = RemainingMoney.moneyP + value;
+
+		NumberOfOnesUsed += 1;
     }
 }

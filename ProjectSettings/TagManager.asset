@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - tooth
+  - beach_trash
+  - beach_timer
   layers:
   - Default
   - TransparentFX

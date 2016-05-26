@@ -624,6 +624,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trash:
   - {fileID: 193038, guid: 8f733069fd4c63f4c8fd210e7ade20f9, type: 2}
+  - {fileID: 152600, guid: dba4c931935828846871b5b716befc34, type: 2}
+  - {fileID: 140574, guid: fd6c8ddf61b348a4fb82173ae367194d, type: 2}
+  - {fileID: 158302, guid: cf2ae4fba62456f4ca0fc26529c01f50, type: 2}
   animal:
   - {fileID: 107692, guid: 5731559138d767a4bb76f0e804e9ac1a, type: 2}
   - {fileID: 154576, guid: e2b5c4aa83faeee4bacb8dcae7c48007, type: 2}

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
 
+//part of Grocery game
 public class ProductOfferingModel {
 	enum TintColor {
 		Red,

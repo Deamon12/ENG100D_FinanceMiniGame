@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+//part of Cashier game
 public class CashierText : MonoBehaviour {
     public Text cashierText;
     public static int totalPrice;

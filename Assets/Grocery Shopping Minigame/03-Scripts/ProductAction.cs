@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//part of Grocery game
 public enum Swipe { None, Up, Down, Left, Right };
 public class ProductAction : MonoBehaviour {
 

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//part of Cashier game
 public class twenty : MonoBehaviour {
     public static int value = 20;
     

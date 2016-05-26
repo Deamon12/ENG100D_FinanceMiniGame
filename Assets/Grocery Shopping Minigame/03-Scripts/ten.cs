@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+//part of Cashier game
 public class ten : MonoBehaviour {
     public static int value = 10;
     // Use this for initialization

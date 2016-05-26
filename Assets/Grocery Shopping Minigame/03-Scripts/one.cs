@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//part of Cashier game
 public class one : MonoBehaviour {
-    public static int value = 1;
+    public static int value = 1;     //this is the dollar bill value
 
     // Use this for initialization
     void Start()

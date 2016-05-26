@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//part of Cashier game
 public class five : MonoBehaviour {
-    public static int value = 5;
+    public static int value = 5;   //this is the value of the $5 bill
 
     // Use this for initialization
     void Start()
@@ -18,6 +19,7 @@ public class five : MonoBehaviour {
     //Link the onClick method to the onClick() list in the twentybutton
     public void onClick()
     {
+		//increment moneyP by the 
         RemainingMoney.moneyP = RemainingMoney.moneyP + value;
     }
 }

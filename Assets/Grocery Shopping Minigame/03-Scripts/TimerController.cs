@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-
+//part of grocery and cashier game
 public class TimerController : MonoBehaviour {
 
     public static float timer;

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+//part of Grocery game
 public class PointController : MonoBehaviour
 {
 

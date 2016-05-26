@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
+//part of Cashier game
 public class RemainingMoney : MonoBehaviour {
-    public Text remainder;
-    public static int moneyP;
-    public static int totRemMoney;
+    public Text remainder;    //this is the text for the remaining money
+    public static int moneyP;    //this is the total money that is used
+    public static int totRemMoney; //this is the total remaining money
+	public static int totalRemainingMoneyForPoints;
+
 	// Use this for initialization
 	void Start () {
 	    remainder = GetComponent<Text>();
         totRemMoney = CashierText.totalPrice;
         moneyP = 0;
+
+		totalRemainingMoneyForPoints = totRemMoney;
     }
 	
 	// Update is called once per frame
@@ -20,11 +26,14 @@ public class RemainingMoney : MonoBehaviour {
 	}
     private void updateMoney()
     {
-        totRemMoney = CashierText.totalPrice - moneyP;
+        totRemMoney = CashierText.totalPrice - moneyP;  //moneyP is the total value of all of the dollar bills clicked
+		totalRemainingMoneyForPoints = CashierText.totalPrice - moneyP;
+
         if (totRemMoney < 0 )
         {
             totRemMoney = 0;
         }
+
         remainder.text = "Need to Pay: $" + totRemMoney;
         if (totRemMoney < 1 && TimerController.timer > 0)
         {

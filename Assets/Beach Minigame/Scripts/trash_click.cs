@@ -9,7 +9,11 @@ public class trash_click : MonoBehaviour {
 	}
 	
     void OnMouseDown() {
-        Debug.Log("Mouse Down!");
+        Debug.Log("Trash Mouse Down!");
+        beach_spawn.numTrash--;
+        if (beach_spawn.numTrash == 0) {
+            Debug.Log("Next Level!");
+        }
         Destroy(this.gameObject);
     }
 

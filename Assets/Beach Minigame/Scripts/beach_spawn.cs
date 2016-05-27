@@ -12,9 +12,16 @@ public class beach_spawn : MonoBehaviour {
     private List<trash_click> trashList;
     private bool complete_trash;
 
+    BeachTimer t;
+
     static public int numTrash;
     // Use this for initialization
     void Start () {
+
+        t = GameObject.FindGameObjectWithTag("beach_timer").GetComponent<BeachTimer>();
+        t.resetTimer(20f); //get level persistant level data?
+        t.resume();
+
         numTrash = 0;
         trashList = new List<trash_click>();
         spawnTrash();
@@ -25,6 +32,7 @@ public class beach_spawn : MonoBehaviour {
 
     void Update() {
         checkTrash();
+        t.Update();
     }
 
     void checkTrash() {

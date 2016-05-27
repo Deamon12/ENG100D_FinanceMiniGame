@@ -11,6 +11,7 @@ public class OverviewStart : MonoBehaviour {
 	public GameObject schoolButton;
 	public GameObject bathroomButton;
 	public GameObject nextButton;
+    public GameObject groceryButton;
 
 	public static bool dialogueControl = true;
 
@@ -24,7 +25,8 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = false;
 			schoolButton.GetComponent<Button> ().interactable = false;
 			bathroomButton.GetComponent<Button> ().interactable = false;
-		} else {
+            groceryButton.GetComponent<Button>().interactable = false;
+        } else {
 			speechBubble.SetActive (false);
 			introDialogue.SetActive (false);
 			gameDialogue.SetActive (false);
@@ -32,7 +34,8 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = true;
 			schoolButton.GetComponent<Button> ().interactable = true;
 			bathroomButton.GetComponent<Button> ().interactable = true;
-		}
+            groceryButton.GetComponent<Button>().interactable = true;
+        }
 	}
 
 	// Update is called once per frame
@@ -81,7 +84,8 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = true;
 			schoolButton.GetComponent<Button> ().interactable = true;
 			bathroomButton.GetComponent<Button> ().interactable = true;
-			OverviewStart.dialogueControl = false;
+            groceryButton.GetComponent<Button>().interactable = true;
+            OverviewStart.dialogueControl = false;
 			nextButton.SetActive (false);
 		}
 	}

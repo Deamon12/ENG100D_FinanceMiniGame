@@ -20,18 +20,31 @@ public class TimerController : MonoBehaviour {
 	void Update () {
         if (PointController.gameOver == false)
         {
+
+            updateTime();
+        }
+	}
+
+    private void updateTime()
+    {
+        if (PointController.gameOver == false)
+        {
             if (timer <= 0)
             {
                 timer = 0;
                 PointController.gameOver = true;
             }
+            
+            
 
-			else
+            else
             {
                 timer -= Time.deltaTime;
                 timerField.text = "Time: " + Mathf.Round(timer);
             }
 
         }
-	}
+
+
+    }
 }

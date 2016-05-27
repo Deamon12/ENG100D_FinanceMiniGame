@@ -25,13 +25,11 @@ public class RemainingMoney : MonoBehaviour
 	{
 		if (PointController.gameOver == false) 
 		{
-			CalculateNumberOfPoints();
-
 			updateMoney();
-
-			//CalculateNumberOfPoints()
-			//PointController.points = twenty.NumberOfTwentiesUsed * 260 + ten.NumberTensUsed * 125 + five.NumberOfFivesUsed * 60 + one.NumberOfOnesUsed * 10;
-		}
+            CalculateNumberOfPoints();
+            //CalculateNumberOfPoints()
+            //PointController.points = twenty.NumberOfTwentiesUsed * 260 + ten.NumberTensUsed * 125 + five.NumberOfFivesUsed * 60 + one.NumberOfOnesUsed * 10;
+        }
 	}
     private void updateMoney()
     {
@@ -44,17 +42,19 @@ public class RemainingMoney : MonoBehaviour
         }
 
         remainder.text = "Need to Pay: $" + totRemMoney;
-		if (totalRemainingMoneyForPoints < 1 && TimerController.timer > 0)
+        if (totRemMoney <= 0  && TimerController.timer > 0)
         {
             PointController.YouWin = true;
-			//PointController.gameOver = true;
-
-			//CalculateNumberOfPoints ();
+            PointController.gameOver = true;
+            if (totalRemainingMoneyForPoints < 0)
+                PointController.YouWin = false;
         }
     }
 
 	void CalculateNumberOfPoints()
 	{
 		PointController.points = twenty.NumberOfTwentiesUsed * 260 + ten.NumberTensUsed * 125 + five.NumberOfFivesUsed * 60 + one.NumberOfOnesUsed * 10;
-	}
+        totalRemainingMoneyForPoints *= -1;
+        
+    }
 }

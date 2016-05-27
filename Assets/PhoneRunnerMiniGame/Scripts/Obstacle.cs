@@ -11,10 +11,10 @@ public class Obstacle : MonoBehaviour {
 	private Vector2 move = new Vector2(-0.15f, 0);
 	public static float DESPAWN_POSX = -11.5f;
    // public static float CAMERA_LEFT_EDGE;
-	private SpawnObstacle controller;
+	private MainController controller;
 
 	// Use this for initialization
-	public void initialize(SpawnObstacle controller)
+	public void initialize(MainController controller)
 	{
 		this.controller = controller;
 	}

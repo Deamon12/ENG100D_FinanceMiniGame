@@ -7,11 +7,11 @@ public class Icon : MonoBehaviour {
 	public Rigidbody2D phoneIcon;
 	private Vector2 move = new Vector3(-0.15f,0,0);
 	public float value = 1.0f;
-	private SpawnIcon controller;
+	private MainController controller;
 
 
 	// Use this for initialization
-	public void initialize(SpawnIcon controller)
+	public void initialize(MainController controller)
 	{
 		this.controller = controller;
 	}

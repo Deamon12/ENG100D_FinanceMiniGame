@@ -13,6 +13,13 @@ public class PhoneIconScore : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+    void Update()
+    {
+        if (phoneMeter.value >= phoneMeter.maxValue)
+        {
+            Application.LoadLevel("game_over_scene");
+        }
+    }
 
 	public void addScore(float scoreIncrease)
 	{

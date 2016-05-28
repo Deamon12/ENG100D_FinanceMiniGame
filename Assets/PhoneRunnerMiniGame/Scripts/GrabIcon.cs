@@ -20,20 +20,27 @@ public class GrabIcon : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Icon myIcon = other.gameObject.GetComponent<Icon>();
+		PhoneIcon phoneIcon = other.gameObject.GetComponent<PhoneIcon>();
 		Obstacle myObstacle = other.gameObject.GetComponent<Obstacle>();
+		CoinIcon coinIcon = other.gameObject.GetComponent<CoinIcon>();
 
-		if (myIcon)
+		if (phoneIcon)
 		{
-			float value = myIcon.value;
+			float value = phoneIcon.value;
 			GameObject.Destroy(other.gameObject);
 			phoneScore.addScore(value);
-			phoneSlider.value += 10;
+			phoneSlider.value += phoneIcon.value;
 			Debug.Log("slider value: " + phoneSlider.value);
 		}
 		else if (myObstacle)
 		{
 			Application.LoadLevel("game_over_scene");
+		}
+		else if (coinIcon)
+		{
+			float value = coinIcon.value;
+			GameObject.Destroy(other.gameObject);
+			phoneScore.addScore(value);
 		}
 	}
 }

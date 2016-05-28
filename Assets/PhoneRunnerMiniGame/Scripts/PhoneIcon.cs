@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Icon : MonoBehaviour {
+public class PhoneIcon : MonoBehaviour {
 
 	public Rigidbody2D phoneIcon;
 	private Vector2 move = new Vector3(-0.15f,0,0);
-	public float value = 1.0f;
+	public float value = 25;
 	private MainController controller;
 
 
@@ -35,6 +35,6 @@ public class Icon : MonoBehaviour {
 
 	void remove()
 	{
-		controller.removeIcon(this);
+		controller.removePhoneIcon(this);
 	}
 }

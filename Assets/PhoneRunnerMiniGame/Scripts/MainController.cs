@@ -4,17 +4,20 @@ using System.Collections;
 public class MainController : MonoBehaviour {
 
     public static float ICON_SPAWN_POSX = 20f;
-    private float last_spawn_time;
-    public Icon icon;
+    private float lastPhoneSpawnTime;
+    private float lastCoinSpawnTime;
+    private float lastObstacleSpawnTime;
+    public PhoneIcon phoneIcon;
+    public CoinIcon coinIcon;
     public static float BOX_SPAWN_POSX = 12f;
     public static float BOX_SPAWN_POSY = -2.56f;
-    private float lastObstacleSpawnTime;
     public Obstacle obstacle;
     // Use this for initialization
     void Start()
     {
-        last_spawn_time = Time.time;
-        lastObstacleSpawnTime = last_spawn_time;
+        lastPhoneSpawnTime = Time.time;
+        lastObstacleSpawnTime = lastPhoneSpawnTime;
+        lastCoinSpawnTime = lastPhoneSpawnTime;
 
     }
 
@@ -22,7 +25,8 @@ public class MainController : MonoBehaviour {
     void Update()
     {
         float current_time = Time.time;
-        if (current_time - last_spawn_time > 1.5)
+
+        if (current_time - lastCoinSpawnTime > 1.0)
         {
             //height and width of camera - used to determine where to spawn food
             float camHeight = Camera.main.orthographicSize;
@@ -30,9 +34,22 @@ public class MainController : MonoBehaviour {
 
             //gets a random location relative to camera boundaries
             Vector3 spawn_loc_vector = new Vector3(Random.Range(15, 19), Random.Range(-1, 2));
-            Icon newIcon = (Icon)GameObject.Instantiate(icon, spawn_loc_vector, new Quaternion());
+            CoinIcon newIcon = (CoinIcon)GameObject.Instantiate(coinIcon, spawn_loc_vector, new Quaternion());
             newIcon.initialize(this);
-            last_spawn_time = Time.time;
+            lastCoinSpawnTime = Time.time;
+        }
+
+        if (current_time - lastPhoneSpawnTime > 1.5)
+        {
+            //height and width of camera - used to determine where to spawn food
+            float camHeight = Camera.main.orthographicSize;
+            float camWidth = camHeight * Camera.main.aspect;
+
+            //gets a random location relative to camera boundaries
+            Vector3 spawn_loc_vector = new Vector3(Random.Range(15, 19), Random.Range(-1, 2));
+            PhoneIcon newIcon = (PhoneIcon)GameObject.Instantiate(phoneIcon, spawn_loc_vector, new Quaternion());
+            newIcon.initialize(this);
+            lastPhoneSpawnTime = Time.time;
         }
 
         if (current_time - lastObstacleSpawnTime > 2)
@@ -49,7 +66,12 @@ public class MainController : MonoBehaviour {
         }
     }
 
-    public void removeIcon(Icon removeMe)
+    public void removePhoneIcon(PhoneIcon removeMe)
+    {
+        GameObject.Destroy(removeMe.gameObject);
+    }
+
+    public void removeCoinIcon(CoinIcon removeMe)
     {
         GameObject.Destroy(removeMe.gameObject);
     }

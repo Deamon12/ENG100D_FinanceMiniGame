@@ -15,7 +15,7 @@ GameObject:
   - 50: {fileID: 5029976}
   - 114: {fileID: 11406922}
   m_Layer: 0
-  m_Name: Icon
+  m_Name: PhoneIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.0298471, y: -0.93102807, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76d1afb673fd2f42b5219187f6852a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phoneMeter: {fileID: 0}
 --- !u!114 &11498762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82478fc28150e9f489460670331409cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phoneIcon: {fileID: 0}
-  value: 10
+  phoneIcon: {fileID: 5029976}
+  value: 25
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

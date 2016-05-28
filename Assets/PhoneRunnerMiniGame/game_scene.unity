@@ -301,7 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d06bc731efa97c49b8cacec05d7d1e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 11498762, guid: 6786af8cbf186cd44885928b0a734c8b, type: 2}
+  phoneIcon: {fileID: 11498762, guid: 6786af8cbf186cd44885928b0a734c8b, type: 2}
+  coinIcon: {fileID: 11458218, guid: 53e879f6fb6bdba4fbfe5a4d5aa369da, type: 2}
   obstacle: {fileID: 11401158, guid: 6d5596e573ea61a4c94925c50e507f8f, type: 2}
 --- !u!4 &523435144
 Transform:
@@ -778,7 +779,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11486988, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_MaxValue
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 11486988, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_Value

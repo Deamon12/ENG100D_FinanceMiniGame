@@ -7,4 +7,9 @@ public class MainMenu : MonoBehaviour {
     {
         Application.LoadLevel(scene);
     }
+
+    public void exitGame()
+    {
+        Application.LoadLevel(0);
+    }
 }

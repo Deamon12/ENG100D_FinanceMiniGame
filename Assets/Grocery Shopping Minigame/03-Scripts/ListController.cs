@@ -69,11 +69,19 @@ public class ListController : MonoBehaviour
                 if (list[i][0] == product)
                 {
                     result = i;
+					break;
                 }
             }
             return result;
         }
 
+		public int[] getProductIDs() {
+			int[] prods = new int[3];
+			for (int currIndex = 0; currIndex < 3; currIndex++) {
+				prods [currIndex] = list [currIndex] [0];
+			}
+			return prods;
+		}
 
         /**
          * @name : makeList
@@ -136,7 +144,7 @@ public class ListController : MonoBehaviour
         {
             for (int i = 0; i < 3; i++)
             {
-                Debug.Log(list[i][0] + "," + list[i][1] + "," + list[i][2]);
+//                Debug.Log(list[i][0] + "," + list[i][1] + "," + list[i][2]);
             }
         }
 

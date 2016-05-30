@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
+
+	public struct ProductSelection {
+		public ProductOfferingModel productModel;
+		public int brandID;
+	}
+
+	static private List <ProductSelection> selectedProducts = new List<ProductSelection>();
 
     //Global variable for the cash the user will have to pay
     public static int need_to_pay;
@@ -90,7 +98,7 @@ public class GameController : MonoBehaviour {
 
         //Initialize coupon list
         couponList = new CouponListController.CouponList();
-        couponList.makeCouponList();
+		couponList.makeCouponList(list.getProductIDs());
 
 
         //initialize score-related global variables
@@ -114,6 +122,8 @@ public class GameController : MonoBehaviour {
 		} else {
 			clearRemainingItems ();
 			setPriceLabelsForGameObjs (new GameObject[0]);
+			need_to_pay = CouponListController.getFinalPrice (selectedProducts);
+			Debug.Log ("Final price is: " + need_to_pay);
 		}
     }
 
@@ -146,6 +156,10 @@ public class GameController : MonoBehaviour {
                     list.setListValue(indexOfGroceryList,2, (currentNum+1));
                     list.printList();
 
+					ProductSelection currSelection;
+					currSelection.brandID = selectedBrand;
+					currSelection.productModel = currOffering;
+					selectedProducts.Add (currSelection);
                     //Show Good Sign
                    // StartCoroutine(prefabAnimation(1));
                 }
@@ -163,7 +177,10 @@ public class GameController : MonoBehaviour {
                 {
                     list.makeList();
                     drawNewList();
+
+					couponList.makeCouponList(list.getProductIDs());
                     //Debugging purpose
+
                     Debug.Log("New Gocery List is generated");
                     list.printList();
                 }

@@ -55,12 +55,13 @@ public class CouponListController : MonoBehaviour {
 				Debug.Log ("Creating new coupon list!");
 				//BOGO, Buy One Get Two, Buy A get one B
 				int prodA = productIDs[Random.Range(0, numProducts-1)];
-				int brandA = Random.Range (0, 2);
+				int brandA = Random.Range (0, 3);
 
 				int prodB = productIDs[Random.Range(0, numProducts-1)];
-				int brandB = Random.Range (0, 2);
+				int brandB = Random.Range (0, 3);
 
-				int couponType = Random.Range(0, 2);
+				int couponType = Random.Range(0, 3);
+				Debug.Log ("Coupon Type: " + couponType);
 				if (couponType == 0) {
 					//BOGO
 					coupons.Add(new BOGOCoupon(prodA, brandA));

@@ -58,7 +58,7 @@ public class CouponAction : MonoBehaviour {
 
 
         //Generate new coupon list
-        GameController.couponList.makeCouponList();
+//        GameController.couponList.makeCouponList();
 
     }
 

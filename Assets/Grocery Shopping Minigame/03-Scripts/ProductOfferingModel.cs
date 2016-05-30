@@ -5,10 +5,10 @@ using System.Linq;
 
 //part of Grocery game
 public class ProductOfferingModel {
-	enum TintColor {
-		Red,
-		Green,
-		Blue,
+	public enum TintColor {
+		Red,   //0
+		Green, //1
+		Blue,  //2
 	}
 
 	//list used to quickly get the correct price for each item:
@@ -32,6 +32,11 @@ public class ProductOfferingModel {
 		return gameObjects;
 	}
 
+	public int getProductID() {
+		return productID;
+	}
+
+	// Returns price for brand idx
 	public int getPriceForIndex(int idx) {
 		return prices [idx];
 	}
@@ -57,13 +62,13 @@ public class ProductOfferingModel {
 			retObjs[currBrand] = obj;
 
 			if (BrandPrices [productID, (int)randomColors[currBrand]] > 0) {
-				Debug.Log("Using Old Brand Price: " + BrandPrices [productID, (int)randomColors[currBrand]] + " for color: " + (int)randomColors[currBrand] + " for product: " + productID);
+//				Debug.Log("Using Old Brand Price: " + BrandPrices [productID, (int)randomColors[currBrand]] + " for color: " + (int)randomColors[currBrand] + " for product: " + productID);
 				prices [currBrand] = BrandPrices [productID, (int)randomColors[currBrand]];
 			} else {
 				// Add between $0 and $5 to the base price
 				prices [currBrand] = basePrice + Random.Range (0, 6);
 				BrandPrices [productID, (int)randomColors[currBrand]] = prices [currBrand];
-				Debug.Log("Creating New Brand Price: " + BrandPrices [productID, (int)randomColors[currBrand]] + " for color: " + (int)randomColors[currBrand] + " for product: " + productID);
+//				Debug.Log("Creating New Brand Price: " + BrandPrices [productID, (int)randomColors[currBrand]] + " for color: " + (int)randomColors[currBrand] + " for product: " + productID);
 			}
 		}
 

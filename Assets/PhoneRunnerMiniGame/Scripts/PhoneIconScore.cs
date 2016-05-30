@@ -9,17 +9,18 @@ public class PhoneIconScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		phoneMeter = GetComponent<Slider>();
+		GameObject temp = GameObject.Find("phone_limit_slider");
+		phoneMeter = temp.GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
-    void Update()
-    {
-        if (phoneMeter.value >= phoneMeter.maxValue)
-        {
-            Application.LoadLevel("game_over_scene");
-        }
-    }
+	void Update()
+	{
+		if (phoneMeter.value >= phoneMeter.maxValue)
+		{
+			Application.LoadLevel("game_over_scene");
+		}
+	}
 
 	public void addScore(float scoreIncrease)
 	{

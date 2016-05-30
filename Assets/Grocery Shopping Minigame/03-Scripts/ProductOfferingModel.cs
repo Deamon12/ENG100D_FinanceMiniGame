@@ -54,6 +54,7 @@ public class ProductOfferingModel {
 
 			//Apply the tint
 			obj.GetComponent<Renderer> ().material = generateTintMaterial((TintColor)randomColors[currBrand]);
+            obj.name = obj.name + currBrand;
 			retObjs[currBrand] = obj;
 
 			if (BrandPrices [productID, (int)randomColors[currBrand]] > 0) {

@@ -104,6 +104,7 @@ public class ProductAction : MonoBehaviour {
 		} else if (Input.touches.Length > 0) {
             Touch t = Input.GetTouch(0);
 
+
             if (t.phase == TouchPhase.Began)
             {
                 firstPressPos = new Vector2(t.position.x, t.position.y);
@@ -123,11 +124,16 @@ public class ProductAction : MonoBehaviour {
 
                 currentSwipe.Normalize();
 
+                Vector3 pos = Camera.main.ScreenToWorldPoint(firstPressPos);
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+ 
+
+
                 // Swipe up
                 if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
                     swipeDirection = Swipe.Up;
                     // Swipe down
-                } else if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
+                } else if ((hit.collider.name == this.name)&&currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f) {
                     swipeDirection = Swipe.Down;
                     moveToCart();
                     // Swipe left

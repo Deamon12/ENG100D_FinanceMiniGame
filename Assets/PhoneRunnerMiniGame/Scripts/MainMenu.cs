@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class MainMenu : MonoBehaviour {
     public void startGame(string scene)
     {
-        Application.LoadLevel(scene);
-    }
-
-    public void exitGame()
-    {
-        Application.LoadLevel(0);
+        SceneManager.LoadScene(scene);
     }
 }

@@ -531,7 +531,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 0
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1182,6 +1182,7 @@ MonoBehaviour:
   GoButton: {fileID: 0}
   NextLevelPanel: {fileID: 0}
   WaveText: {fileID: 0}
+  Warning: {fileID: 0}
   BeginButton: {fileID: 845091791}
   IntroBackground: {fileID: 1744210917}
   WaveTutorial: {fileID: 505390036}
@@ -1193,6 +1194,7 @@ MonoBehaviour:
   exTurtle: {fileID: 964524106}
   exFish: {fileID: 1002619176}
   exTrash: {fileID: 196825643}
+  fact: {fileID: 0}
   nextLevel: 0
 --- !u!82 &1271410689
 AudioSource:
@@ -1499,6 +1501,7 @@ MonoBehaviour:
   GoButton: {fileID: 0}
   NextLevelPanel: {fileID: 0}
   WaveText: {fileID: 0}
+  Warning: {fileID: 0}
   BeginButton: {fileID: 0}
   IntroBackground: {fileID: 0}
   WaveTutorial: {fileID: 0}
@@ -1510,6 +1513,7 @@ MonoBehaviour:
   exTurtle: {fileID: 0}
   exFish: {fileID: 0}
   exTrash: {fileID: 0}
+  fact: {fileID: 0}
   nextLevel: 0
 --- !u!1 &1782522575
 GameObject:

@@ -9,7 +9,7 @@ public class CashierText : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         cashierText = GetComponent<Text>();
-        totalPrice = 10;
+		totalPrice = GameController.need_to_pay;
     }
 	
 	// Update is called once per frame

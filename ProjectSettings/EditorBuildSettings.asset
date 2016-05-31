@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Toothbrush Minigame/Toothbrush Game.unity
   - enabled: 1
     path: Assets/Grocery Shopping Minigame/01-Scenes/Grocery.unity
+  - enabled: 1
+    path: Assets/Grocery Shopping Minigame/01-Scenes/Cashier.unity

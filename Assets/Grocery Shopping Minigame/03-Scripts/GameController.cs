@@ -161,14 +161,14 @@ public class GameController : MonoBehaviour {
 					currSelection.productModel = currOffering;
 					selectedProducts.Add (currSelection);
                     //Show Good Sign
-                   // StartCoroutine(prefabAnimation(1));
+                    StartCoroutine(prefabAnimation(1));
                 }
                 else
                 {
                     //Show Bad Sign
-                  //  StartCoroutine(prefabAnimation(0));
+                    StartCoroutine(prefabAnimation(0));
                 }
-
+ 
                 //Add price of the bought item to the global price counter
 //                need_to_pay += priceArr[currentProduct];
 

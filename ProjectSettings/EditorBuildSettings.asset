@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/PhoneRunnerMiniGame/game_scene.unity
   - enabled: 1
     path: Assets/PhoneRunnerMiniGame/game_over_scene.unity
+  - enabled: 1
+    path: Assets/PhoneRunnerMiniGame/phonerunner_tutorial.unity

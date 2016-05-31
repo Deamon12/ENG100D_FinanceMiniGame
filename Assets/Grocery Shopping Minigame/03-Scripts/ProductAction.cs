@@ -98,8 +98,8 @@ public class ProductAction : MonoBehaviour {
 		} else if (Input.GetKey ("3") && brandId == 2 && rb.velocity.magnitude == 0) {
 			moveToCart ();
 			swipeDirection = Swipe.Left;
-		} else if (Input.GetKey ("space") && rb.velocity.magnitude == 0) {
-			moveToRight ();
+		} else if (Input.GetKey ("space")&& brandId > -1&& rb.velocity.magnitude == 0) {
+            moveToRight();
 			swipeDirection = Swipe.Right;
 		} else if (Input.touches.Length > 0) {
             Touch t = Input.GetTouch(0);

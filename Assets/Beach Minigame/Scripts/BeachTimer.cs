@@ -17,7 +17,7 @@ public class BeachTimer : MonoBehaviour {
     private float round_time;
     private float time_rem;
 
-    private bool toggle = true; //intiialize as paused
+    private bool toggle = true; //unnecessary additional control with current model
     private bool endLevel = false;
 
     public BeachTimer() {
@@ -64,8 +64,10 @@ public class BeachTimer : MonoBehaviour {
                 }
                 else
                 {
-                    //Time is over.
-                    endLevel = true;    
+                    //Time is over.  Boom.
+                    endLevel = true;
+                    resetTimer(20f);
+                    this.resume();
                 }
 
 
@@ -101,6 +103,7 @@ public class BeachTimer : MonoBehaviour {
         Start();
     }
 
+    //unused optimization since we're creating a new timer everytime/each scene.
     public void pause() {
         toggle = false;
     }

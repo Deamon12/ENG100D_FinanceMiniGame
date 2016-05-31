@@ -547,7 +547,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 510342374}
-        m_MethodName: updateButton
+        m_MethodName: updateEndLevelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -8,6 +8,7 @@ public class PointController : MonoBehaviour
 
     //Global boolean used to symbolize when a game-over state has been reached
     public static bool gameOver;
+    public static bool gameOverGrocery;
     public static bool isFinished;
     public static float points;
 
@@ -18,6 +19,7 @@ public class PointController : MonoBehaviour
     {
 
         gameOver = false;
+        gameOverGrocery = false;
         isFinished = false;
         overField = GetComponent<Text>();
         overField.text = "";
@@ -29,13 +31,16 @@ public class PointController : MonoBehaviour
     void Update()
     {
 
-        if (gameOver && isFinished == false)
+        if (gameOver)
         {
-                overField.text = " Points: " + points;
+            
+            overField.text = " Points: " + points ;
+            if (gameOverGrocery && isFinished == false)
+            {
                 if (RemainingMoney.totalRemainingMoneyForPoints > 0 && RemainingMoney.totalRemainingMoneyForPoints < 5)
                 {
                     points -= 10;
-                    overField.text = "\nYou overpaid by $" + RemainingMoney.totalRemainingMoneyForPoints + ".Points: "+points;
+                    overField.text = "\nYou overpaid by $" + RemainingMoney.totalRemainingMoneyForPoints + ".Points: " + points;
                 }
                 else if (RemainingMoney.totalRemainingMoneyForPoints >= 5 && RemainingMoney.totalRemainingMoneyForPoints < 10)
                 {
@@ -53,8 +58,8 @@ public class PointController : MonoBehaviour
                     overField.text = "\nYou overpaid by $" + RemainingMoney.totalRemainingMoneyForPoints + ".Points: " + points;
                 }
                 isFinished = true;
-            
 
+            }
 
         }
 

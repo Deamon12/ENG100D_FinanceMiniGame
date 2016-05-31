@@ -23,7 +23,7 @@ public class RemainingMoney : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (PointController.gameOver == false) 
+		if (PointController.gameOverGrocery == false) 
 		{
 			updateMoney();
             CalculateNumberOfPoints();
@@ -45,7 +45,7 @@ public class RemainingMoney : MonoBehaviour
         if (totRemMoney <= 0 && TimerController.timer > 0)
         {
             //PointController.YouWin = true;
-            PointController.gameOver = true;
+            PointController.gameOverGrocery = true;
         }
 
     }

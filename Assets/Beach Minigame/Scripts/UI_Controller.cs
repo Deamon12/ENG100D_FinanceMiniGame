@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour {
     public GameObject GoButton;
@@ -46,6 +47,7 @@ public class UI_Controller : MonoBehaviour {
     }
     public void updateStartGameButton()
     {
+        SceneManager.LoadScene(8);
         BeginButton.SetActive(false);
         IntroBackground.SetActive(false);
         WaveTutorial.SetActive(false);

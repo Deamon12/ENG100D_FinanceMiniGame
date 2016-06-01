@@ -117,14 +117,21 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!PointController.gameOver) {
-			spawnProduct ();
-		} else {
-			clearRemainingItems ();
-			setPriceLabelsForGameObjs (new GameObject[0]);
-			need_to_pay = CouponListController.getFinalPrice (selectedProducts);
-			Debug.Log ("Final price is: " + need_to_pay);
-		}
+        Debug.Log("need_to_pay is " + need_to_pay);
+        if (Application.loadedLevelName == "Grocery")
+        {
+            if (!PointController.gameOver)
+            {
+                spawnProduct();
+            }
+            else
+            {
+                clearRemainingItems();
+                setPriceLabelsForGameObjs(new GameObject[0]);
+                need_to_pay = CouponListController.getFinalPrice(selectedProducts);
+                Debug.Log("Final price is: " + need_to_pay);
+            }
+        }
     }
 
     /**
@@ -175,6 +182,8 @@ public class GameController : MonoBehaviour {
                 //Case : If the user accomplish all the grocery list, make new grocery list
                 if (list.isDone())
                 {
+                    DontDestroyOnLoad(this);
+                    Application.LoadLevel(8);
                     list.makeList();
                     drawNewList();
 

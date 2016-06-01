@@ -9,6 +9,7 @@ public class PhoneIconScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log("Inside of start in PhoneIconScore");
 		GameObject temp = GameObject.Find("phone_limit_slider");
 		phoneMeter = temp.GetComponent<Slider>();
 	}
@@ -26,10 +27,9 @@ public class PhoneIconScore : MonoBehaviour {
 	{
 		//Debug.Log("Score was updated to " + score);
 		score += scoreIncrease;
-		gameObject.GetComponent<Text>().text = "Score: " + score;
-
 		Debug.Log("Storing score: " + score);
 		PlayerPrefs.SetFloat("phone_runner_score", score);
+		gameObject.GetComponent<Text>().text = "Score: " + score;		
 	}
 
 	public void incrementSlider(int amount)
@@ -41,5 +41,10 @@ public class PhoneIconScore : MonoBehaviour {
 	{
 		Debug.Log("Inside of Awake in PhoneIconeScore");
 		score = 0.0f;
+		PlayerPrefs.SetFloat("phone_runner_score", score);
+	}
+	public float getScore()
+	{
+		return score;
 	}
 }

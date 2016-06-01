@@ -34,6 +34,7 @@ public class GrabIcon : MonoBehaviour {
 		}
 		else if (myObstacle)
 		{
+			PlayerPrefs.SetFloat("phone_runner_score", phoneScore.getScore());
 			Application.LoadLevel("game_over_scene");
 		}
 		else if (coinIcon)

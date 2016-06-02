@@ -307,7 +307,6 @@ GameObject:
   - 124: {fileID: 510342377}
   - 81: {fileID: 510342376}
   - 82: {fileID: 510342375}
-  - 114: {fileID: 510342374}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -349,34 +348,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!114 &510342374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 510342372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6b686c73db24542b92fec632ac3429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GoButton: {fileID: 1043077933}
-  NextLevelPanel: {fileID: 1307412191}
-  WaveText: {fileID: 297593341}
-  Warning: {fileID: 1086368418}
-  BeginButton: {fileID: 0}
-  IntroBackground: {fileID: 0}
-  WaveTutorial: {fileID: 0}
-  TrashTutorial: {fileID: 0}
-  AnimalTutorial: {fileID: 0}
-  WaveArrow: {fileID: 0}
-  TrashArrow: {fileID: 0}
-  AnimalArrow: {fileID: 0}
-  exTurtle: {fileID: 0}
-  exFish: {fileID: 0}
-  exTrash: {fileID: 0}
-  fact: {fileID: 945436314}
-  nextLevel: 0
 --- !u!82 &510342375
 AudioSource:
   m_ObjectHideFlags: 0
@@ -570,6 +541,7 @@ GameObject:
   - 222: {fileID: 1043077937}
   - 114: {fileID: 1043077936}
   - 114: {fileID: 1043077935}
+  - 114: {fileID: 1043077938}
   m_Layer: 5
   m_Name: GoButton
   m_TagString: Untagged
@@ -634,8 +606,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 510342374}
-        m_MethodName: updateEndLevelButton
+      - m_Target: {fileID: 1043077938}
+        m_MethodName: startNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -680,6 +652,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1043077933}
+--- !u!114 &1043077938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043077933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32394e91fbc9a0429af26e79d748be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1086368418
 GameObject:
   m_ObjectHideFlags: 0

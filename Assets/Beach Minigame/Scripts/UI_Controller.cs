@@ -47,18 +47,7 @@ public class UI_Controller : MonoBehaviour {
     }
     public void updateStartGameButton()
     {
-        SceneManager.LoadScene(8);
-        BeginButton.SetActive(false);
-        IntroBackground.SetActive(false);
-        WaveTutorial.SetActive(false);
-        TrashTutorial.SetActive(false);
-        AnimalTutorial.SetActive(false);
-        WaveArrow.SetActive(false);
-        TrashArrow.SetActive(false);
-        AnimalArrow.SetActive(false);
-        exTurtle.SetActive(false);
-        exFish.SetActive(false);
-        exTrash.SetActive(false);
+        SceneManager.LoadScene("beach_game");
     }
 	
 	// Update is called once per frame

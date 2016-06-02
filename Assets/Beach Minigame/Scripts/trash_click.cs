@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class trash_click : MonoBehaviour {
     public bool trigger;
@@ -16,6 +17,7 @@ public class trash_click : MonoBehaviour {
         beach_spawn.numTrash--;
         if (beach_spawn.numTrash == 0) {
             Debug.Log("Next Level!");
+            SceneManager.LoadScene("beach_endLevel");
         }
         Destroy(this.gameObject);
     }

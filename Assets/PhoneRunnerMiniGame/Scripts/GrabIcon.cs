@@ -6,6 +6,8 @@ public class GrabIcon : MonoBehaviour {
 
 	public PhoneIconScore phoneScore;
 	public Slider phoneSlider;
+	public AudioSource coinAudio;
+	public AudioClip coinSound;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,7 @@ public class GrabIcon : MonoBehaviour {
 		{
 			float value = coinIcon.value;
 			GameObject.Destroy(other.gameObject);
+			coinAudio.PlayOneShot(coinSound);
 			phoneScore.addScore(value);
 		}
 	}

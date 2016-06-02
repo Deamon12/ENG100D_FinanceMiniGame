@@ -17,6 +17,7 @@ public class trash_click : MonoBehaviour {
         beach_spawn.numTrash--;
         if (beach_spawn.numTrash == 0) {
             Debug.Log("Next Level!");
+            GlobalVariables.level++;
             SceneManager.LoadScene("beach_endLevel");
         }
         Destroy(this.gameObject);

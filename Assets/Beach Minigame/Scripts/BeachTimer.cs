@@ -82,7 +82,7 @@ public class BeachTimer : MonoBehaviour {
     private void animateTimer(float elapsed) {
 
         float percentElapsed = elapsed / round_time;
-        float decrement = timer_width * percentElapsed;
+        float decrement = timer_width * percentElapsed * GlobalVariables.speedScale;
 
         //transform timer by % time elapsed
         this.transform.localScale -= new Vector3(decrement, decrement, 0);

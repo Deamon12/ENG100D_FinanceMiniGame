@@ -8,7 +8,18 @@ public class animal_click : MonoBehaviour {
     public bool locked;
     // Use this for initialization
     void Start() {
+        GameObject holder = GameObject.Find("Canvas/HeartHolder");
+        if (GlobalVariables.hearts == 2) {
+            GameObject heart1 = holder.transform.GetChild(0).gameObject;
+            Destroy(heart1);
+        }
 
+        if (GlobalVariables.hearts == 1) {
+            GameObject heart1 = holder.transform.GetChild(0).gameObject;
+            GameObject heart2 = holder.transform.GetChild(1).gameObject;
+            Destroy(heart1);
+            Destroy(heart2);
+        }
     }
 
     void OnMouseDown() {
@@ -16,24 +27,25 @@ public class animal_click : MonoBehaviour {
         GlobalVariables.hearts--;
         Debug.Log("Hearts: " + GlobalVariables.hearts);
         GameObject holder = GameObject.Find("Canvas/HeartHolder");
-        if(GlobalVariables.hearts == 2) {
-            GameObject heart1 = holder.transform.GetChild(0).gameObject;
-            DontDestroyOnLoad(heart1);
-            heart1.GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        if (GlobalVariables.hearts == 1) {
-            GameObject heart1 = holder.transform.GetChild(0).gameObject;
-            GameObject heart2 = holder.transform.GetChild(0).gameObject;
-            DontDestroyOnLoad(heart1);
-            DontDestroyOnLoad(heart2);
-            heart1.GetComponent<SpriteRenderer>().enabled = false;
-            heart2.GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        if (GlobalVariables.hearts == 0 ) {
+        Destroy(holder.transform.GetChild(0).gameObject);
+        if (GlobalVariables.hearts == 0) {
             SceneManager.LoadScene("beach_end");
         }
+
+        //if(GlobalVariables.hearts == 2) {
+        //    GameObject heart1 = holder.transform.GetChild(0).gameObject;
+        //    DontDestroyOnLoad(heart1);
+        //    heart1.GetComponent<SpriteRenderer>().enabled = false;
+        //}
+
+        //if (GlobalVariables.hearts == 1) {
+        //    GameObject heart1 = holder.transform.GetChild(0).gameObject;
+        //    GameObject heart2 = holder.transform.GetChild(0).gameObject;
+        //    DontDestroyOnLoad(heart1);
+        //    DontDestroyOnLoad(heart2);
+        //    heart1.GetComponent<SpriteRenderer>().enabled = false;
+        //    heart2.GetComponent<SpriteRenderer>().enabled = false;
+        //}
         Destroy(this.gameObject);
 
     }

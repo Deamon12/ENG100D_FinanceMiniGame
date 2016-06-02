@@ -17,7 +17,6 @@ public class beach_spawn : MonoBehaviour {
     private RectTransform objectRectTransform;
 
     static public int numTrash;
-    static public int heartsLeft;
     // Use this for initialization
     void Start () {
         objectRectTransform = gameObject.GetComponent<RectTransform>();
@@ -28,7 +27,6 @@ public class beach_spawn : MonoBehaviour {
         numTrash = 0;
         trashList = new List<trash_click>();
         spawnTrash();
-        heartsLeft = 3;
         // Trash is not visible
         complete_trash = false;
     }

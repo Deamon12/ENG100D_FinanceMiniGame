@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class beach_spawn : MonoBehaviour {
     public GameObject[] trash;
     public GameObject[] animal;
-
+    
     public Vector2 xrange;
     public Vector2 yrange;
 
@@ -14,10 +14,13 @@ public class beach_spawn : MonoBehaviour {
 
     BeachTimer t;
 
+    private RectTransform objectRectTransform;
+
     static public int numTrash;
+    static public int heartsLeft;
     // Use this for initialization
     void Start () {
-
+        objectRectTransform = gameObject.GetComponent<RectTransform>();
         t = GameObject.FindGameObjectWithTag("beach_timer").GetComponent<BeachTimer>();
         t.resetTimer(20f); //get level persistant level data?
         t.resume();
@@ -25,7 +28,7 @@ public class beach_spawn : MonoBehaviour {
         numTrash = 0;
         trashList = new List<trash_click>();
         spawnTrash();
-
+        heartsLeft = 3;
         // Trash is not visible
         complete_trash = false;
     }
@@ -51,6 +54,9 @@ public class beach_spawn : MonoBehaviour {
 
     void spawnTrash() {
         // Height and width of camera - used to determine where to spawn
+        float canvasHeight = objectRectTransform.rect.height;
+        float canvasWidth = objectRectTransform.rect.width;
+
         float camHeight = Camera.main.orthographicSize;
         float camWidth = camHeight * Camera.main.aspect;
         
@@ -65,16 +71,18 @@ public class beach_spawn : MonoBehaviour {
             float newLocX = Random.Range(Camera.main.transform.position.x - camWidth, Camera.main.transform.position.x + camWidth);
 
             trash[ranInt].GetComponent<SpriteRenderer>().enabled = false;
-            GameObject randObj = (GameObject) GameObject.Instantiate(trash[ranInt], new Vector3(newLocX, newLocY, 0.0f), new Quaternion());
-            randObj.transform.parent = null;
+            Vector3 randomLoc = MyRandom.Location2D(gameObject.GetComponent<Canvas>().transform.position, 5, 2);
+
+            GameObject randObj = (GameObject) GameObject.Instantiate(trash[ranInt], randomLoc, new Quaternion());
+            randObj.transform.parent = this.gameObject.transform;
             numTrash++;
             trashList.Add(randObj.GetComponent<trash_click>());
         }
 
         // Spawn random animals
-        for (int i = 0; i < numTrash/4; ++i) {
+        for (int i = 0; i < numTrash / 4; ++i) {
             //gets a random location relative to camera boundaries
-            Vector3 randomLoc = MyRandom.Location2D(Camera.main.transform.position, camWidth, 0 + camHeight / 2);
+            Vector3 randomLoc = MyRandom.Location2D(gameObject.GetComponent<Canvas>().transform.position, 5, 2);
             //changes depth of new location to ensure spawned food will be visible and above track
             randomLoc.z = 0;
             int ranInt = Random.Range(0, animal.Length);

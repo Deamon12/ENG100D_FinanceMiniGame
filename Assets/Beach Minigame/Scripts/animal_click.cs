@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class animal_click : MonoBehaviour {
     public bool trigger;
@@ -12,7 +13,15 @@ public class animal_click : MonoBehaviour {
 
     void OnMouseDown() {
         Debug.Log("Animal Mouse Down!");
+        beach_spawn.heartsLeft--;
+        GameObject holder = GameObject.Find("Canvas/HeartHolder");
+        GameObject heart = holder.transform.GetChild(0).gameObject;
+        Destroy(heart);
+        if (beach_spawn.heartsLeft <= 0) {
+            SceneManager.LoadScene("beach_end");
+        }
         Destroy(this.gameObject);
+
     }
     void OnTriggerStay2D(Collider2D other) {
         Debug.Log("OnTrigger");

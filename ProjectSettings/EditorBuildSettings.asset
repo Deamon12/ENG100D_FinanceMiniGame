@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/Beach Minigame/Scenes/beach_game.unity
   - enabled: 1
     path: Assets/Beach Minigame/Scenes/beach_endLevel.unity
+  - enabled: 1
+    path: Assets/Beach Minigame/Scenes/beach_end.unity

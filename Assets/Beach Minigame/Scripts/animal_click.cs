@@ -13,11 +13,25 @@ public class animal_click : MonoBehaviour {
 
     void OnMouseDown() {
         Debug.Log("Animal Mouse Down!");
-        beach_spawn.heartsLeft--;
+        GlobalVariables.hearts--;
+        Debug.Log("Hearts: " + GlobalVariables.hearts);
         GameObject holder = GameObject.Find("Canvas/HeartHolder");
-        GameObject heart = holder.transform.GetChild(0).gameObject;
-        Destroy(heart);
-        if (beach_spawn.heartsLeft <= 0) {
+        if(GlobalVariables.hearts == 2) {
+            GameObject heart1 = holder.transform.GetChild(0).gameObject;
+            DontDestroyOnLoad(heart1);
+            heart1.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (GlobalVariables.hearts == 1) {
+            GameObject heart1 = holder.transform.GetChild(0).gameObject;
+            GameObject heart2 = holder.transform.GetChild(0).gameObject;
+            DontDestroyOnLoad(heart1);
+            DontDestroyOnLoad(heart2);
+            heart1.GetComponent<SpriteRenderer>().enabled = false;
+            heart2.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (GlobalVariables.hearts == 0 ) {
             SceneManager.LoadScene("beach_end");
         }
         Destroy(this.gameObject);

@@ -78,11 +78,12 @@ public class CouponListController : MonoBehaviour {
         //Debug purpose
         public void printCouponList()
         {
-//            for(int i = 0; i < 4; i++)
-//            {
-//                Debug.Log(i+"th Coupon : " + couponList[i][0] + ", " + couponList[i][1] + ", " + couponList[i][2]);
-//            }
-//            Debug.Log("Selected Coupon : " + couponList[4][0] + ", " + couponList[4][1] + ", " + couponList[4][2]);
+            
+           /*for(int i = 0; i < 4; i++)
+            {
+                Debug.Log(i+"th Coupon : " + couponList[i][0] + ", " + couponList[i][1]  );
+            }
+            Debug.Log("Selected Coupon : " + couponList[4][0] + ", " + couponList[4][1] );*/
         }
 
 

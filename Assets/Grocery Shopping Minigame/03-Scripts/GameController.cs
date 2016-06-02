@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -95,7 +96,7 @@ public class GameController : MonoBehaviour {
         list = new ListController.List();
         list.makeList();
         list.printList();
-
+       
         //Initialize coupon list
         couponList = new CouponListController.CouponList();
 		couponList.makeCouponList(list.getProductIDs());
@@ -117,7 +118,8 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("need_to_pay is " + need_to_pay);
+
+        GameController.couponList.printCouponList();
         if (Application.loadedLevelName == "Grocery")
         {
             if (!PointController.gameOver)
@@ -182,8 +184,10 @@ public class GameController : MonoBehaviour {
                 //Case : If the user accomplish all the grocery list, make new grocery list
                 if (list.isDone())
                 {
-                    DontDestroyOnLoad(this);
-                    Application.LoadLevel(8);
+                    
+                    //need_to_pay += 1;
+                    //DontDestroyOnLoad(this);
+                    SceneManager.LoadScene(8);
                     list.makeList();
                     drawNewList();
 

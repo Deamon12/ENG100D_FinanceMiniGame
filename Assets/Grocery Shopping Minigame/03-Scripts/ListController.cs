@@ -127,6 +127,38 @@ public class ListController : MonoBehaviour
          */
         public bool isDone()
         {
+            /*int couponQuantity = GameController.couponList.getCouponListVal(4, 1);
+            int couponProdId = GameController.couponList.getCouponListVal(4, 0);
+            if (couponQuantity != 0)
+            {
+
+                if(list[0][0] == couponProdId)
+                {
+                    if (list[0][1] <= (list[0][2]+ couponQuantity) && list[1][1] <= list[1][2]
+                      && list[2][1] <= list[2][2])
+                    {
+                        return true;
+                    }
+                }
+                else if (list[1][0] == couponProdId)
+                {
+                    if (list[0][1] <= list[0][2] && list[1][1] <= (list[1][2]+ couponQuantity)
+                      && list[2][1] <= list[2][2])
+                    {
+                        return true;
+                    }
+                }
+                else if (list[2][0] == couponProdId)
+                {
+                    if (list[0][1] <= list[0][2] && list[1][1] <= list[1][2]
+                && list[2][1] <= (list[2][2]+ couponQuantity))
+                    {
+                        return true;
+                    }
+                }
+            }
+            */
+
             if (list[0][1] <= list[0][2] && list[1][1] <= list[1][2]
                 && list[2][1] <= list[2][2])
             {

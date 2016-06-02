@@ -45,6 +45,7 @@ public class RemainingMoney : MonoBehaviour
         if (totRemMoney <= 0 && TimerController.timer > 0)
         {
             //PointController.YouWin = true;
+            //PointController.gameOver = true;
             PointController.gameOverGrocery = true;
         }
 

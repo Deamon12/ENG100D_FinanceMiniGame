@@ -14,6 +14,7 @@ public class CashierText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("price : "+GameController.need_to_pay);
         cashierText.text = "Total Price: $" + totalPrice;
     }
 }

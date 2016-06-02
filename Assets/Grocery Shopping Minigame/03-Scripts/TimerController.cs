@@ -27,7 +27,7 @@ public class TimerController : MonoBehaviour {
 
     private void updateTime()
     {
-        if (PointController.gameOver == false)
+        if (PointController.gameOver == false && PointController.gameOverGrocery== false)
         {
             if (timer <= 0)
             {

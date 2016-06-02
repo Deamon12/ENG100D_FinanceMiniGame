@@ -140,6 +140,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: 1.04, z: 0}
   m_LocalScale: {x: 1.975423, y: 2.310811, z: 2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -201,6 +202,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -287,6 +289,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1128019100}
   - {fileID: 1348015446}
@@ -370,6 +373,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 52, y: 42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -598,7 +602,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.412694
+  orthographic size: 5.335837
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -621,6 +625,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -15}
   m_LocalScale: {x: 1.9937034, y: 1.7875, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -709,12 +714,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 392993983}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222.4, y: 121.8}
+  m_AnchoredPosition: {x: -264.4, y: 121.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128019101
@@ -896,7 +902,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22445696, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -156.3
+      value: -190.3
       objectReference: {fileID: 0}
     - target: {fileID: 22445696, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -936,7 +942,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22439398, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11486988, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_WholeNumbers
@@ -960,11 +966,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442548, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 11442548, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442548, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
+      propertyPath: m_Color.r
+      value: 0.20392157
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11483158, guid: a52c5301501cc174c98e5c8a7537bc8a, type: 2}
@@ -1061,12 +1071,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 392993983}
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222.4, y: 151.8}
+  m_AnchoredPosition: {x: -264.4, y: 151.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661077650
@@ -1081,7 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.20696366, g: 0.85294116, b: 0.21141864, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

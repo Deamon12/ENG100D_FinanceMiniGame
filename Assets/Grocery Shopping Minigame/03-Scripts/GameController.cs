@@ -130,8 +130,6 @@ public class GameController : MonoBehaviour {
             {
                 clearRemainingItems();
                 setPriceLabelsForGameObjs(new GameObject[0]);
-                need_to_pay = CouponListController.getFinalPrice(selectedProducts);
-                Debug.Log("Final price is: " + need_to_pay);
             }
         }
     }
@@ -184,7 +182,8 @@ public class GameController : MonoBehaviour {
                 //Case : If the user accomplish all the grocery list, make new grocery list
                 if (list.isDone())
                 {
-                    
+					need_to_pay = CouponListController.getFinalPrice(selectedProducts);
+					Debug.Log("Final price is: " + need_to_pay);
                     //need_to_pay += 1;
                     //DontDestroyOnLoad(this);
                     SceneManager.LoadScene(8);

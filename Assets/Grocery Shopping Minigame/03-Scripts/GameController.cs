@@ -170,7 +170,14 @@ public class GameController : MonoBehaviour {
 					currSelection.productModel = currOffering;
 					selectedProducts.Add (currSelection);
                     //Show Good Sign
+                    if(list.getListValue(indexOfGroceryList,2) <= list.getListValue(indexOfGroceryList, 1))
+                    { 
                     StartCoroutine(prefabAnimation(1));
+                    }
+                    else
+                    {
+                        StartCoroutine(prefabAnimation(0));
+                    }
                 }
                 else
                 {

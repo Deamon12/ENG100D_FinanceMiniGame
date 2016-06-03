@@ -15,6 +15,7 @@ public class trash_click : MonoBehaviour {
     void OnMouseDown() {
         Debug.Log("Trash Mouse Down!");
         beach_spawn.numTrash--;
+        GlobalVariables.score++;
         if (beach_spawn.numTrash == 0) {
             Debug.Log("Next Level!");
             GlobalVariables.level++;

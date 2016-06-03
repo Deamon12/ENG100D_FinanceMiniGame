@@ -44,17 +44,12 @@ public class wave_2_move : MonoBehaviour
         moveWave();
     }
 
-    void OnMouseDown()
-    {
-        Debug.Log("Animal Mouse Down!");
-        Destroy(this.gameObject);
-    }
 
     public void moveWave()
     {
         if (firstWave)
         {
-            float waveHorizontalProgress = waveTimer.getElapsedTime();
+            float waveHorizontalProgress = waveTimer.getElapsedTime()* GlobalVariables.speedScale;
             nextPosition.x = Mathf.Repeat(waveHorizontalProgress, getWaveWidth());
             if (waveHorizontalProgress > getWaveWidth())
             {
@@ -65,12 +60,12 @@ public class wave_2_move : MonoBehaviour
         }
         else
         {
-            float waveHorizontalProgress = waveTimer.getElapsedTime();
+            float waveHorizontalProgress = waveTimer.getElapsedTime() * GlobalVariables.speedScale;
             nextPosition.x = Mathf.Repeat(waveHorizontalProgress, getWaveWidth() * 2);
         }
         if (moveDown)
         {
-            float waveVerticalProgress = (float)waveStopwatch.Elapsed.TotalSeconds / 4;
+            float waveVerticalProgress = ((float)waveStopwatch.Elapsed.TotalSeconds / 4) * GlobalVariables.speedScale;
             nextPosition.y = Mathf.Repeat(waveVerticalProgress, getWaveHeight());
         }
         else

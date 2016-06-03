@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BeachTimer : MonoBehaviour {
 
@@ -20,6 +21,8 @@ public class BeachTimer : MonoBehaviour {
     private bool toggle = true; //unnecessary additional control with current model
     private bool endLevel = false;
 
+    
+
     public BeachTimer() {
         round_time = 10f;
         time_rem = round_time;
@@ -35,6 +38,7 @@ public class BeachTimer : MonoBehaviour {
     // Use this for initialization
     // When making a real class, move this into instantiation of BeachTimer ^^
     public void Start() {
+
         t = new Timer();
         t.reset();
 
@@ -66,6 +70,7 @@ public class BeachTimer : MonoBehaviour {
                 {
                     //Time is over.  Boom.
                     endLevel = true;
+                    SceneManager.LoadScene("beach_end");
                     resetTimer(20f);
                     this.resume();
                 }

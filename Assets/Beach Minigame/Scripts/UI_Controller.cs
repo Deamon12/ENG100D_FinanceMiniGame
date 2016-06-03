@@ -53,16 +53,6 @@ public class UI_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         FactText();
-        /*
-        if(beach_spawn.numTrash == 0){
-            GoButton.SetActive(true);
-            NextLevelPanel.SetActive(true);
-        }
-        */
-        /*
-        else{
-            GoButton.SetActive(false);
-        }
-        */
+
 	}
 }

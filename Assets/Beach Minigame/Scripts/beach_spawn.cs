@@ -19,6 +19,15 @@ public class beach_spawn : MonoBehaviour {
     static public int numTrash;
     // Use this for initialization
     void Start () {
+        if (GlobalVariables.level > 5) {
+            GlobalVariables.speedScale += 0.1f;
+        } else {
+            GlobalVariables.speedScale += (GlobalVariables.speedScale / (GlobalVariables.level + 1));
+        }
+        Debug.Log("SpeedScale: " + GlobalVariables.speedScale);
+
+
+
         objectRectTransform = gameObject.GetComponent<RectTransform>();
         t = GameObject.FindGameObjectWithTag("beach_timer").GetComponent<BeachTimer>();
         t.resetTimer(20f); //get level persistant level data?

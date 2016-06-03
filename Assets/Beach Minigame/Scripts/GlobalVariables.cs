@@ -10,12 +10,6 @@ public class GlobalVariables : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        speedScale =  0.5f*level + speedScale;
-        if (level > 10) {
-            speedScale = 1f * level + speedScale;
-        } else {
-            speedScale = (2f * level) + speedScale;
-        }
     }
 
 	// Update is called once per frame

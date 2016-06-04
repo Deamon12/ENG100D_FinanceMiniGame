@@ -574,7 +574,7 @@ GameObject:
   - 82: {fileID: 366577156}
   - 114: {fileID: 366577155}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SoundObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

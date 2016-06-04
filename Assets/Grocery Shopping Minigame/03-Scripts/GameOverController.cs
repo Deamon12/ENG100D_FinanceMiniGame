@@ -15,7 +15,7 @@ public class GameOverController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        result.text = "Points " + point;
+        result.text = "Congratulations! Your points is " + point + ". Thanks to you with all the money I saved, I can now afford a new dentist. ";
     }
 
 }

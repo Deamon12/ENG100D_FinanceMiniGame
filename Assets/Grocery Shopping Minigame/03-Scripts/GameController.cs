@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        Debug.Log(TimerController.timer);
         GameController.couponList.printCouponList();
         if (Application.loadedLevelName == "Grocery")
         {
@@ -189,8 +189,10 @@ public class GameController : MonoBehaviour {
                 //Case : If the user accomplish all the grocery list, make new grocery list
                 if (list.isDone())
                 {
+                    { 
 					need_to_pay = CouponListController.getFinalPrice(selectedProducts);
 					Debug.Log("Final price is: " + need_to_pay);
+                    }
                     //need_to_pay += 1;
                     //DontDestroyOnLoad(this);
 					DontDestroyOnLoad(GameObject.Find("SoundObject"));

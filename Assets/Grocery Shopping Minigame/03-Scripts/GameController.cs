@@ -193,6 +193,7 @@ public class GameController : MonoBehaviour {
 					Debug.Log("Final price is: " + need_to_pay);
                     //need_to_pay += 1;
                     //DontDestroyOnLoad(this);
+					DontDestroyOnLoad(GameObject.Find("SoundObject"));
                     SceneManager.LoadScene(8);
                     list.makeList();
                     drawNewList();

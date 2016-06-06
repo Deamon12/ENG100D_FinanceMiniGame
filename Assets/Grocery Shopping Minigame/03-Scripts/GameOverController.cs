@@ -15,6 +15,7 @@ public class GameOverController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("Inside game over controller");
         result.text = "Congratulations! Your points is " + point + ". Thanks to you with all the money I saved, I can now afford a new dentist. ";
     }
 

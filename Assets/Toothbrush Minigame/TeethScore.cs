@@ -9,6 +9,7 @@ public class TeethScore : MonoBehaviour {
   private float elapsedTime;
 
   private int teethCleaned;
+  private int flossed;
   private int finishBonus = 0;
 
   public Text textToUpdate;
@@ -19,12 +20,14 @@ public class TeethScore : MonoBehaviour {
 	void Start () {
 
     teethCleaned = FinishButton.teethCleaned;
+	flossed = TargetHItHandler.totalFoodCleared;
     convertElapsedTime();
     if (FinishButton.teethCleaned == numTeeth) finishBonus = 10;
 
-    textToUpdate.text = "Total Time: " + minutes + " minutes and " + seconds + " seconds\n\n" +
-                        "Teeth Cleaned: " + teethCleaned + "\n\n" +
-                        "Finish Bonus: " + finishBonus + "\n\n" + 
+    textToUpdate.text = "Total Time: " + minutes + " minutes and " + seconds + " seconds\n" +
+			"Teeth Floss: " + flossed + "\n"+
+                        "Teeth Cleaned: " + teethCleaned + "\n" +
+                        "Finish Bonus: " + finishBonus + "\n" + 
                         "Total Score: " + (teethCleaned + finishBonus);
 
     GlobalScore.addScore(teethCleaned + finishBonus);

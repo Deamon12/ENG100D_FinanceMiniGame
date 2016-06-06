@@ -42,12 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: Mouth
     uniqueID: 367920195
     locked: 0
-  - name: New Layer
+  - name: Food
     uniqueID: 2277282773
     locked: 0
-  - name: New Layer
+  - name: Floss String
     uniqueID: 1437030637
     locked: 0

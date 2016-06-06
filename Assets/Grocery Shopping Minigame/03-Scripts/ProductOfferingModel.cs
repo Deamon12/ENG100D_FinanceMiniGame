@@ -103,7 +103,7 @@ public class ProductOfferingModel {
 			tint = new Color(0,0,1,1);
 			break;
 		}
-
+			
 		Material newMaterial = new Material(Shader.Find("Sprites/Default"));
 		newMaterial.color = tint;
 		return newMaterial;

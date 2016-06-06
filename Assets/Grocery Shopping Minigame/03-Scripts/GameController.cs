@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour {
     private ListController.List list;
     public GameObject[] products;
 
+	public GameObject tag1, tag2, tag3;
+
     //Coupon List
     static public CouponListController.CouponList couponList;
 
@@ -111,6 +113,10 @@ public class GameController : MonoBehaviour {
         numOfFirstItem = GameObject.Find("GUI").transform.Find("FirstList").GetComponent<Text>();
         numOfSecondItem = GameObject.Find("GUI").transform.Find("SecondList").GetComponent<Text>();
         numOfThirdItem = GameObject.Find("GUI").transform.Find("ThirdList").GetComponent<Text>();
+
+		tag1 = GameObject.Find  ("tag1");
+		tag2 = GameObject.Find  ("tag2");
+		tag3 = GameObject.Find  ("tag3");
         
         drawNewList();
 
@@ -170,17 +176,17 @@ public class GameController : MonoBehaviour {
                     //Show Good Sign
                     if(list.getListValue(indexOfGroceryList,2) <= list.getListValue(indexOfGroceryList, 1))
                     { 
-                    StartCoroutine(prefabAnimation(1));
+                   // StartCoroutine(prefabAnimation(1));
                     }
                     else
                     {
-                        StartCoroutine(prefabAnimation(0));
+                     //   StartCoroutine(prefabAnimation(0));
                     }
                 }
                 else
                 {
                     //Show Bad Sign
-                    StartCoroutine(prefabAnimation(0));
+                  //  StartCoroutine(prefabAnimation(0));
                 }
  
                 //Add price of the bought item to the global price counter
@@ -221,6 +227,10 @@ public class GameController : MonoBehaviour {
 		GameObject.Find("GUI").transform.Find("Price1").GetComponent<Text>().text = gameObjs.Length < 1 ? "" : "$" + currOffering.getPriceForIndex(0).ToString();
 		GameObject.Find("GUI").transform.Find("Price2").GetComponent<Text>().text = gameObjs.Length < 2 ? "" : "$" + currOffering.getPriceForIndex(1).ToString();
 		GameObject.Find("GUI").transform.Find("Price3").GetComponent<Text>().text = gameObjs.Length < 3 ? "" : "$" + currOffering.getPriceForIndex(2).ToString();
+
+		tag1.SetActive(gameObjs.Length > 0);
+		tag2.SetActive(gameObjs.Length > 1);
+		tag3.SetActive(gameObjs.Length > 2);
 	}
 
 	void clearRemainingItems() {

@@ -12,7 +12,7 @@ public class TimerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timerField = GetComponent<Text>();
-		timer = 30.0f;
+		timer = 60.0f;
 		timerField.text = "Time: " + timer;
 	}
 	

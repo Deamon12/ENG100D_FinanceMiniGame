@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(TimerController.timer);
+//        Debug.Log(TimerController.timer);
         GameController.couponList.printCouponList();
         if (Application.loadedLevelName == "Grocery")
         {

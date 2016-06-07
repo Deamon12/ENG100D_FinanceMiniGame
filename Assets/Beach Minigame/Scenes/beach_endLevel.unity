@@ -465,6 +465,7 @@ GameObject:
   - 224: {fileID: 945436313}
   - 222: {fileID: 945436315}
   - 114: {fileID: 945436314}
+  - 114: {fileID: 945436316}
   m_Layer: 5
   m_Name: FactText
   m_TagString: Untagged
@@ -486,8 +487,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000002861023, y: -12}
-  m_SizeDelta: {x: 350, y: 130}
+  m_AnchoredPosition: {x: -4, y: -11.019997}
+  m_SizeDelta: {x: 553, y: 184.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945436314
 MonoBehaviour:
@@ -510,7 +511,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8e7adb80106d83b4fa67ee0729fc6aea, type: 3}
-    m_FontSize: 20
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -521,15 +522,36 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'FACT FACT FACT
-
-'
+  m_Text: During periods of high tide, the ocean may sweep trash that has been left
+    on the beach back into the sea. This in turn puts marine wild life in danger.
 --- !u!222 &945436315
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 945436312}
+--- !u!114 &945436316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945436312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a407d8616b880c44c9998828dbabbc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facts:
+  - During periods of high tide, the ocean may sweep trash that has been left on the
+    beach back into the sea. This in turn puts marine wild life in danger.
+  - Each year hundreds of thousands of sea birds become entangled in marine debris.
+  - Plastic marine debris affects at least 267 species worldwide, including 86 percent
+    of all sea turtles!
+  - Beaches help generate money because they're a local tourist attraction. The revenue
+    generated is essential for the community.
+  - Plastics do not biodegrade, but instead break down into small particles that persist
+    in the ocean. These absorb toxins, and exter the food chain through fish, sea
+    birds and other marine life.
 --- !u!1 &1010326891
 GameObject:
   m_ObjectHideFlags: 0

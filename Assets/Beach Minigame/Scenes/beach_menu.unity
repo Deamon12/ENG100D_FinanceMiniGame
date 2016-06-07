@@ -428,7 +428,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beach Cleanup Game
+  m_Text: Beach Clean-up
 --- !u!222 &331148291
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -20,9 +20,14 @@ public class beach_spawn : MonoBehaviour {
     // Use this for initialization
     void Start () {
         if (GlobalVariables.level > 5) {
-            GlobalVariables.speedScale += 0.1f;
+            GlobalVariables.timerTime -= 1f;  //decrement timer
+            GlobalVariables.speedScale += 0.05f;
         } else {
+            GlobalVariables.timerTime -= 0.5f;  //decrement timer
             GlobalVariables.speedScale += (GlobalVariables.speedScale / (GlobalVariables.level + 1));
+        }
+        if (GlobalVariables.timerTime <= 1.0f) {
+            GlobalVariables.timerTime = 1.0f;
         }
         Debug.Log("SpeedScale: " + GlobalVariables.speedScale);
 
@@ -30,7 +35,7 @@ public class beach_spawn : MonoBehaviour {
 
         objectRectTransform = gameObject.GetComponent<RectTransform>();
         t = GameObject.FindGameObjectWithTag("beach_timer").GetComponent<BeachTimer>();
-        t.resetTimer(20f); //get level persistant level data?
+        t.resetTimer(GlobalVariables.timerTime); //set Timer
         t.resume();
 
         numTrash = 0;

@@ -71,8 +71,6 @@ public class BeachTimer : MonoBehaviour {
                     //Time is over.  Boom.
                     endLevel = true;
                     SceneManager.LoadScene("beach_end");
-                    resetTimer(20f);
-                    this.resume();
                 }
 
 
@@ -87,7 +85,7 @@ public class BeachTimer : MonoBehaviour {
     private void animateTimer(float elapsed) {
 
         float percentElapsed = elapsed / round_time;
-        float decrement = timer_width * percentElapsed * GlobalVariables.speedScale;
+        float decrement = timer_width * percentElapsed;
 
         //transform timer by % time elapsed
         this.transform.localScale -= new Vector3(decrement, decrement, 0);

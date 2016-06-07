@@ -552,6 +552,9 @@ MonoBehaviour:
   - Plastics do not biodegrade, but instead break down into small particles that persist
     in the ocean. These absorb toxins, and exter the food chain through fish, sea
     birds and other marine life.
+  - Turtles mistake plastic bags for jellyfish and the bags block their stomachs,
+    often leading to starvation.
+  - Plastic litter on beaches has increased 140% since 1994.
 --- !u!1 &1010326891
 GameObject:
   m_ObjectHideFlags: 0

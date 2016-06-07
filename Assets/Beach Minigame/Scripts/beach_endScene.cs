@@ -20,7 +20,14 @@ public class beach_endScene : MonoBehaviour {
 	   
 	//}
 
+
     public void menuButton() {
+
+        GlobalVariables.hearts = 3;
+        GlobalVariables.score = 0;
+        GlobalVariables.level = 0;
+        GlobalVariables.speedScale = 1;
+        GlobalVariables.timerTime = 10f;
         SceneManager.LoadScene("beach_menu");
     }
 }

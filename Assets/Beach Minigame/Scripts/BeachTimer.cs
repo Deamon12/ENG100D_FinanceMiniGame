@@ -13,7 +13,7 @@ public class BeachTimer : MonoBehaviour {
     private float timer_width = 10f;
     private float timer_height = .5f;
 
-    private Vector3 timer_position = new Vector3(.8f, 4.3f, 0.0f);
+    private Vector3 timer_position = new Vector3(-.3f, 4.3f, 0.0f);
 
     private float round_time;
     private float time_rem;

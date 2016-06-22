@@ -1,0 +1,9 @@
+Retail Salesperson	Someone who sells products directly to consumers
+Server	Someone who takes your order at a restaurant (waiter/waitress)
+Cashier	The person who rings up your items at the cash register
+Customer Service	The people you call when you have a complaint or problem with a product or service
+Landscaper	Someone who modifies the visible features of an area of land; can sometimes be called a gardener
+Security Guard	A person who is employed to protect something, especially a building, against intruders or damage
+Construction Worker	A person who works on the physical construction of buildings, houses, etc.
+Firefighter	A person who works with a team to put out fires
+Medic	Anyone involved with medicine. Examples: Paramedics, medical practitioner, military medical corpsman, etc.

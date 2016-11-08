@@ -33,7 +33,9 @@ public class UI_Controller : MonoBehaviour {
     }
     void SetFactText()
     {
-        fact.text = "SOME FACT";
+        if(fact != null) {
+            fact.text = "SOME FACT";
+        }
     }
 
     public void updateEndLevelButton() {

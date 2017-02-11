@@ -11,6 +11,7 @@ public class OverviewStart : MonoBehaviour {
 	public GameObject schoolButton;
 	public GameObject bathroomButton;
 	public GameObject nextButton;
+	public GameObject phoneButton;
 
 	public static bool dialogueControl = true;
 
@@ -24,6 +25,7 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = false;
 			schoolButton.GetComponent<Button> ().interactable = false;
 			bathroomButton.GetComponent<Button> ().interactable = false;
+			phoneButton.GetComponent<Button>().interactable = false;
 		} else {
 			speechBubble.SetActive (false);
 			introDialogue.SetActive (false);
@@ -32,6 +34,7 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = true;
 			schoolButton.GetComponent<Button> ().interactable = true;
 			bathroomButton.GetComponent<Button> ().interactable = true;
+			phoneButton.GetComponent<Button> ().interactable = true;
 		}
 	}
 
@@ -81,6 +84,7 @@ public class OverviewStart : MonoBehaviour {
 			checkButton.GetComponent<Button> ().interactable = true;
 			schoolButton.GetComponent<Button> ().interactable = true;
 			bathroomButton.GetComponent<Button> ().interactable = true;
+			phoneButton.GetComponent<Button>().interactable = true;
 			OverviewStart.dialogueControl = false;
 			nextButton.SetActive (false);
 		}

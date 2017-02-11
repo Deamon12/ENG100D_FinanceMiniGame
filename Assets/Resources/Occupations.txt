@@ -1,0 +1,9 @@
+Retail Salesperson
+Server
+Cashier
+Customer Service
+Landscaper
+Security Guard
+Construction Worker
+Firefighter
+Medic

@@ -1309,7 +1309,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2171,7 +2171,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "To start the day, I need \nto brush my teeth. \nTap 'Start' to begin!"
+  m_Text: "To start the day, I need \nto clean my teeth. \nTap 'Start' to begin!"
 --- !u!222 &2139830240
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -23,11 +23,6 @@ public class Finished : MonoBehaviour {
                 clean = false;
         }
 
-        if (clean)
-            Debug.Log("CLEAN!");
-        else
-            Debug.Log("Dirty!! :C");
-
        
         
     }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - tooth
   - product
+  - Fire
+  - beach_timer
+  - beach_trash
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - First Layer
   - Second Layer
   - Theird Layer
-  - 
+  - TerrainLayer
   - 
   - 
   - 

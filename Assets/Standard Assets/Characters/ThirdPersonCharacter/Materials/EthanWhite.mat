@@ -169,7 +169,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 0.5}
     - first:
         name: _SpecColor
-      second: {r: 1, g: 0.71323526, b: 0.71323526, a: 1}
+      second: {r: 0.597, g: 0.909, b: 0.403, a: 0.597}
     - first:
         name: _SpecularColor
       second: {r: 0.24264705, g: 0.24264705, b: 0.24264705, a: 1}

@@ -19,13 +19,13 @@ Material:
         name: _MainTex
       second:
         m_Texture: {fileID: 2800000, guid: df8479c4617e4d74e859ac8d9e198f49, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 2.64, y: 0.28}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _Cutoff
-      second: 0.5
+      second: 0.432
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.50735295, g: 0.4700476, b: 0.4700476, a: 1}

@@ -229,5 +229,6 @@
                 m_Animator.applyRootMotion = false;
             }
         }
-    }
+   
+}
 

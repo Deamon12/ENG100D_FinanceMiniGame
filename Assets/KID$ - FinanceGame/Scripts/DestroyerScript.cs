@@ -25,5 +25,6 @@ public class DestroyerScript : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         print("Trigger Exit");
+        //Destroy(other.gameObject);
     }
 }

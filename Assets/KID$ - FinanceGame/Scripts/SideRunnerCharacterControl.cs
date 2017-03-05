@@ -43,9 +43,13 @@ public class SideRunnerCharacterControl : MonoBehaviour
             }
         }
 
-
-        // Fixed update is called in sync with physics
-        private void FixedUpdate()
+    protected void LateUpdate()
+    {
+        
+    }
+ 
+    // Fixed update is called in sync with physics
+    private void FixedUpdate()
         {
             // read inputs
             //float h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -57,23 +61,30 @@ public class SideRunnerCharacterControl : MonoBehaviour
             // calculate move direction to pass to character
             if (m_Cam != null)
             {
-                // calculate camera relative direction to move:
-                m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
-                m_Move = 0 * m_CamForward + h * m_Cam.right;
-                print("m_Character: " + m_Character);
-            }
+            // calculate camera relative direction to move:
+            //m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 0)).normalized;
+            // m_Move = 0 * m_CamForward + h * m_Cam.right;
+            //m_Move = new Vector3(1, 0, 0);
+
+            //print("h * m_Cam.right: " + h * m_Cam.right);
+            //print("m_CamForward: " + m_CamForward);
+            //print("m_Move: " + m_Move);
+            transform.Translate(Time.deltaTime, 0, 0, Camera.main.transform);
+
+        }
             else
             {
                 // we use world-relative directions in the case of no main camera
-                m_Move = 0 * Vector3.forward + h * Vector3.right;
+                //m_Move = 0 * Vector3.forward + h * Vector3.right;
             }
+
 #if !MOBILE_INPUT
             // walk speed multiplier
            //No walking.... if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
+            m_Character.Move(new Vector3(1, 0, 0), crouch, m_Jump);
             m_Jump = false;
         }
     }

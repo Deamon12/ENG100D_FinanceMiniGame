@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnScript : MonoBehaviour {
+public class SpawnGroundScript : MonoBehaviour {
 
     public GameObject[] spawnObj;
     public float spawnTime = 1;
 
 	// Use this for initialization
 	void Start () {
-		 Spawn(13.7f);
+		// Spawn(-5f);
     }
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class SpawnScript : MonoBehaviour {
 
     void Spawn(float spacing)
     {
-        Instantiate( spawnObj[0], new Vector3(transform.position.x + spacing, 0, 0), Quaternion.identity);// Random.Range (0, spawnObj.Length)]
+        Instantiate( spawnObj[Random.Range(0, spawnObj.Length)], new Vector3(transform.position.x + spacing, 0, 0), Quaternion.identity);// Random.Range (0, spawnObj.Length)]
     }
     
     void OnTriggerEnter(Collider other)

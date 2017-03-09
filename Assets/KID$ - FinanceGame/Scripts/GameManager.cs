@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
-    private PlayerData character;
+    private PlayerData player;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -32,49 +32,49 @@ public class GameManager : MonoBehaviour
 
     private void InitGame()
     {
-
-        //saveGame();
-
-
-        //TODO: Check I/O for saved game
-        loadGame();
-
-        //TODO: Setup up game environment
-
-       
-
-
-
+        //TODO
+        createPlayer();
+        //loadGame();
     }
 
     private void loadGame()
     {
         if(File.Exists(Application.persistentDataPath + "/KID$_playerinfo.dat"))
         {
-            print(Application.persistentDataPath + "/KID$_playerinfo.dat: LOADED");
+            // TODO: try/catch?
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/KID$_playerinfo.dat", FileMode.Open);
-            PlayerData data = (PlayerData)bf.Deserialize(file);
+            player = (PlayerData)bf.Deserialize(file);
+            print(Application.persistentDataPath + "/KID$_playerinfo.dat: LOADED");
         }
         else
         {
             print(Application.persistentDataPath + "/KID$_playerinfo.dat: FILE NOT FOUND");
+            createPlayer();
         }
-
 
     }
 
-    private void saveGame()
+    public void saveGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/KID$_playerinfo.dat");
 
-        PlayerData data = new PlayerData();
-        data.bankBalance = 55.00f;
-
-        bf.Serialize(file, data);
+        bf.Serialize(file, player);
         file.Close();
 
+    }
+
+    private void createPlayer()
+    {
+        player = new PlayerData();
+
+        //TODO: Show tutorial?
+    }
+
+    public PlayerData getPlayerData()
+    {
+        return player;
     }
 
 }

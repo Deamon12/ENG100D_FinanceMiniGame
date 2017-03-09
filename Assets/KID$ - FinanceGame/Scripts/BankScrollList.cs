@@ -4,14 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System;
 
-
-
 /*
-function Start()
-{
-   GetComponent(SpriteRenderer).sprite = spriteImage;
-}*/
-
 [System.Serializable]
 public class Transaction
 {
@@ -20,10 +13,7 @@ public class Transaction
     public float price = 5.00f;
 
 
-    public Transaction()
-    {
-
-    }
+    public Transaction() {}
 
     public Transaction(float price, string descr, Sprite icon)
     {
@@ -33,18 +23,16 @@ public class Transaction
         
     }
 }
-
+*/
 public class BankScrollList : MonoBehaviour
 {
 
     public Sprite depositSprite;
     public Sprite withdrawalSprite;
-
-    public List<Transaction> itemList;
+    
     public Transform contentPanel;
     public Text myBalanceDisplay;
     public SimpleObjectPool buttonObjectPool;
-    public float balanceAmount = 20f;
 
 
     // Use this for initialization
@@ -55,15 +43,14 @@ public class BankScrollList : MonoBehaviour
 
     void RefreshDisplay()
     {
-
-        //TODO: move this?
         
+        //Set balance header
         NumberFormatInfo nfi = new NumberFormatInfo();
         nfi.CurrencyNegativePattern = 1;
-        String money = balanceAmount.ToString("C2", nfi);
+        String money = GameManager.instance.getPlayerData().getBalance().ToString("C2", nfi);
         myBalanceDisplay.text = "Balance: " + money;
 
-
+        //Set scrollList dynamically
         AddButtons();
     }
     
@@ -71,27 +58,31 @@ public class BankScrollList : MonoBehaviour
     {
         //green - 1FD32DD3
         //red - 
-        itemList.Add(new Transaction(12.30f, "trans1", depositSprite));
-        itemList.Add(new Transaction(-2.40f, "trans2", withdrawalSprite));
-        itemList.Add(new Transaction(4f, "trans3", depositSprite));
-        itemList.Add(new Transaction(-7f, "trans4", withdrawalSprite));
-        itemList.Add(new Transaction(37f, "trans4", depositSprite));
-        itemList.Add(new Transaction(107f, "trans4", depositSprite));
-
         /*
-        if (price < 0)
-        {
-            icon = BankScrollList.withdrawSprite;
-        }*/
+        itemList.Add(new BankEntry(12.30f, "trans1", depositSprite));
+        itemList.Add(new BankEntry(-2.40f, "trans2", withdrawalSprite));
+        itemList.Add(new BankEntry(4f, "trans3", depositSprite));
+        itemList.Add(new BankEntry(-7f, "trans4", withdrawalSprite));
+        itemList.Add(new BankEntry(37f, "trans4", depositSprite));
+        itemList.Add(new BankEntry(107f, "trans4", depositSprite));
+        */
+        
+        List<BankEntry> itemList = GameManager.instance.getPlayerData().getBankEntryList();
 
         for (int i = 0; i < itemList.Count; i++)
         {
-            //Transaction item = new Transaction(12.30f, "trans");
             GameObject newButton = buttonObjectPool.GetObject();
             newButton.transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
             newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
             newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
 
+            if (itemList[i].getAmount() < 0)
+            {
+                itemList[i].setSprite(withdrawalSprite);
+            }else
+            {
+                itemList[i].setSprite(depositSprite);
+            }
 
             Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
             samplePanel.Setup(itemList[i]);

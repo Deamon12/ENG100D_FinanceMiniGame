@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-// A very simple object pooling class
+// A very simple object pooling class ... Dont ask me how it works tho - Deamon
 public class SimpleObjectPool : MonoBehaviour
 {
     // the prefab that this object pool returns instances of

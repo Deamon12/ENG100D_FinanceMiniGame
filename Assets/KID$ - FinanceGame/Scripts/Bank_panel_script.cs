@@ -15,14 +15,14 @@ public class Bank_panel_script : MonoBehaviour {
 		
 	}
 
-    public void Setup(Transaction item)
+    public void Setup(BankEntry item)
     {
         
         NumberFormatInfo nfi = new NumberFormatInfo();
         nfi.CurrencyNegativePattern = 1;
-        String money = item.price.ToString("C2", nfi);
+        String money = item.getAmount().ToString("C2", nfi);
         price.text = money;
-        iconImage.sprite = item.icon;
+        iconImage.sprite = item.getSprite();
         //TODO: description
 
     }

@@ -404,7 +404,7 @@ MonoBehaviour:
   m_JumpPower: 30
   m_GravityMultiplier: 3.5
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1.2
+  m_MoveSpeedMultiplier: 1.5
   m_AnimSpeedMultiplier: 1.2
   m_GroundCheckDistance: 0.2
 --- !u!114 &99292803
@@ -639,7 +639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1929905044755572, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
       propertyPath: m_Name
-      value: Grass_Ground 3 (1)
+      value: Grass_Ground 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
@@ -892,7 +892,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1022383938944876, guid: 32e2289dc59916e4891a7930a4924682, type: 2}
       propertyPath: m_Name
-      value: Grass_Ground 1 (1)
+      value: Grass_Ground 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32e2289dc59916e4891a7930a4924682, type: 2}
@@ -1605,7 +1605,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1244575005382442, guid: bdd7a4216213b8a4986a401797315677, type: 2}
       propertyPath: m_Name
-      value: Grass_Ground 2 (1)
+      value: Grass_Ground 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdd7a4216213b8a4986a401797315677, type: 2}

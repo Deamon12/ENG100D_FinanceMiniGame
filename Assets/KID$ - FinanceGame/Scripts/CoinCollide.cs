@@ -20,19 +20,20 @@ public class CoinCollide : MonoBehaviour {
     {
         print("coin collision");
        
-        
     }
 
     void OnTriggerEnter(Collider other)
     {
-
-        print("coin on trigger");
-        Destroy(this.gameObject);
-
-        if(other.gameObject.tag == "Player")
+        if(other.tag == "Player")
         {
-            ScoreText.runnerScore += 10;
+            print("coin on trigger");
+            Destroy(this.gameObject);
+            if (other.gameObject.tag == "Player")
+            {
+                ScoreText.runnerScore += 10;
+            }
         }
+        
 
     }
     void OnTriggerStay(Collider other) { }

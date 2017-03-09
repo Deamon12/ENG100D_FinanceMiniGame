@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33458306070530264}
   - component: {fileID: 65597870963906882}
   - component: {fileID: 23943425280048962}
+  - component: {fileID: 114014230597809386}
   m_Layer: 0
   m_Name: Grass_Ground 1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,6 +828,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114014230597809386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022383938944876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35465f47b93587d448f3395a0c88d300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinObj: {fileID: 1481413816879474, guid: 571e372967f2ca64e920c6154c6868c0, type: 2}
+  maxCoins: 3
+  minCoins: 1
+  maxCoinHeight: 0
+  minCoinHeight: 0
+  rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!212 &212264228175508092
 SpriteRenderer:
   m_ObjectHideFlags: 1

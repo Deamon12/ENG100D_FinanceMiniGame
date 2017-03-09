@@ -6,10 +6,12 @@ public class SpawnGroundScript : MonoBehaviour {
 
     public GameObject[] spawnObj;
     public float spawnTime = 1;
+    private float objWidth;
 
-	// Use this for initialization
-	void Start () {
-		// Spawn(-5f);
+    // Use this for initialization
+    void Start () {
+        
+        
     }
 	
 	// Update is called once per frame
@@ -17,20 +19,33 @@ public class SpawnGroundScript : MonoBehaviour {
 		
 	}
 
-    void Spawn(float spacing)
+    void Spawn()
     {
-        Instantiate( spawnObj[Random.Range(0, spawnObj.Length)], new Vector3(transform.position.x + spacing, 0, 0), Quaternion.identity);// Random.Range (0, spawnObj.Length)]
+        //Get current ground coords, not player coords.
+        objWidth = spawnObj[0].GetComponent<Renderer>().bounds.size.x;
+
+        //print("current pos: " + transform.position.x);
+        //print("objWidth: " + objWidth);
+
+        float spacing = (int)transform.position.x + (int)(objWidth/2);  //For some reason cast is needed to reduce small changes
+
+        //print("position: " + spacing);
+        Instantiate( spawnObj[Random.Range(0, spawnObj.Length)], new Vector3(spacing, 0, 0), Quaternion.identity);
     }
     
     void OnTriggerEnter(Collider other)
     {
-        print("Trigger Enter");
+        //print("Trigger Enter");
     }
     void OnTriggerStay(Collider other) {}
     void OnTriggerExit(Collider other)
     {
-        print("Trigger Exit");
-        Spawn(24.5f);
+        if(other.tag == "Ground")
+        {
+            //print("Trigger Exit");
+            Spawn();
+        }
+        
     }
 
 }

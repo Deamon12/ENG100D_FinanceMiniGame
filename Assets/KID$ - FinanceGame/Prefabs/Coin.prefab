@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33372294325521134}
   - component: {fileID: 136227505723053944}
   - component: {fileID: 23863421840375370}
+  - component: {fileID: 114894886598038258}
   m_Layer: 12
   m_Name: Coin
   m_TagString: Untagged
@@ -80,6 +81,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481413816879474}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114894886598038258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481413816879474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea262a62e20c48543b3e6740ba6e9913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136227505723053944
 CapsuleCollider:
   m_ObjectHideFlags: 1

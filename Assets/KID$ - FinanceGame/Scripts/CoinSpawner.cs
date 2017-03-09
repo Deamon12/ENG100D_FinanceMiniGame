@@ -9,15 +9,16 @@ public class CoinSpawner : MonoBehaviour {
     public int maxCoins = 5;
     public int minCoins = 2;
 
-    public float maxCoinHeight;
-    public float minCoinHeight;
+    private float[] coinHeights = {15f, 5f};
+    //public float maxCoinHeight;
+    //public float minCoinHeight;
 
-    public Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, 0));
+    private Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, 0));
 
     // Use this for initialization
     void Start () {
 
-        float width = GetComponent<Renderer>().bounds.size.x;
+        //float width = GetComponent<Renderer>().bounds.size.x;
 
         //Get # of coins to spawn
         int numCoinsToSpawn = Random.Range(minCoins, maxCoins);
@@ -27,13 +28,13 @@ public class CoinSpawner : MonoBehaviour {
 
         float distanceBetween = GetComponent<Renderer>().bounds.size.x / numCoinsToSpawn;
 
-        print("Put coin every " + distanceBetween + " units.");
+        //print("Put coin every " + distanceBetween + " units.");
 
 
         for(int a = 0; a < numCoinsToSpawn; a++)
         {
             float location = transform.position.x + (distanceBetween * a);
-            Instantiate(coinObj, new Vector3(location, 15, -8), rotation); //transform.position.z
+            Instantiate(coinObj, new Vector3(location, coinHeights[Random.Range(0, coinHeights.Length)], -8), rotation);
         }
 
 

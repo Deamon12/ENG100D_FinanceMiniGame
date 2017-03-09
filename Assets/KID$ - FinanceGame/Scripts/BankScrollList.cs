@@ -76,16 +76,19 @@ public class BankScrollList : MonoBehaviour
             newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
             newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
 
+            Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
+           
             if (itemList[i].getAmount() < 0)
             {
-                itemList[i].setSprite(withdrawalSprite);
+                samplePanel.Setup(itemList[i], withdrawalSprite);
+                //itemList[i].setSprite(withdrawalSprite);
             }else
             {
-                itemList[i].setSprite(depositSprite);
+                samplePanel.Setup(itemList[i], depositSprite);
+                //itemList[i].setSprite(depositSprite);
             }
 
-            Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
-            samplePanel.Setup(itemList[i]);
+            
         }
     }
     

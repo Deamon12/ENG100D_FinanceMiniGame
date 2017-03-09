@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - Destroyer
   - Spawner
+  - Obstacle
   layers:
   - Default
   - TransparentFX

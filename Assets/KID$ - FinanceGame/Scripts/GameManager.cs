@@ -29,23 +29,32 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    
 
     private void InitGame()
     {
         //TODO
-        createPlayer();
-        //loadGame();
+        //createPlayer(); //for serialized object changes
+        loadGame();
     }
 
     private void loadGame()
     {
         if(File.Exists(Application.persistentDataPath + "/KID$_playerinfo.dat"))
         {
-            // TODO: try/catch?
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/KID$_playerinfo.dat", FileMode.Open);
-            player = (PlayerData)bf.Deserialize(file);
-            print(Application.persistentDataPath + "/KID$_playerinfo.dat: LOADED");
+            try
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/KID$_playerinfo.dat", FileMode.Open);
+                player = (PlayerData)bf.Deserialize(file);
+                print(Application.persistentDataPath + "/KID$_playerinfo.dat: LOADED");
+                print(player.toString());
+            }
+            catch (IOException ex)
+            {
+                createPlayer();
+            }
+            
         }
         else
         {
@@ -57,24 +66,43 @@ public class GameManager : MonoBehaviour
 
     public void saveGame()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/KID$_playerinfo.dat");
 
-        bf.Serialize(file, player);
-        file.Close();
+        try
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/KID$_playerinfo.dat");
+
+            bf.Serialize(file, player);
+            file.Close();
+
+            print("Save success");
+        }
+        catch (Exception ex)
+        {
+            print("Save error: " + ex.ToString());
+        }
+        
 
     }
 
     private void createPlayer()
     {
         player = new PlayerData();
-
+        saveGame();
         //TODO: Show tutorial?
     }
 
     public PlayerData getPlayerData()
     {
         return player;
+    }
+
+    public void addBankEntry(BankEntry entry)
+    {
+        if (player != null)
+            player.addBankEntry(entry);
+        else
+            print("Player is null");
     }
 
 }

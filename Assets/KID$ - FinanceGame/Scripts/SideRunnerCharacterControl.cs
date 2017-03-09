@@ -2,19 +2,24 @@
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-
 [RequireComponent(typeof(SideRunnerCharacter))]
 public class SideRunnerCharacterControl : MonoBehaviour
 {
-    // 
+    public GameObject gameOverUI;
+
     private SideRunnerCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
     private Transform m_Cam;                  // A reference to the main camera in the scenes transform
     private Vector3 m_CamForward;             // The current forward direction of the camera
     private Vector3 m_Move;
     private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-    public float z_axis = -8;
-	public float turnSpeed = 0.002f;
+    //public float z_axis = -8;
+	//public float turnSpeed = 0.002f;
+
+    //public Rigidbody rigidBody;
+    private bool crouch = false;
+
+    private float lastCollisionX = 0f;
 
     private void Start()
     {
@@ -51,35 +56,25 @@ public class SideRunnerCharacterControl : MonoBehaviour
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
-        // read inputs
-        //float h = CrossPlatformInputManager.GetAxis("Horizontal");
-        float h = 1;
+        //This is necessary to lock positions and rotations...otherwise dude goes all nilly willy.
+
+        
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+
+        // read horizontal inputs and apply boundary
+        float h = CrossPlatformInputManager.GetAxis("Horizontal");
+        
+        if(h < 0) { h = 0; }
+            
+        h = h + .7f;
+
+
+        //Old vertical controls, for turning...
         //float v = CrossPlatformInputManager.GetAxis("Vertical");      //Disable depth moving
         //bool crouch = Input.GetKey(KeyCode.C);
-        bool crouch = false;
 
-        // calculate move direction to pass to character
-        if (m_Cam != null)
-        {
-            // calculate camera relative direction to move:
-            //m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 0)).normalized;
-            // m_Move = 0 * m_CamForward + h * m_Cam.right;
-            //m_Move = new Vector3(1, 0, 0);
 
-            //print("h * m_Cam.right: " + h * m_Cam.right);
-            //print("m_CamForward: " + m_CamForward);
-            //print("m_Move: " + m_Move);
-
-            
-
-            //transform.Translate(Time.deltaTime, 0, 0, Camera.main.transform);
-
-        }
-        else
-        {
-            // we use world-relative directions in the case of no main camera
-            //m_Move = 0 * Vector3.forward + h * Vector3.right;
-        }
 
 #if !MOBILE_INPUT
         // walk speed multiplier
@@ -87,7 +82,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
         //if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
-
+        /*
         //Auto adjust player to stay on course
         float currentZ = this.gameObject.transform.position.z;
         print("Current Z: " + currentZ);
@@ -114,10 +109,57 @@ public class SideRunnerCharacterControl : MonoBehaviour
         {
             m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);     // pass all parameters to the character control script
         }
+        */
 
+        m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);     // pass all parameters to the character control script
 
-        
-        
         m_Jump = false;
     }
+    
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+
+            //print("Game Over? - X is " + GetComponent<Rigidbody>().position.x);
+            doGameOver();
+        }
+    }
+
+    /*
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "Coin")
+        {
+            print("Hit coin with " + this.gameObject.GetComponent<Rigidbody>().tag);
+            Destroy(other.gameObject);
+            ScoreText.runnerScore += 10;
+        }
+        
+    }*/
+
+
+    private void doGameOver()
+    {
+        //Show stumble animation
+        Animator animator = GetComponent<Animator>();
+        animator.SetTrigger("stumble");
+        
+        //Show game over screen
+        Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
+        gameOverAnim.SetTrigger("game_over");
+
+
+        print("Final score: "+ScoreText.runnerScore);
+
+        BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
+
+        GameManager.instance.addBankEntry(be);
+        GameManager.instance.saveGame();
+    }
+
+
+
+
 }

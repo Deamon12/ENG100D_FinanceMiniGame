@@ -5,12 +5,11 @@ using UnityEngine;
 public class GroundManager : MonoBehaviour {
     
     public GameObject[] spawnObj;
-    public float spawnTime = 1;
+    //public float spawnTime = 1;
     private float objWidth;
 
     // Use this for initialization
     void Start () {
-        
         
     }
 	

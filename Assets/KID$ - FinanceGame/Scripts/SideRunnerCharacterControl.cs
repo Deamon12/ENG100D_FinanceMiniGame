@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-//namespace UnityStandardAssets.Characters.ThirdPerson
-//{
 
 [RequireComponent(typeof(SideRunnerCharacter))]
 public class SideRunnerCharacterControl : MonoBehaviour
@@ -123,4 +121,3 @@ public class SideRunnerCharacterControl : MonoBehaviour
         m_Jump = false;
     }
 }
-//}

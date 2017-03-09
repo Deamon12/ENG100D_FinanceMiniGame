@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65597870963906882}
   - component: {fileID: 23943425280048962}
   - component: {fileID: 114014230597809386}
+  - component: {fileID: 114766234490919404}
   m_Layer: 0
   m_Name: Grass_Ground 1
   m_TagString: Ground
@@ -840,11 +841,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinObj: {fileID: 1481413816879474, guid: 571e372967f2ca64e920c6154c6868c0, type: 2}
-  maxCoins: 3
+  maxCoins: 4
   minCoins: 1
   maxCoinHeight: 0
   minCoinHeight: 0
   rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+--- !u!114 &114766234490919404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022383938944876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef29d97857fbcc34b9be28ec2c1dd517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObj:
+  - {fileID: 1022383938944876}
+  - {fileID: 1244575005382442, guid: bdd7a4216213b8a4986a401797315677, type: 2}
+  - {fileID: 1929905044755572, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
+  spawnTime: 1
 --- !u!212 &212264228175508092
 SpriteRenderer:
   m_ObjectHideFlags: 1

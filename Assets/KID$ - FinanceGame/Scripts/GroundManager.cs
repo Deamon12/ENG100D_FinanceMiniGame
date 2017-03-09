@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnGroundScript : MonoBehaviour {
-
+public class GroundManager : MonoBehaviour {
+    
     public GameObject[] spawnObj;
     public float spawnTime = 1;
     private float objWidth;
@@ -27,20 +27,26 @@ public class SpawnGroundScript : MonoBehaviour {
         //print("current pos: " + transform.position.x);
         //print("objWidth: " + objWidth);
 
-        float spacing = (int)transform.position.x + (int)(objWidth/2);  //For some reason cast is needed to reduce small changes
+        float spacing = (int)transform.position.x + (int)(objWidth);  //For some reason cast is needed to reduce small changes
 
         //print("position: " + spacing);
         Instantiate( spawnObj[Random.Range(0, spawnObj.Length)], new Vector3(spacing, 0, 0), Quaternion.identity);
     }
     
+    //Destroy
     void OnTriggerEnter(Collider other)
     {
-        //print("Trigger Enter");
+        if(other.tag == "Destroyer")
+        {
+            Destroy(gameObject);
+        }
     }
     void OnTriggerStay(Collider other) {}
+
+    //Spawn
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Ground")
+        if(other.tag == "Spawner")
         {
             Spawn();
         }

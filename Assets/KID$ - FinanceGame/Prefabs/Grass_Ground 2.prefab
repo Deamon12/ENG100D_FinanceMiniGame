@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 65331404285420624}
   - component: {fileID: 23174854877542522}
   - component: {fileID: 114977870088046566}
+  - component: {fileID: 114414540956156382}
   m_Layer: 0
   m_Name: Grass_Ground 2
   m_TagString: Ground
@@ -776,6 +777,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114414540956156382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244575005382442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef29d97857fbcc34b9be28ec2c1dd517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnObj:
+  - {fileID: 1022383938944876, guid: 32e2289dc59916e4891a7930a4924682, type: 2}
+  - {fileID: 1244575005382442}
+  - {fileID: 1929905044755572, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
+  spawnTime: 1
 --- !u!114 &114977870088046566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinObj: {fileID: 1481413816879474, guid: 571e372967f2ca64e920c6154c6868c0, type: 2}
-  maxCoins: 3
+  maxCoins: 4
   minCoins: 1
   maxCoinHeight: 0
   minCoinHeight: 0

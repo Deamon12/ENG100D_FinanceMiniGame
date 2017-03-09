@@ -11,6 +11,8 @@ TagManager:
   - beach_trash
   - Coin
   - Ground
+  - Destroyer
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 99292801}
   - component: {fileID: 99292803}
   - component: {fileID: 99292802}
-  - component: {fileID: 99292799}
   m_Layer: 13
   m_Name: Male3_ShortHairNG
   m_TagString: Player
@@ -293,21 +292,6 @@ Transform:
   m_Father: {fileID: 200082758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &99292799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 99292794}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70ae6ed2ead98a8409ce793eb6382bbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTime: 1
-  coinObj: {fileID: 1593801843803210, guid: d278762ae49209b4f979039e4248d257, type: 2}
-  spaceFromCharacter: 15
-  rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!82 &99292801
 AudioSource:
   m_ObjectHideFlags: 0
@@ -939,10 +923,9 @@ GameObject:
   - component: {fileID: 616921594}
   - component: {fileID: 616921593}
   - component: {fileID: 616921592}
-  - component: {fileID: 616921591}
   m_Layer: 13
   m_Name: GroundSpawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,22 +943,6 @@ Transform:
   m_Father: {fileID: 99292798}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &616921591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 616921589}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23911d6e69c716a4a95ec64421e4dc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnObj:
-  - {fileID: 1022383938944876, guid: 32e2289dc59916e4891a7930a4924682, type: 2}
-  - {fileID: 1244575005382442, guid: bdd7a4216213b8a4986a401797315677, type: 2}
-  - {fileID: 1929905044755572, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
-  spawnTime: 1
 --- !u!23 &616921592
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2075,7 +2042,7 @@ GameObject:
   - component: {fileID: 1237645235}
   m_Layer: 13
   m_Name: GroundDestroyer
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2163,7 +2130,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237645229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75493bd98f11134194269d9d7a46043, type: 3}
   m_Name: 

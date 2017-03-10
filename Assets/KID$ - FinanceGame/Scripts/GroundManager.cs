@@ -5,14 +5,8 @@ using UnityEngine;
 public class GroundManager : MonoBehaviour {
     
     public GameObject[] spawnObj;
-    //public float spawnTime = 1;
     private float objWidth;
-
-    // Use this for initialization
-    void Start () {
-        
-    }
-	
+    
 	// Update is called once per frame
 	void Update () {
 		
@@ -49,7 +43,6 @@ public class GroundManager : MonoBehaviour {
         {
             Spawn();
         }
-        
     }
 
 }

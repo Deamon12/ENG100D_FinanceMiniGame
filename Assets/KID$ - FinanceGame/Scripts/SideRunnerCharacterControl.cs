@@ -20,6 +20,8 @@ public class SideRunnerCharacterControl : MonoBehaviour
     private bool crouch = false;
 
     private float lastCollisionX = 0f;
+    
+    private bool gameOver = false;
 
     private void Start()
     {
@@ -56,11 +58,9 @@ public class SideRunnerCharacterControl : MonoBehaviour
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
-        //This is necessary to lock positions and rotations...otherwise dude goes all nilly willy.
-
         
+        //This is necessary to lock positions and rotations...otherwise dude goes all nilly willy.
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
 
         // read horizontal inputs and apply boundary
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -81,38 +81,8 @@ public class SideRunnerCharacterControl : MonoBehaviour
         //No walking.... 
         //if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
-
-        /*
-        //Auto adjust player to stay on course
-        float currentZ = this.gameObject.transform.position.z;
-        print("Current Z: " + currentZ);
-
-        float diff = currentZ - z_axis;
-        print("diff: " + diff);
-
-        print("Deltatime: " + Time.deltaTime);
-
-        if (currentZ > z_axis)          //go right to get back
-        {
-            m_Character.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-            //m_Character.transform.Rotate(0, .002f, 0); //.002f
-            m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);
-        }
-        else if(currentZ < z_axis)      //go left to get back
-        {
-            //float diff = currentZ - z_axis;
-			m_Character.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-            //m_Character.transform.Rotate(0, -.002f, 0); //-.002f
-            m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);
-        }
-        else
-        {
-            m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);     // pass all parameters to the character control script
-        }
-        */
-
+        
         m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);     // pass all parameters to the character control script
-
         m_Jump = false;
     }
     
@@ -120,25 +90,15 @@ public class SideRunnerCharacterControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-
             //print("Game Over? - X is " + GetComponent<Rigidbody>().position.x);
-            doGameOver();
+            if (!gameOver)
+            {
+                doGameOver();
+            }
+            
         }
     }
-
-    /*
-    void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.tag == "Coin")
-        {
-            print("Hit coin with " + this.gameObject.GetComponent<Rigidbody>().tag);
-            Destroy(other.gameObject);
-            ScoreText.runnerScore += 10;
-        }
-        
-    }*/
-
+    
 
     private void doGameOver()
     {
@@ -157,6 +117,8 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
         GameManager.instance.addBankEntry(be);
         GameManager.instance.saveGame();
+
+        gameOver = true;
     }
 
 

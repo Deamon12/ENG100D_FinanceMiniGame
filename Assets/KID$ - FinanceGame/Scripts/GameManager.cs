@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
                 print(Application.persistentDataPath + "/KID$_playerinfo.dat: LOADED");
                 print(player.toString());
             }
-            catch (IOException ex)
+            catch (Exception ex)
             {
                 createPlayer();
             }
@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void createPlayer()
     {
+        print("Creating player data");
         player = new PlayerData();
         saveGame();
         //TODO: Show tutorial?

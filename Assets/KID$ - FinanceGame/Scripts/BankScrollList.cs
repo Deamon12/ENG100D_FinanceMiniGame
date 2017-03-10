@@ -52,7 +52,6 @@ public class BankScrollList : MonoBehaviour
 
                 Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
                 samplePanel.Setup(itemList[i], withdrawalSprite);
-                //itemList[i].setSprite(withdrawalSprite);
             }
             if (itemList[i].getAmount() > 0)
             {
@@ -63,11 +62,10 @@ public class BankScrollList : MonoBehaviour
 
                 Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
                 samplePanel.Setup(itemList[i], depositSprite);
-                //itemList[i].setSprite(withdrawalSprite);
             }
             else //ignore 0's
             {
-                //itemList[i].setSprite(depositSprite);
+                
             }
 
             

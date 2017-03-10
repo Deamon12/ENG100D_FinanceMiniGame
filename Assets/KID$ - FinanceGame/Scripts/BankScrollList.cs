@@ -32,10 +32,10 @@ public class BankScrollList : MonoBehaviour
         myBalanceDisplay.text = "Balance: " + money;
 
         //Set scrollList dynamically
-        AddButtons();
+        AddPanels();
     }
     
-    private void AddButtons()
+    private void AddPanels()
     {
        
         List<BankEntry> itemList = GameManager.instance.getPlayerData().getBankEntryList();

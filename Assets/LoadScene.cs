@@ -3,13 +3,11 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
-
-  /// <summary>
-  /// Loads the scene at the specified index
-  /// </summary>
-  /// <param name="sceneIndex"> Index of the scene to load </param>
+    
+  //Loads the scene at the specified index
   public void loadScene(int sceneIndex) {
 
+    print("Loading scene: " + sceneIndex);
     SceneManager.LoadScene(sceneIndex);
 
   }

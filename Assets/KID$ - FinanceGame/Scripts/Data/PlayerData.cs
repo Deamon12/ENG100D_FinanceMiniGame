@@ -41,7 +41,8 @@ public class PlayerData {
 
     public void addBankEntry(BankEntry entry)
     {
-        bankEntryList.Add(entry);
+        if(entry.getAmount() != 0)  //omit 0 entries
+            bankEntryList.Add(entry);
     }
 
     public String toString()

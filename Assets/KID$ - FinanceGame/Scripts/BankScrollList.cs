@@ -4,26 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System;
 
-/*
-[System.Serializable]
-public class Transaction
-{
-    public string description;
-    public Sprite icon;
-    public float price = 5.00f;
 
-
-    public Transaction() {}
-
-    public Transaction(float price, string descr, Sprite icon)
-    {
-        this.price = price;
-        this.description = descr;
-        this.icon = icon;
-        
-    }
-}
-*/
 public class BankScrollList : MonoBehaviour
 {
 
@@ -56,35 +37,36 @@ public class BankScrollList : MonoBehaviour
     
     private void AddButtons()
     {
-        //green - 1FD32DD3
-        //red - 
-        /*
-        itemList.Add(new BankEntry(12.30f, "trans1", depositSprite));
-        itemList.Add(new BankEntry(-2.40f, "trans2", withdrawalSprite));
-        itemList.Add(new BankEntry(4f, "trans3", depositSprite));
-        itemList.Add(new BankEntry(-7f, "trans4", withdrawalSprite));
-        itemList.Add(new BankEntry(37f, "trans4", depositSprite));
-        itemList.Add(new BankEntry(107f, "trans4", depositSprite));
-        */
-        
+       
         List<BankEntry> itemList = GameManager.instance.getPlayerData().getBankEntryList();
 
-        for (int i = 0; i < itemList.Count; i++)
+        for (int i = itemList.Count-1; i > 0; i--)
         {
-            GameObject newButton = buttonObjectPool.GetObject();
-            newButton.transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
-            newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-            newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
-
-            Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
-           
+            
             if (itemList[i].getAmount() < 0)
             {
+                GameObject newButton = buttonObjectPool.GetObject();
+                newButton.transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
+                newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
+
+                Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
                 samplePanel.Setup(itemList[i], withdrawalSprite);
                 //itemList[i].setSprite(withdrawalSprite);
-            }else
+            }
+            if (itemList[i].getAmount() > 0)
             {
+                GameObject newButton = buttonObjectPool.GetObject();
+                newButton.transform.localScale = new Vector3(1.0F, 1.0f, 1.0f);
+                newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
+
+                Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
                 samplePanel.Setup(itemList[i], depositSprite);
+                //itemList[i].setSprite(withdrawalSprite);
+            }
+            else //ignore 0's
+            {
                 //itemList[i].setSprite(depositSprite);
             }
 

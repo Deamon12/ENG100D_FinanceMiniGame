@@ -326,7 +326,7 @@ RectTransform:
   - {fileID: 820324786}
   - {fileID: 1268284649}
   m_Father: {fileID: 1720703188}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -575,7 +575,7 @@ RectTransform:
   m_LocalScale: {x: 0.001328414, y: 0.0021254623, z: 0.0021254623}
   m_Children: []
   m_Father: {fileID: 1720703188}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1444879482}
   m_HandleRect: {fileID: 1444879481}
   m_Direction: 0
-  m_Value: 0.5000006
+  m_Value: 0.5
   m_Size: 0.874
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1440,7 +1440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1241942902
 Transform:
   m_ObjectHideFlags: 0
@@ -1452,7 +1452,7 @@ Transform:
   m_LocalScale: {x: 0.040779732, y: 0.19398765, z: 0.12604441}
   m_Children: []
   m_Father: {fileID: 1720703188}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1241942903
 SpriteRenderer:

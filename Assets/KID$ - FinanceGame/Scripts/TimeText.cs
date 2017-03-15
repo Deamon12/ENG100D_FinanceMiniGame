@@ -10,23 +10,32 @@ public class TimeText : MonoBehaviour {
     DateTime startTime;
     TimeSpan elapsedTime;
 
+    private TimeSpan pauseTime;
 
     void Awake() {
-
+        /*
         text = GetComponent<Text>();
-        startTime = DateTime.Now;
+        startTime = DateTime.Now;*/
     }
 
     void LateUpdate()
-    {
-        elapsedTime = DateTime.Now - startTime;
+    {/*
+        if (!SideRunnerCharacterControl.showingPauseUI)
+        {
+            elapsedTime = DateTime.Now - startTime;
 
-        string displayTime = String.Format("{0:00}:{1:00}",
-        elapsedTime.Minutes,
-        elapsedTime.Seconds,
-        elapsedTime.Milliseconds);
+            string displayTime = String.Format("{0:00}:{1:00}",
+            elapsedTime.Minutes,
+            elapsedTime.Seconds,
+            elapsedTime.Milliseconds);
 
-        text.text = displayTime;
+            text.text = displayTime;
+        }
+        else
+        {
+            pauseTime
+        }
+        */
     }
 
 

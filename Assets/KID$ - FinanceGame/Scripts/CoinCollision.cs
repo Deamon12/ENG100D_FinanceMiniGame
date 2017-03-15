@@ -11,7 +11,7 @@ public class CoinCollision : MonoBehaviour {
         if (other.tag == "Player")
         {
             Destroy(this.gameObject);
-            ScoreText.runnerScore += 10;
+            ScoreText.runnerScore += 10; //TODO variety to coins
         }
 
     }

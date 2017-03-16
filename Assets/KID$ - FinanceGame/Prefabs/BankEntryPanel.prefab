@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: {fileID: 114965774156901710}
   iconImage: {fileID: 114793105149346774}
+  descText: {fileID: 0}
 --- !u!114 &114492529705882050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: {fileID: 114965774156901710}
   iconImage: {fileID: 114793105149346774}
+  descText: {fileID: 114947508206334408}
 --- !u!114 &114793105149346774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: {fileID: 114965774156901710}
   iconImage: {fileID: 114793105149346774}
+  descText: {fileID: 0}
 --- !u!114 &114947508206334408
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,7 @@ public class BankPanel : MonoBehaviour {
 
     public Text price;
     public Image iconImage;
+    public Text descText;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class BankPanel : MonoBehaviour {
         String money = item.getAmount().ToString("C2", nfi);
         price.text = money;
         iconImage.sprite = sprite;
-        //TODO: description
+        descText.text = item.getDescription();
 
     }
 

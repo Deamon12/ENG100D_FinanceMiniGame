@@ -113,10 +113,9 @@ public class SideRunnerCharacterControl : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             //print("Game Over? - X is " + GetComponent<Rigidbody>().position.x);
-            if (!gameOver)
-            {
-                doGameOver();
-            }
+           
+            doGameOver();
+            
             
         }
     }
@@ -129,7 +128,6 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
         if(timeLeft < 0f)
         {
-            //Time.timeScale = 0;
             doGameOver();
         }
     }
@@ -153,23 +151,28 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     private void doGameOver()
     {
-        //Show stumble animation
-        Animator animator = GetComponent<Animator>();
-        animator.SetTrigger("stumble");
-        
-        //Show game over screen
-        Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
-        gameOverAnim.SetTrigger("game_over");
+        if (!gameOver)
+        {
+            
+            //Show stumble animation
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("stumble");
+
+            //Show game over screen
+            Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
+            gameOverAnim.SetTrigger("game_over");
 
 
-        print("Final score: "+ScoreText.runnerScore);
+            print("Final score: " + ScoreText.runnerScore);
 
-        BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
+            BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
 
-        GameManager.instance.addBankEntry(be);
-        GameManager.instance.saveGame();
+            GameManager.instance.addBankEntry(be);
+            GameManager.instance.saveGame();
 
-        gameOver = true;
+            gameOver = true;
+
+        }
     }
 
    

@@ -40,7 +40,7 @@ public class BankScrollList : MonoBehaviour
        
         List<BankEntry> itemList = GameManager.instance.getPlayerData().getBankEntryList();
 
-        for (int i = itemList.Count-1; i > 0; i--)
+        for (int i = itemList.Count-1; i >= 0; i--)
         {
             
             if (itemList[i].getAmount() < 0)

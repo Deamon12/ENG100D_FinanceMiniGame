@@ -2206,6 +2206,18 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Hat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c260c8ad91959de49a0c48d890bb6bb6, type: 2}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aabfac0c4a4e3f541b56bc34bbf7b00f, type: 2}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 308527387d04387448fe7447efd067f6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
   m_IsPrefabParent: 0
@@ -4257,6 +4269,18 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Pigtails (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83ff307b08ba7e149bffae75750b1c58, type: 2}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81ca87703be5cc940a88ecca5e10ca4f, type: 2}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81ca87703be5cc940a88ecca5e10ca4f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
   m_IsPrefabParent: 0
@@ -4673,6 +4697,18 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Hat (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83ff307b08ba7e149bffae75750b1c58, type: 2}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3004bbe104539f54bb79be38459e5edd, type: 2}
+    - target: {fileID: 13700000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3004bbe104539f54bb79be38459e5edd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7d79d39b1fb8864192fa7be1b8ce0c9, type: 3}
   m_IsPrefabParent: 0
@@ -6255,6 +6291,14 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Buns (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d258320bbde672040b10b80cdab70aa9, type: 2}
+    - target: {fileID: 13700000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 077ac97a4e861e14aa4ac7932887ee3a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
   m_IsPrefabParent: 0
@@ -6525,6 +6569,14 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Buns (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81ca87703be5cc940a88ecca5e10ca4f, type: 2}
+    - target: {fileID: 13700000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 83ff307b08ba7e149bffae75750b1c58, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d4886433160b44e82001b0fd209a2e, type: 3}
   m_IsPrefabParent: 0
@@ -7676,6 +7728,18 @@ Prefab:
       propertyPath: m_Name
       value: Female2_Pigtails (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 077ac97a4e861e14aa4ac7932887ee3a, type: 2}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 077ac97a4e861e14aa4ac7932887ee3a, type: 2}
+    - target: {fileID: 13700000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d33257914f093bb46b5003934ecbb499, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f637cc78a3eccf48aae74badab98aee, type: 3}
   m_IsPrefabParent: 0

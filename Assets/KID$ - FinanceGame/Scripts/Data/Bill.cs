@@ -1,16 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-public class Bill : MonoBehaviour {
+[Serializable]
+public class Bill  {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private string description;
+    private float amount;
+    private DateTime lastPaid;
+
+    public Bill()
+    {
+        lastPaid = DateTime.Now;
+    }
+
+    public Bill(string desc, float amt)
+    {
+        this.description = desc;
+        this.amount = amt;
+        lastPaid = DateTime.Now;
+    }
+
+    public string getDescription()
+    {
+        return description;
+    }
+
+    public float getAmount()
+    {
+        return amount;
+    }
+
+    public void setPaid(DateTime date)
+    {
+        lastPaid = date;
+    }
+
+    public DateTime getPaidDateTime()
+    {
+        return lastPaid;
+    }
+
 }

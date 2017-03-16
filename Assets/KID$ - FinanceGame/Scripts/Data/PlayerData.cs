@@ -20,6 +20,7 @@ public class PlayerData {
         upgradeEarnedList = new List<Upgrade>();
         bankEntryList = new List<BankEntry>();
 
+        billList.Add(new Bill("Phone", 5.0f));
     }
 
     public float getBalance()
@@ -39,13 +40,18 @@ public class PlayerData {
         return bankEntryList;
     }
 
+    public List<Bill> getBillList()
+    {
+        return billList;
+    }
+
     public void addBankEntry(BankEntry entry)
     {
-        if(entry.getAmount() != 0)  //omit 0 entries
+        if(entry.getAmount() != 0)  //omit 0 entries?
             bankEntryList.Add(entry);
     }
 
-    public String toString()
+    public String toString() //For debug
     {
         return " billList size: " + billList.Count + "\n" +
             "achieveEarnedList: :" + achieveEarnedList.Count + "\n" +

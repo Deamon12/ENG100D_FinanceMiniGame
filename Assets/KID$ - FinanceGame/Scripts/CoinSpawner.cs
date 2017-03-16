@@ -13,7 +13,7 @@ public class CoinSpawner : MonoBehaviour {
     //public float maxCoinHeight;
     //public float minCoinHeight;
 
-    private Quaternion rotation = Quaternion.Euler(new Vector3(90, 0, 0));
+    private Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
     // Use this for initialization
     void Start () {

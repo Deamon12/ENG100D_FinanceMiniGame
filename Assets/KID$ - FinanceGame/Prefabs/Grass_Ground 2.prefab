@@ -793,7 +793,6 @@ MonoBehaviour:
   - {fileID: 1022383938944876, guid: 32e2289dc59916e4891a7930a4924682, type: 2}
   - {fileID: 1244575005382442}
   - {fileID: 1929905044755572, guid: 3418df47fd1202345affd5b5b40ca64a, type: 2}
-  spawnTime: 1
 --- !u!114 &114532370423473392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,10 +820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35465f47b93587d448f3395a0c88d300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinObj: {fileID: 1481413816879474, guid: 571e372967f2ca64e920c6154c6868c0, type: 2}
+  coinObj: {fileID: 1636757998186644, guid: 8e983b1b9e2d2504eb9bc4ed502e1d93, type: 2}
   maxCoins: 4
   minCoins: 1
-  rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!212 &212382203469273810
 SpriteRenderer:
   m_ObjectHideFlags: 1

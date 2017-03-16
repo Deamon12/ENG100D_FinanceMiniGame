@@ -1,11 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(SideRunnerCharacter))]
 public class SideRunnerCharacterControl : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject pauseUI;
+    public Button cancelButton;
+
 
     private SideRunnerCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
     private Transform m_Cam;                  // A reference to the main camera in the scenes transform
@@ -22,9 +26,18 @@ public class SideRunnerCharacterControl : MonoBehaviour
     private float lastCollisionX = 0f;
     
     private bool gameOver = false;
+    private bool showingPauseUI = false;
+
+    //Time Counter
+    public Text timeText;
+    //DateTime startTime;
+    //TimeSpan elapsedTime;
+    float timeLeft = 10.0f;
+
 
     private void Start()
     {
+        //startTime = DateTime.Now;
         // get the transform of the main camera
         if (Camera.main != null)
         {
@@ -39,6 +52,8 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<SideRunnerCharacter>();
+
+        cancelButton.onClick.AddListener(resumeGame);
     }
 
 
@@ -48,17 +63,24 @@ public class SideRunnerCharacterControl : MonoBehaviour
         {
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //AudioSource.PlayClipAtPoint(quit, new Vector3());
+            doPauseGame();
+        }
     }
 
     protected void LateUpdate()
     {
-
+       
     }
 
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
-        
+        updateTimeCounter();
+
         //This is necessary to lock positions and rotations...otherwise dude goes all nilly willy.
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
@@ -91,36 +113,75 @@ public class SideRunnerCharacterControl : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             //print("Game Over? - X is " + GetComponent<Rigidbody>().position.x);
-            if (!gameOver)
-            {
-                doGameOver();
-            }
+           
+            doGameOver();
+            
             
         }
     }
     
 
-    private void doGameOver()
+    private void updateTimeCounter()
     {
-        //Show stumble animation
-        Animator animator = GetComponent<Animator>();
-        animator.SetTrigger("stumble");
-        
-        //Show game over screen
-        Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
-        gameOverAnim.SetTrigger("game_over");
+        timeLeft -= Time.deltaTime;
+        timeText.text = (int)timeLeft + "";
 
-
-        print("Final score: "+ScoreText.runnerScore);
-
-        BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
-
-        GameManager.instance.addBankEntry(be);
-        GameManager.instance.saveGame();
-
-        gameOver = true;
+        if(timeLeft < 0f)
+        {
+            doGameOver();
+        }
     }
 
+    private void doPauseGame()
+    {
+       
+        if (showingPauseUI == false)
+        {
+            Time.timeScale = 0;
+            showingPauseUI = true;
+            pauseUI.SetActive(showingPauseUI);
+
+        }else
+        {
+            //resumeGame();
+        }
+        
+        
+    }
+
+    private void doGameOver()
+    {
+        if (!gameOver)
+        {
+            
+            //Show stumble animation
+            Animator animator = GetComponent<Animator>();
+            animator.SetTrigger("stumble");
+
+            //Show game over screen
+            Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
+            gameOverAnim.SetTrigger("game_over");
+
+
+            print("Final score: " + ScoreText.runnerScore);
+
+            BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
+
+            GameManager.instance.addBankEntry(be);
+            GameManager.instance.saveGame();
+
+            gameOver = true;
+
+        }
+    }
+
+   
+    private void resumeGame()
+    {
+        showingPauseUI = !showingPauseUI;
+        pauseUI.SetActive(showingPauseUI);
+        Time.timeScale = 1;
+    }
 
 
 

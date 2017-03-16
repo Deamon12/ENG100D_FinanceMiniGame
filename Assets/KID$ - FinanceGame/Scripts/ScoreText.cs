@@ -15,6 +15,6 @@ public class ScoreText : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate() {
-        text.text = "Score: " + runnerScore;
+        text.text = "" + runnerScore;
     }
 }

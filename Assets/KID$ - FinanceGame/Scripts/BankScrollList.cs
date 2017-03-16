@@ -12,7 +12,6 @@ public class BankScrollList : MonoBehaviour
     public Sprite withdrawalSprite;
     
     public Transform contentPanel;
-    public Text myBalanceDisplay;
     public SimpleObjectPool buttonObjectPool;
 
 
@@ -24,13 +23,6 @@ public class BankScrollList : MonoBehaviour
 
     void RefreshDisplay()
     {
-        
-        //Set balance header
-        NumberFormatInfo nfi = new NumberFormatInfo();
-        nfi.CurrencyNegativePattern = 1;
-        String money = GameManager.instance.getPlayerData().getBalance().ToString("C2", nfi);
-        myBalanceDisplay.text = "Balance: " + money;
-
         //Set scrollList dynamically
         AddPanels();
     }
@@ -40,7 +32,7 @@ public class BankScrollList : MonoBehaviour
        
         List<BankEntry> itemList = GameManager.instance.getPlayerData().getBankEntryList();
 
-        for (int i = itemList.Count-1; i > 0; i--)
+        for (int i = itemList.Count-1; i >= 0; i--)
         {
             
             if (itemList[i].getAmount() < 0)
@@ -50,7 +42,7 @@ public class BankScrollList : MonoBehaviour
                 newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
                 newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
 
-                Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
+                BankPanel samplePanel = newButton.GetComponent<BankPanel>();
                 samplePanel.Setup(itemList[i], withdrawalSprite);
             }
             if (itemList[i].getAmount() > 0)
@@ -60,14 +52,13 @@ public class BankScrollList : MonoBehaviour
                 newButton.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
                 newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
 
-                Bank_panel_script samplePanel = newButton.GetComponent<Bank_panel_script>();
+                BankPanel samplePanel = newButton.GetComponent<BankPanel>();
                 samplePanel.Setup(itemList[i], depositSprite);
             }
             else //ignore 0's
             {
                 
             }
-
             
         }
     }

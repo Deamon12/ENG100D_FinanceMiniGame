@@ -5,9 +5,10 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bank_panel_script : MonoBehaviour {
+public class BillPanel : MonoBehaviour {
 
-    public Text price;
+    public Text amountText;
+    public Text descText;
     public Image iconImage;
 
 	// Use this for initialization
@@ -15,15 +16,18 @@ public class Bank_panel_script : MonoBehaviour {
 		
 	}
 
-    public void Setup(BankEntry item, Sprite sprite)
+    public void Setup(Bill item, Sprite sprite)
     {
         
         NumberFormatInfo nfi = new NumberFormatInfo();
         nfi.CurrencyNegativePattern = 1;
         String money = item.getAmount().ToString("C2", nfi);
-        price.text = money;
-        iconImage.sprite = sprite;
-        //TODO: description
+
+        amountText.text = money;
+        descText.text = item.getDescription();
+
+        //iconImage.sprite = sprite;
+        
 
     }
 

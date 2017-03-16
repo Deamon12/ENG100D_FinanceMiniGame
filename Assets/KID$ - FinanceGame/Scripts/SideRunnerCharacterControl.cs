@@ -32,7 +32,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
     public Text timeText;
     //DateTime startTime;
     //TimeSpan elapsedTime;
-    float timeLeft = 10.0f;
+    float timeLeft = 30.0f;
 
 
     private void Start()

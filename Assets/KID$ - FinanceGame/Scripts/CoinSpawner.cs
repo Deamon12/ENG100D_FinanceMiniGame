@@ -28,12 +28,15 @@ public class CoinSpawner : MonoBehaviour {
 
         float distanceBetween = GetComponent<Renderer>().bounds.size.x / numCoinsToSpawn;
 
-        //print("Put coin every " + distanceBetween + " units.");
+        print("distanceBetween: " + distanceBetween);
 
+        print("transform.position.x: "+transform.position.x);
 
-        for(int a = 0; a < numCoinsToSpawn; a++)
+        float transPos = (transform.position.x);
+
+        for (int a = 0; a < numCoinsToSpawn; a++)
         {
-            float location = transform.position.x + (distanceBetween * a);
+            float location = transPos + (distanceBetween * a); //transform.position.x +
             Instantiate(coinObj, new Vector3(location, coinHeights[Random.Range(0, coinHeights.Length)], -8), rotation);
         }
 

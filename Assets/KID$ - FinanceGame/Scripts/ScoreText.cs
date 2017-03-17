@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Globalization;
+using System;
 
 public class ScoreText : MonoBehaviour {
 
-    public static int runnerScore;
+    public static float runnerScore;
     Text text;
 
 	void Awake() {
@@ -15,6 +17,10 @@ public class ScoreText : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate() {
-        text.text = "" + runnerScore;
+
+        NumberFormatInfo nfi = new NumberFormatInfo();
+        nfi.CurrencyNegativePattern = 1;
+        String money = runnerScore.ToString("C2", nfi);
+        text.text = money;
     }
 }

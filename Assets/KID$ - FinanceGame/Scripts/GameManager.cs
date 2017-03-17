@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     //Awake is always called before any Start functions
     void Awake()
     {
-        
+
         //Check if instance already exists
         if (instance == null)
         {
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             instance = this;                        //if not, set instance to this
             InitGame();
         }
-        
+
         //If instance already exists and it's not this:
         else if (instance != this)
         {
@@ -30,18 +30,20 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    
+
+    private void Update()
+    {
+        evaluateEnergy();
+    }
 
     private void InitGame()
     {
-        //TODO
-        //createPlayer(); //for serialized object changes
         loadGame();
     }
 
     private void loadGame()
     {
-        if(File.Exists(Application.persistentDataPath + "/KID$_playerinfo.dat"))
+        if (File.Exists(Application.persistentDataPath + "/KID$_playerinfo.dat"))
         {
             try
             {
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
             {
                 createPlayer();
             }
-            
+
         }
         else
         {
@@ -67,7 +69,6 @@ public class GameManager : MonoBehaviour
 
     public void saveGame()
     {
-
         try
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -83,6 +84,18 @@ public class GameManager : MonoBehaviour
             print("Save error: " + ex.ToString());
         }
         
+    }
+
+    private void evaluateEnergy()
+    {
+
+        TimeSpan timeBetween = DateTime.Now - player.getLastEnergyGain();
+
+        for (int a = 0; a < timeBetween.Minutes; a++)       //Update every minute
+        {
+            player.addPlayerEnergy();
+            player.setLastEnergyGain(DateTime.Now);
+        }
 
     }
 

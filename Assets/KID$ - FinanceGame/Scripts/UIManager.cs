@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
     public GameObject billPayScrollview;
 
     public Text myBalanceDisplay;
+	public Text transitText;
 
     public Button scrollviewChangeButton;
 
@@ -37,6 +38,11 @@ public class UIManager : MonoBehaviour {
         showBankEntries = !showBankEntries;
         bankeEntriesScrollview.SetActive(showBankEntries);
         billPayScrollview.SetActive(!showBankEntries);
+
+		if (showBankEntries == true)
+			transitText.text = "PAY BILLS";
+		else
+			transitText.text = "BANK ENTRY";
         
     }
 

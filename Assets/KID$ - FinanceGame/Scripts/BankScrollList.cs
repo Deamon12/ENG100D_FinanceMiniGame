@@ -14,6 +14,8 @@ public class BankScrollList : MonoBehaviour
     public Transform contentPanel;
     public SimpleObjectPool buttonObjectPool;
 
+	public static BankScrollList instance = null;
+
 
     // Use this for initialization
     void Start()
@@ -26,6 +28,11 @@ public class BankScrollList : MonoBehaviour
         //Set scrollList dynamically
         AddPanels();
     }
+
+	public void updatePanels()
+	{
+		AddPanels();
+	}
     
     private void AddPanels()
     {

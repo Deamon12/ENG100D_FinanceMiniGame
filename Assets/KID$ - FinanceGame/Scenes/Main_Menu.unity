@@ -241,8 +241,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1538338183}
   m_HandleRect: {fileID: 1538338182}
   m_Direction: 0
-  m_Value: 0.49999997
-  m_Size: 0
+  m_Value: 0.5
+  m_Size: 0.87400013
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 213090758}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3166,7 +3166,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 80559ef7aeb8ec140a7917221b8551eb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3222,7 +3222,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

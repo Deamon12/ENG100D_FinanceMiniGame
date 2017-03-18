@@ -21,15 +21,13 @@ public class UIManager : MonoBehaviour {
 
     public Button scrollviewChangeButton;
     public Button earnButton;
-
-    //private float earnEnergyCost = 25f;
+    
     private bool showBankEntries = true;
 
     // Use this for initialization
     void Start () {
 
         setBalanceInfo();
-        //refreshEnergySlider();
 
         bankEntriesScrollview.SetActive(showBankEntries);
         billPayScrollview.SetActive(!showBankEntries);

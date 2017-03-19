@@ -18,7 +18,7 @@ public class UpgradeUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//player = GameManager.instance.getPlayerData();
+		player = GameManager.instance.getPlayerData();
 		//player.getGender
 
 		view1.SetActive(true);

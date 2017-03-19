@@ -31,3 +31,5 @@ EditorBuildSettings:
     path: Assets/KID$ - FinanceGame/Scenes/Toon_Terrain.unity
   - enabled: 1
     path: Assets/KID$ - FinanceGame/Scenes/Upgrade_Menu.unity
+  - enabled: 1
+    path: Assets/KID$ - FinanceGame/Scenes/Achievements.unity

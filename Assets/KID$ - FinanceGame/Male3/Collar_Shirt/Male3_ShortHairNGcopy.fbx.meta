@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4899c4abe88f72e4aaf6bb613e818459
-timeCreated: 1488515837
+timeCreated: 1489891285
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -478,20 +478,20 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Male3_ShortHairNG(Clone)
+    - name: Male3_ShortHairNGcopy(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 1, z: 0, w: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: NoGlasses
-      parentName: Male3_ShortHairNG(Clone)
+      parentName: Male3_ShortHairNGcopy(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Root_M
-      parentName: Male3_ShortHairNG(Clone)
+      parentName: Male3_ShortHairNGcopy(Clone)
       position: {x: -0, y: 0.36819696, z: 2.4651903e-34}
-      rotation: {x: -0.50643075, y: 0.4932909, z: -0.49584916, w: 0.5043071}
+      rotation: {x: 0.4958492, y: -0.5043071, z: -0.50643075, w: 0.49329087}
       scale: {x: 1, y: 1, z: 1}
     - name: BackA_M
       parentName: Root_M
@@ -576,7 +576,7 @@ ModelImporter:
     - name: IndexFinger1_L
       parentName: Wrist_L
       position: {x: 0.09216007, y: 0.004915271, z: 0.026478257}
-      rotation: {x: -0.01981292, y: -0.011412477, z: -0.06665427, w: -0.9975142}
+      rotation: {x: -0.019812917, y: -0.011412477, z: -0.066654265, w: -0.9975142}
       scale: {x: 1.000001, y: 1.0000014, z: 1}
     - name: IndexFinger2_L
       parentName: IndexFinger1_L
@@ -738,7 +738,7 @@ ModelImporter:
     - name: Ankle_R
       parentName: Knee_R
       position: {x: -0.13738635, y: 8.659739e-17, z: 2.6645352e-17}
-      rotation: {x: 0.001210384, y: -0.011746239, z: -0.06685486, w: -0.9976928}
+      rotation: {x: 0.0012103841, y: -0.011746239, z: -0.066854864, w: -0.9976928}
       scale: {x: 1.0000004, y: 1.0000012, z: 1.000001}
     - name: MiddleToe1_R
       parentName: Ankle_R

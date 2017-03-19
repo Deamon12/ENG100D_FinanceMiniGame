@@ -9,7 +9,7 @@ public class CoinSpawner : MonoBehaviour {
     public int maxCoins = 5;
     public int minCoins = 2;
 
-    private float[] coinHeights = {15f, 5f};
+    private float[] coinHeights = {15f, 10f};
     //public float maxCoinHeight;
     //public float minCoinHeight;
 
@@ -26,13 +26,15 @@ public class CoinSpawner : MonoBehaviour {
         //print("Collider: "+GetComponent<Collider>().bounds.size.x);
         //print("Renderer: "+GetComponent<Renderer>().bounds.size.x);
 
-        float distanceBetween = GetComponent<Renderer>().bounds.size.x / numCoinsToSpawn;
 
-        print("distanceBetween: " + distanceBetween);
+        float landWidth = GetComponent<Renderer>().bounds.size.x;
+        float distanceBetween = landWidth / numCoinsToSpawn;
 
-        print("transform.position.x: "+transform.position.x);
+        //print("distanceBetween: " + distanceBetween);
 
-        float transPos = (transform.position.x);
+        //print("transform.position.x: "+transform.position.x);
+
+        float transPos = (transform.position.x)-(landWidth/2);
 
         for (int a = 0; a < numCoinsToSpawn; a++)
         {

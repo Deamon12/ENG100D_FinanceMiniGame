@@ -4,8 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerData
 {
-
-
+    
     private List<Bill> billList;
     private List<Achievement> achieveEarnedList;
     private List<Upgrade> upgradeEarnedList;
@@ -20,6 +19,9 @@ public class PlayerData
     private DateTime lastEnergyGain;
     private DateTime lastEnergyRemove;
 
+    private int coinsCollectedTotal;
+    private int coinsCollectedThisGame;
+
     public PlayerData()
     {
         creationDate = DateTime.Now;
@@ -28,6 +30,7 @@ public class PlayerData
         upgradeEarnedList = new List<Upgrade>();
         bankEntryList = new List<BankEntry>();
 
+        coinsCollectedTotal = 0;
         playerEnergy = 100;
         lastEnergyGain = DateTime.Now;
         billList.Add(new Bill("Phone", 2.0f));
@@ -93,8 +96,7 @@ public class PlayerData
         if (playerEnergy > 100) { playerEnergy = 100; }
         lastEnergyGain = DateTime.Now;
     }
-
-
+    
     public DateTime getLastEnergyGain()
     {
         return lastEnergyGain;
@@ -104,6 +106,16 @@ public class PlayerData
     {
         lastEnergyGain = datetime;
     }
+
+
+    public void addCoinToCount()
+    {
+        coinsCollectedThisGame += 1;
+        coinsCollectedTotal += 1;
+    }
+
+
+
 
     public String toString() //For debug
     {

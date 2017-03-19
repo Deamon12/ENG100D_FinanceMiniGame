@@ -10,7 +10,6 @@ public class SideRunnerCharacterControl : MonoBehaviour
     public GameObject pauseUI;
     public Button cancelButton;
 
-
     private SideRunnerCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
     private Transform m_Cam;                  // A reference to the main camera in the scenes transform
     private Vector3 m_CamForward;             // The current forward direction of the camera
@@ -30,10 +29,9 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     //Time Counter
     public Text timeText;
-    //DateTime startTime;
-    //TimeSpan elapsedTime;
-    float timeLeft = 30.0f;
+    float timeLeft = 300.0f;
 
+    public static int coinsCollectedThisGame;
 
     private void Start()
     {
@@ -107,17 +105,17 @@ public class SideRunnerCharacterControl : MonoBehaviour
         m_Character.Move(new Vector3(h, 0, 0), crouch, m_Jump);     // pass all parameters to the character control script
         m_Jump = false;
     }
+
     
+
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
         {
             //print("Game Over? - X is " + GetComponent<Rigidbody>().position.x);
-           
             doGameOver();
-            
-            
         }
+        
     }
     
 
@@ -135,7 +133,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
     private void doPauseGame()
     {
        
-        if (showingPauseUI == false)
+        if (showingPauseUI == false && !gameOver)
         {
             Time.timeScale = 0;
             showingPauseUI = true;

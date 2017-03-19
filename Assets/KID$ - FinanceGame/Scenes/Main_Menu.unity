@@ -101,7 +101,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -194.75
+      value: -194.96
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -109,7 +109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.541
+      value: 40.912
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -133,15 +133,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 488.26093
+      value: 604.60583
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 305.16324
+      value: 377.8789
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 305.16324
+      value: 377.8789
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d708f82cc8ad4fa4894622148fedc3e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1538338183}
   m_HandleRect: {fileID: 1538338182}
   m_Direction: 0
-  m_Value: 0.5
-  m_Size: 0.8740001
+  m_Value: 0.4999991
+  m_Size: 0.874
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -733,7 +733,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -863,16 +863,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280317602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: -3.0983}
+  m_LocalScale: {x: 0.6191422, y: 0.61914223, z: 0.61914223}
   m_Children:
   - {fileID: 569371555}
   m_Father: {fileID: 473604250}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.8, y: -118}
+  m_AnchoredPosition: {x: -187.59, y: -144.93}
   m_SizeDelta: {x: 176.4, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280317604
@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &341679990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1167,9 +1167,9 @@ MonoBehaviour:
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 381701072}
   m_HorizontalScrollbar: {fileID: 820324787}
-  m_VerticalScrollbar: {fileID: 1268284650}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
@@ -1562,9 +1562,9 @@ RectTransform:
   - {fileID: 2130872022}
   - {fileID: 523611634}
   - {fileID: 1660708639}
+  - {fileID: 1908285877}
   - {fileID: 280317603}
   - {fileID: 780649267}
-  - {fileID: 1908285877}
   - {fileID: 1720703188}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2388,12 +2388,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 780649266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -277, y: 118.1, z: 17.231215}
-  m_LocalScale: {x: 23.754333, y: 23.754333, z: 23.754333}
+  m_LocalPosition: {x: -296.81, y: 147.43, z: 18.239}
+  m_LocalScale: {x: 29.41462, y: 29.414621, z: 29.414621}
   m_Children:
   - {fileID: 624144848}
   m_Father: {fileID: 473604250}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &780649268
 SpriteRenderer:
@@ -2700,8 +2700,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1444879482}
   m_HandleRect: {fileID: 1444879481}
   m_Direction: 0
-  m_Value: 0.5
-  m_Size: 0.874
+  m_Value: 0.5000003
+  m_Size: 0.87399995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3047,7 +3047,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.000000270586, y: 0.0000076293945}
-  m_SizeDelta: {x: 100, y: 18}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &949124219
 MonoBehaviour:
@@ -3116,7 +3116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &966025284
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3805,7 +3805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1268284649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4811,7 +4811,7 @@ MonoBehaviour:
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 1236540133}
   m_HorizontalScrollbar: {fileID: 20393744}
-  m_VerticalScrollbar: {fileID: 966025285}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
   m_VerticalScrollbarVisibility: 1
   m_HorizontalScrollbarSpacing: -3
@@ -5231,7 +5231,7 @@ RectTransform:
   - {fileID: 259303390}
   - {fileID: 2026201246}
   m_Father: {fileID: 473604250}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

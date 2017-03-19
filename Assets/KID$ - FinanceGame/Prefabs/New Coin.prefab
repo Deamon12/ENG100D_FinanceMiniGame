@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4555793882458026}
   - component: {fileID: 33179736820565646}
   - component: {fileID: 23190726875016870}
-  - component: {fileID: 114965975903448560}
   - component: {fileID: 136007976333333834}
+  - component: {fileID: 114965975903448560}
   m_Layer: 0
   m_Name: New Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

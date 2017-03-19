@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour {
         //Set balance header
         NumberFormatInfo nfi = new NumberFormatInfo();
         nfi.CurrencyNegativePattern = 1;
-        String money = GameManager.instance.getPlayerData().getBalance().ToString("C2", nfi);
+		String money = GameManager.instance.getPlayerData().getBalance().ToString("C2", nfi);
         myBalanceDisplay.text = "" + money;
     }
 

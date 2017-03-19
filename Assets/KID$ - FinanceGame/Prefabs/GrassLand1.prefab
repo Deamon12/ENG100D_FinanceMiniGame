@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 23692571362840688}
   - component: {fileID: 114483381147487748}
   - component: {fileID: 114991866565610676}
-  - component: {fileID: 114302242636544426}
+  - component: {fileID: 114631480604945918}
   m_Layer: 0
   m_Name: GrassLand1
   m_TagString: Ground
@@ -1497,7 +1497,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114302242636544426
+--- !u!114 &114483381147487748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864315060756624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35465f47b93587d448f3395a0c88d300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinObj: {fileID: 1636757998186644, guid: 8e983b1b9e2d2504eb9bc4ed502e1d93, type: 2}
+  maxCoins: 15
+  minCoins: 8
+--- !u!114 &114631480604945918
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1512,21 +1526,7 @@ MonoBehaviour:
   - {fileID: 1180346092121516, guid: a288a3c1c6bd46542ad728065fa21bc2, type: 2}
   - {fileID: 1811174496888518, guid: 9f0f6c3e268d6224ebc1ca972ee5721c, type: 2}
   maxObjs: 2
-  minObjs: 0
---- !u!114 &114483381147487748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864315060756624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35465f47b93587d448f3395a0c88d300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinObj: {fileID: 1636757998186644, guid: 8e983b1b9e2d2504eb9bc4ed502e1d93, type: 2}
-  maxCoins: 8
-  minCoins: 4
+  minObjs: 1
 --- !u!114 &114991866565610676
 MonoBehaviour:
   m_ObjectHideFlags: 1

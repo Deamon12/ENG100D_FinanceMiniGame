@@ -10,8 +10,9 @@ public class UpgradeUIManager : MonoBehaviour {
 
 	private PlayerData player;
 
-	public Button view1Button;
-	public Button view2Button;
+	private Component[] panels;
+
+	public Text balance;
 
 	public GameObject view1;
 	public GameObject view2;
@@ -19,19 +20,26 @@ public class UpgradeUIManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameManager.instance.getPlayerData();
-		//player.getGender
+		/*
+		 * if(player.getGender() == Girl) {
+		 * 	displaySet1()
+		 * }
+		 * else {
+		 *  displaySet2()
+		 * }
+		 */
 
 		view1.SetActive(true);
 		view2.SetActive (false);
 
-		//view1Button.onClick.AddListener(displaySet1);
-		//view2Button.onClick.AddListener(displaySet2);
+		balance.text = "Total: " + player.getBalance();
+
+		panels = view1.GetComponents<upgradePanel>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		view1Button.onClick.AddListener(displaySet1);
-		view2Button.onClick.AddListener(displaySet2);
 	}
 
 	private void displaySet1() {

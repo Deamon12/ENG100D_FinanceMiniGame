@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
         player = new PlayerData();
         saveGame();
         //TODO: Show tutorial?
+
     }
 
     public PlayerData getPlayerData()

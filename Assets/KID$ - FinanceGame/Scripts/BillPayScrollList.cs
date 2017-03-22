@@ -23,7 +23,7 @@ public class BillPayScrollList : MonoBehaviour
 
     void RefreshDisplay()
     {
-
+        clearPanels();
         //Set scrollList dynamically
         AddPanels();
     }
@@ -42,8 +42,16 @@ public class BillPayScrollList : MonoBehaviour
             newButton.transform.SetParent(contentPanel, false);                 //The bool on this line saved my life
 
             BillPanel samplePanel = newButton.GetComponent<BillPanel>();    //Script attached to prefab object
-            samplePanel.Setup(itemList[i], withdrawalSprite);
+            samplePanel.Setup(itemList[i], withdrawalSprite, i);
 
+        }
+    }
+
+    private void clearPanels()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 

@@ -18,14 +18,18 @@ public class BankPanel : MonoBehaviour {
 
     public void Setup(BankEntry item, Sprite sprite)
     {
-        
-        NumberFormatInfo nfi = new NumberFormatInfo();
-        nfi.CurrencyNegativePattern = 1;
-        String money = item.getAmount().ToString("C2", nfi);
-        price.text = money;
+        price.text = formatCurrencyString(item.getAmount());
         iconImage.sprite = sprite;
         descText.text = item.getDescription();
 
     }
+
+    private String formatCurrencyString(float amount)
+    {
+        NumberFormatInfo nfi = new NumberFormatInfo();
+        nfi.CurrencyNegativePattern = 1;
+        return amount.ToString("C2", nfi);
+    }
+
 
 }

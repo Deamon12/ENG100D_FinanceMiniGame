@@ -159,13 +159,10 @@ public class SideRunnerCharacterControl : MonoBehaviour
             //Show game over screen
             Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
             gameOverAnim.SetTrigger("game_over");
+            
+            BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned", DateTime.Now);
 
-
-            print("Final score: " + ScoreText.runnerScore);
-
-            BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned");
-
-            GameManager.instance.addBankEntry(be);
+            GameManager.instance.getPlayerData().addBankEntry(be);
             GameManager.instance.saveGame();
 
             gameOver = true;

@@ -4,12 +4,15 @@ using System.Collections.Generic;       //Allows us to use Lists.
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
     private PlayerData player;
+
+    public GameObject errorDialog;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -28,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);                    //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
         }
-
+        
     }
 
     private void Update()
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
             bf.Serialize(file, player);
             file.Close();
 
-            print("Save success");
+            //print("Save success");
         }
         catch (Exception ex)
         {
@@ -101,7 +104,6 @@ public class GameManager : MonoBehaviour
 
     private void createPlayer()
     {
-        print("Creating player data");
         player = new PlayerData();
         saveGame();
         //TODO: Show tutorial?
@@ -111,16 +113,31 @@ public class GameManager : MonoBehaviour
     {
         return player;
     }
-
+    
+    //Perform operation and save game afterward
     public void addBankEntry(BankEntry entry)
     {
-        if (player != null)
-            player.addBankEntry(entry);
-        else
-            print("Player is null");
+        player.addBankEntry(entry);
+        saveGame();
     }
 
+    public void payBill(int billIndex)
+    {
+        Bill theBill = player.getBillList()[billIndex];
+        BankEntry newEntry = new BankEntry(-theBill.getAmount(), theBill.getDescription(), DateTime.Now);
 
+        player.getBillList()[billIndex].payBill();
+        addBankEntry(newEntry);
+    }
+
+    public void showErrorDialog(String message) {
+
+        //TODO: create new errorDialog from prefab?
+        errorDialog.GetComponentInChildren<Text>().text = message;
+
+        Animator errorAnim = errorDialog.GetComponent<Animator>();
+        errorAnim.SetTrigger("animate");
+    }
 
 }
 

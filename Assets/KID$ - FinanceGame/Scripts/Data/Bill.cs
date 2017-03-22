@@ -5,20 +5,27 @@ public class Bill  {
 
     private string description;
     private float amount;
-    private DateTime lastPaid;
-	//private DateTime dueDate;
+	private DateTime dueDate;
+    private double payInterval = 24;        //in hours
 
     public Bill()
     {
-        lastPaid = DateTime.Now;
+        dueDate = (DateTime.Now).AddHours(payInterval);
     }
 
     public Bill(string desc, float amt)
     {
         this.description = desc;
         this.amount = amt;
-        lastPaid = DateTime.Now;
-		//dueDate = (lastPaid).AddDays (1);
+        dueDate = (DateTime.Now).AddHours(payInterval);
+    }
+
+    public Bill(string desc, float amt, int interval)
+    {
+        this.description = desc;
+        this.amount = amt;
+        this.payInterval = interval;
+        dueDate = (DateTime.Now).AddHours(payInterval);
     }
 
     public string getDescription()
@@ -31,14 +38,14 @@ public class Bill  {
         return amount;
     }
 
-    public void setPaid(DateTime date)
+    public void payBill()
     {
-        lastPaid = date;
+        dueDate = dueDate.AddHours(payInterval);
     }
 
-    public DateTime getPaidDateTime()
+    public DateTime getDueDate()
     {
-        return lastPaid;
+        return dueDate;
     }
 
 }

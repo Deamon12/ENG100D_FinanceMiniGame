@@ -8,13 +8,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public int earnSceneIndex;
+    public int earnSceneIndex; //in case this changes some day
 
     public GameObject bankEntriesScrollview;
     public GameObject billPayScrollview;
 
     public Slider energySlider;
     public Text energyText;
+
+    public GameObject billPayAlertImage;
 
     public Text myBalanceDisplay;
 	public Text transitText;
@@ -37,8 +39,13 @@ public class UIManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
+    // These may not be the most efficient way to refresh UI
 	void Update () {
         refreshEnergySlider();
+        checkForBillPay();
+
+        setBalanceInfo();
+
     }
 
     private void changeView()
@@ -48,30 +55,35 @@ public class UIManager : MonoBehaviour {
         billPayScrollview.SetActive(!showBankEntries);
 
 		if (showBankEntries == true)
-			transitText.text = "Pay Bills";
-		else
-			transitText.text = "Bank";
+        {
+            transitText.text = "Pay Bills";
+            bankEntriesScrollview.BroadcastMessage("RefreshDisplay", SendMessageOptions.DontRequireReceiver);
+        }
 
-        setBalanceInfo();
+        else
+        {
+            transitText.text = "Bank";
+            //bankEntriesScrollview.BroadcastMessage("RefreshDisplay", SendMessageOptions.DontRequireReceiver);
+        }
 
     }
 
     private void setBalanceInfo()
     {
         //Set balance header
-        NumberFormatInfo nfi = new NumberFormatInfo();
-        nfi.CurrencyNegativePattern = 1;
-		String money = GameManager.instance.getPlayerData().getBalance().ToString("C2", nfi);
-        myBalanceDisplay.text = "" + money;
+        myBalanceDisplay.text = formatCurrencyString(GameManager.instance.getPlayerData().getBalance());
     }
 
 
     private void refreshEnergySlider()
     {
-        float energy = GameManager.instance.getPlayerData().getPlayerEnergy();
-        print(energy);
-        energySlider.value = energy;
-        energyText.text = energy + " / 100";
+        if(GameManager.instance != null)
+        {
+            float energy = GameManager.instance.getPlayerData().getPlayerEnergy();
+            energySlider.value = energy;
+            energyText.text = energy + " / 100";
+        }
+        
     }
 
     private void earnClick()
@@ -89,5 +101,26 @@ public class UIManager : MonoBehaviour {
         }
 
     }
+    
+    private void checkForBillPay()
+    {
+
+        if (GameManager.instance.getPlayerData().isBillDue())
+        {
+            billPayAlertImage.SetActive(true);
+        }
+        else
+        {
+            billPayAlertImage.SetActive(false);
+        }
+    }
+
+    private String formatCurrencyString(float amount)
+    {
+        NumberFormatInfo nfi = new NumberFormatInfo();
+        nfi.CurrencyNegativePattern = 1;
+        return amount.ToString("C2", nfi);
+    }
+    
 
 }

@@ -25,15 +25,11 @@ public class BankScrollList : MonoBehaviour
 
     void RefreshDisplay()
     {
-        //Set scrollList dynamically
+        clearPanels();
         AddPanels();
     }
 
-	public void updatePanels()
-	{
-		AddPanels();
-	}
-    
+    // Build scrollList dynamically
     private void AddPanels()
     {
        
@@ -69,5 +65,13 @@ public class BankScrollList : MonoBehaviour
             
         }
     }
-    
+
+    private void clearPanels()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 }

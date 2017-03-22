@@ -682,8 +682,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529415176838890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: 0.5}
-  m_LocalScale: {x: 1, y: 17, z: 0.04}
+  m_LocalPosition: {x: 0, y: 7.2, z: 0.5}
+  m_LocalScale: {x: 1, y: 13.349731, z: 0.04}
   m_Children: []
   m_Father: {fileID: 4891462294133136}
   m_RootOrder: 12
@@ -747,7 +747,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864315060756624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.51838, y: -21.668697, z: -216.8}
   m_LocalScale: {x: 200, y: 5, z: 45}
   m_Children:
   - {fileID: 4092507238463348}
@@ -1525,8 +1525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinObj: {fileID: 1636757998186644, guid: 8e983b1b9e2d2504eb9bc4ed502e1d93, type: 2}
-  maxCoins: 8
-  minCoins: 4
+  maxCoins: 15
+  minCoins: 5
 --- !u!114 &114991866565610676
 MonoBehaviour:
   m_ObjectHideFlags: 1

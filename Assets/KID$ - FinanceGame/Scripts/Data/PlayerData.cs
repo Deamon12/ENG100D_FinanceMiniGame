@@ -33,7 +33,9 @@ public class PlayerData
         coinsCollectedTotal = 0;
         playerEnergy = 100;
         lastEnergyGain = DateTime.Now;
-        billList.Add(new Bill("Phone", 2.0f));
+        billList.Add(new Bill("Phone", 3.0f, 24));
+        billList.Add(new Bill("Food", 5.0f, 12));
+        billList.Add(new Bill("Upgrade", 2, 3));
     }
 
     public float getBalance()
@@ -60,7 +62,7 @@ public class PlayerData
 
     public void addBankEntry(BankEntry entry)
     {
-        if (entry.getAmount() != 0)  //omit 0 entries?
+        if (entry.getAmount() < 0 || entry.getAmount() > 0)  //omit 0 entries?
             bankEntryList.Add(entry);
     }
 
@@ -115,6 +117,22 @@ public class PlayerData
     }
 
 
+    public bool isBillDue()
+    {
+        for(int a = 0; a < billList.Count; a++)
+        {
+            if ((billList[a].getDueDate() - DateTime.Now).Hours < 3)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void payBill(int billIndex)
+    {
+        billList[billIndex].payBill();
+    }
 
 
     public String toString() //For debug

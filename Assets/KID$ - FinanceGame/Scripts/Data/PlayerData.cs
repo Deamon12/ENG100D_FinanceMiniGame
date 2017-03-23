@@ -16,6 +16,10 @@ public class PlayerData
     private float playerEnergyCost = 25f;
     private float playerEnergyGain = 5f;
 
+    private float earnTimeIncrease = 0f;
+    private float earnBonusAmount = 0f;
+    private float earnSpeedIncrease = 0f;
+
     private DateTime creationDate;
     private DateTime lastEnergyGain;
     private DateTime lastEnergyRemove;
@@ -23,10 +27,12 @@ public class PlayerData
     private int coinsCollectedTotal;
     private int coinsCollectedThisGame;
 
-    private int gender;
+    private int gender;     //0 boy, 1 girl, -1 null
+    private int skinColor;  //0 dark, 1 med, 2 light
+    private int outfitIndex;
 
-    private Material faceMaterial;
-    private Material bodyMaterial;
+    //private Material faceMaterial;
+    //private Material bodyMaterial;
 
     public PlayerData()
     {
@@ -44,6 +50,7 @@ public class PlayerData
         billList.Add(new Bill("Upgrade", 2, 3));        //test
 
         gender = -1;
+        skinColor = -1;
     }
 
     public float getBalance()
@@ -147,26 +154,30 @@ public class PlayerData
         return gender;
     }
 
-    public void setBodyMaterial(Material body)
+    public void setGender(int gender)
     {
-        bodyMaterial = body;
+        this.gender = gender;
+    }
+    
+    public void setSkinTone(int skinColor)
+    {
+        this.skinColor = skinColor;
     }
 
-    public Material getBodyMaterial()
+    public int getSkinColor()
     {
-        return bodyMaterial;
+        return skinColor;
     }
 
-    public void setFaceMaterial(Material face)
+    public int getOutfitIndex()
     {
-        faceMaterial = face;
+        return outfitIndex;
     }
 
-    public Material getFaceMaterial()
+    public void setOutfitIndex(int outfitIndex)     //This must match up with skin color
     {
-        return faceMaterial;
+        this.outfitIndex = outfitIndex;
     }
-
 
     public String toString() //For debug
     {

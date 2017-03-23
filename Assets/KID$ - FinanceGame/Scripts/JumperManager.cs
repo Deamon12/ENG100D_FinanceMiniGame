@@ -7,16 +7,21 @@ public class JumperManager : MonoBehaviour {
     public GameObject femalePlayer;
     public GameObject malePlayer;
 
-    //public Material[] testList;
-
     private int gender;         //1 for female
+    private int skinColor;
+    private int outfitIndex;
     
-	void Start () {
+
+    void Start () {
         gender = GameManager.instance.getPlayerData().getGender();
+        skinColor = GameManager.instance.getPlayerData().getSkinColor();
+        outfitIndex = GameManager.instance.getPlayerData().getOutfitIndex();
 
-        gender = 1;
-
-        if(gender == 1)
+        //print("Gender: "+gender);
+        //print("skinColor: " + skinColor);
+        //print("outfitIndex: " + outfitIndex);
+        
+        if (gender == 1)
         {
             femalePlayer.SetActive(true);
             malePlayer.SetActive(false);
@@ -34,28 +39,29 @@ public class JumperManager : MonoBehaviour {
     }
 	
 	void Update () {
-
-        //int selection = Random.Range(0, testList.Length);
-        //malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().material = testList[selection];
-       
+        
 
     }
 
     private void setMaleTextures()
     {
-        //int selection = Random.Range(0, testList.Length);
-        //maleModel.GetComponent<SkinnedMeshRenderer>().materials[0] = testList[selection];
+        
+        malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = GameManager.instance.maleBodyList[outfitIndex];
+        malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[1].mainTexture = GameManager.instance.maleFaceList[outfitIndex];
 
-
-        malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[0] = GameManager.instance.getPlayerData().getBodyMaterial();
-        malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[1] = GameManager.instance.getPlayerData().getFaceMaterial();
+        //TODO
+        //malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[0] = GameManager.instance.getPlayerData().getBodyMaterial();
+        //malePlayer.transform.FindChild("NoGlasses").transform.GetComponent<SkinnedMeshRenderer>().materials[1] = GameManager.instance.getPlayerData().getFaceMaterial();
     }
 
     private void setFemaleTextures()
     {
-        femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[0] = GameManager.instance.getPlayerData().getBodyMaterial();
-        femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[1] = GameManager.instance.getPlayerData().getFaceMaterial();
-       // femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().material = testList[2];
+        
+        femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = GameManager.instance.femaleFaceList[outfitIndex];      //face
+        femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[1].mainTexture = GameManager.instance.femaleFaceList[outfitIndex];      //face
+        femalePlayer.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[2].mainTexture = GameManager.instance.femaleBodyList[outfitIndex];      //Body
+        
+
     }
 
 }

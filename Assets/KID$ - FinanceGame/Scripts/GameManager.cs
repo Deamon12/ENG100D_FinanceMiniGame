@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour
     private PlayerData player;
 
     public GameObject errorDialog;
+    public GameObject createPlayerDialog;
+
+    public Texture[] maleBodyList;
+    public Texture[] femaleBodyList;
+
+    public Texture[] maleFaceList;
+    public Texture[] femaleFaceList;
+
 
     //Awake is always called before any Start functions
     void Awake()
@@ -42,6 +50,16 @@ public class GameManager : MonoBehaviour
     private void InitGame()
     {
         loadGame();
+
+        if(player.getGender() == -1  || player.getSkinColor() == -1)
+        {
+            //TODO: Show tutorial?
+            showTutorial();
+        }
+        else
+        {
+            createPlayerDialog.SetActive(false);
+        }
     }
 
     private void loadGame()
@@ -80,7 +98,7 @@ public class GameManager : MonoBehaviour
             bf.Serialize(file, player);
             file.Close();
 
-            //print("Save success");
+            print("Save success");
         }
         catch (Exception ex)
         {
@@ -102,13 +120,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    //This method should be reached initially from the Main_Menu scene...
+    //So I am only handling that case for now...time restrictions...
     private void createPlayer()
     {
         player = new PlayerData();
         saveGame();
 
-        //TODO: Show tutorial?
-        showTutorial();
+        
 
     }
 
@@ -134,7 +153,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void showErrorDialog(String message) {
-        
+
+        //TODO: create new errorDialog from prefab if dont exist?
         errorDialog.GetComponentInChildren<Text>().text = message;
 
         Animator errorAnim = errorDialog.GetComponent<Animator>();
@@ -144,7 +164,17 @@ public class GameManager : MonoBehaviour
 
     private void showTutorial()
     {
+        Animator createAnim = createPlayerDialog.GetComponent<Animator>();
+        createAnim.SetTrigger("trigger_create");
+    }
 
+    public void setPlayerOptions(int gender, int skinColor, int outfitIndex)
+    {
+        player.setGender(gender);
+        player.setSkinTone(skinColor);
+        player.setOutfitIndex(outfitIndex);
+
+        saveGame();
     }
 
 }

@@ -20,7 +20,8 @@ public class JumperManager : MonoBehaviour {
         //print("Gender: "+gender);
         //print("skinColor: " + skinColor);
         //print("outfitIndex: " + outfitIndex);
-        
+        gender = 1;
+
         if (gender == 1)
         {
             femalePlayer.SetActive(true);

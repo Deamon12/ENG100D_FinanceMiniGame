@@ -184,7 +184,10 @@ public class PlayerData
         return " billList size: " + billList.Count + "\n" +
             "achieveEarnedList: :" + achieveEarnedList.Count + "\n" +
             "upgradeEarnedList: :" + upgradeEarnedList.Count + "\n" +
-            "bankEntryList: :" + bankEntryList.Count;
+            "bankEntryList: :" + bankEntryList.Count + "\n" +
+            "gender: " + gender + "\n" + 
+            "skinColor: " + skinColor + "\n" +
+            "outfitIndex: " + outfitIndex;
     }
     
 

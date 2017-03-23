@@ -53,12 +53,15 @@ public class GameManager : MonoBehaviour
 
         if(player.getGender() == -1  || player.getSkinColor() == -1)
         {
+            print("player.getSkinColor(): " + player.getSkinColor());
+            print("player.getGender(): " + player.getGender());
             //TODO: Show tutorial?
             showTutorial();
         }
         else
         {
-            createPlayerDialog.SetActive(false);
+            if(createPlayerDialog != null)
+                createPlayerDialog.SetActive(false);
         }
     }
 

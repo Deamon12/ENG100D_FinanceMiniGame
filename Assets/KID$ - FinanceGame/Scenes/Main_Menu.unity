@@ -4524,27 +4524,27 @@ MonoBehaviour:
   errorDialog: {fileID: 484649440}
   createPlayerDialog: {fileID: 583200687}
   maleBodyList:
-  - {fileID: 2100000, guid: 8eaf35fd126933b4f9f12d7b6d3e5a72, type: 2}
-  - {fileID: 2100000, guid: 31318457a2c37204ea52fc81bbe35500, type: 2}
-  - {fileID: 2100000, guid: cd975282c457ea24291e72c1f8ff1fcf, type: 2}
-  - {fileID: 2100000, guid: e8c2c0aff02d60449adf35b74743f506, type: 2}
-  - {fileID: 2100000, guid: 7e453bd9b42ce7747a4490e3223def67, type: 2}
-  - {fileID: 2100000, guid: 8b792c4af3202cb4cb8113baf8b2f704, type: 2}
+  - {fileID: 2800000, guid: d8b32a7fc732e2a49a9b6f018b9782ec, type: 3}
+  - {fileID: 2800000, guid: 4a12c62f5f8a76249987b546e16f1db9, type: 3}
+  - {fileID: 2800000, guid: 5579a01b3b6e7524bbe7f376c08b4775, type: 3}
+  - {fileID: 2800000, guid: d814916e50d370b40862579c1cd8092f, type: 3}
+  - {fileID: 2800000, guid: d7fe2d145b450d8479a31e6cd5165cd4, type: 3}
+  - {fileID: 2800000, guid: 1198732de98898441baf9119f69e83ae, type: 3}
   femaleBodyList:
-  - {fileID: 2100000, guid: 597d0ac2a6c66f346bc7b72d68e04a14, type: 2}
-  - {fileID: 2100000, guid: 83ff307b08ba7e149bffae75750b1c58, type: 2}
-  - {fileID: 2100000, guid: 308527387d04387448fe7447efd067f6, type: 2}
-  - {fileID: 2100000, guid: 2f735240476e5fb43b411b524fc7d204, type: 2}
-  - {fileID: 2100000, guid: ca72e47af08532c4a85db4f15c650016, type: 2}
-  - {fileID: 2100000, guid: d258320bbde672040b10b80cdab70aa9, type: 2}
+  - {fileID: 2800000, guid: 18273bc5a803adf49a335782424befcc, type: 3}
+  - {fileID: 2800000, guid: fd1d2c9bff25366418c709fd22d5ee4b, type: 3}
+  - {fileID: 2800000, guid: 96c3808fb5a62a343b36f863a19f68ae, type: 3}
+  - {fileID: 2800000, guid: 48c4cc3b26a17c04ebf703661c584e3c, type: 3}
+  - {fileID: 2800000, guid: c9a3dfad467dde149b76001c3b9c888f, type: 3}
+  - {fileID: 2800000, guid: 1fa5d8ed1443b9f4cb3443bb104cd8de, type: 3}
   maleFaceList:
-  - {fileID: 2100000, guid: 02399734e48f91c46bec153138f5d631, type: 2}
-  - {fileID: 2100000, guid: b09b2785d446ead4cb3a19f6add9ead5, type: 2}
-  - {fileID: 2100000, guid: 059dad07890b4f947b3610fa18ad4417, type: 2}
+  - {fileID: 2800000, guid: c74b024e1cb2e3e4988be2af50672968, type: 3}
+  - {fileID: 2800000, guid: 7491350ae4545374ebfe2ffac6d9e285, type: 3}
+  - {fileID: 2800000, guid: 2f1b8eb8638313342bc1447076b19da8, type: 3}
   femaleFaceList:
-  - {fileID: 2100000, guid: e7c6ea1ac924de34eb52aefd3608d22e, type: 2}
-  - {fileID: 2100000, guid: 81ca87703be5cc940a88ecca5e10ca4f, type: 2}
-  - {fileID: 2100000, guid: 077ac97a4e861e14aa4ac7932887ee3a, type: 2}
+  - {fileID: 2800000, guid: e1e3e8ff710643b41b985aa2ec97c2d3, type: 3}
+  - {fileID: 2800000, guid: 5267701f35835b44ca52db03ef6a3d5e, type: 3}
+  - {fileID: 2800000, guid: 6ef914f9d1d27a54b9d0ca1c23009fae, type: 3}
 --- !u!4 &1025320071
 Transform:
   m_ObjectHideFlags: 0
@@ -6062,7 +6062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1576596233
 RectTransform:
   m_ObjectHideFlags: 0

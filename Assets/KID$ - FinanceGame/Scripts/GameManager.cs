@@ -117,8 +117,11 @@ public class GameManager : MonoBehaviour
 
         for (int a = 0; a < timeBetween.Minutes; a++)       //Update every minute
         {
-            player.addPlayerEnergy();
-            player.setLastEnergyGain(DateTime.Now);
+            //if(a > 0) {
+                player.addPlayerEnergy();
+                player.setLastEnergyGain(DateTime.Now);
+            //}
+            
         }
 
     }

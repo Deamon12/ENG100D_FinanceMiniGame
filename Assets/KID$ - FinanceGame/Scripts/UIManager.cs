@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour {
 
     public Slider energySlider;
     public Text energyText;
+    public Text energyCountdown;
+    public ParticleSystem energySparkle;
 
     public GameObject billPayAlertImage;
 
@@ -63,7 +65,6 @@ public class UIManager : MonoBehaviour {
         else
         {
             transitText.text = "Bank";
-            //bankEntriesScrollview.BroadcastMessage("RefreshDisplay", SendMessageOptions.DontRequireReceiver);
         }
 
     }
@@ -80,10 +81,33 @@ public class UIManager : MonoBehaviour {
         if(GameManager.instance != null)
         {
             float energy = GameManager.instance.getPlayerData().getPlayerEnergy();
+            DateTime lastEnergyUpdate = GameManager.instance.getPlayerData().getLastEnergyGain();
+            TimeSpan timeBetween = lastEnergyUpdate.AddMinutes(1) - DateTime.Now ;              //countdown
+
+
             energySlider.value = energy;
             energyText.text = energy + " / 100";
+
+            if (energy < 100)
+            {
+                energyCountdown.text = timeBetween.Seconds + " secs";
+
+                if(energySparkle.isStopped)
+                    energySparkle.Play();
+            }
+            else
+            {
+                print("energy is full");
+                energyCountdown.text = "";
+
+                if (energySparkle.isPlaying)
+                    energySparkle.Stop();
+            }
         }
+
         
+
+
     }
 
     private void earnClick()

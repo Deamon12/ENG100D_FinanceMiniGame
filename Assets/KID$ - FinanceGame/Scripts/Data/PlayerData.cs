@@ -93,7 +93,7 @@ public class PlayerData
 
     public bool playerCanEarn()
     {
-        if ((playerEnergy - playerEnergyCost) > 0)
+        if ((playerEnergy - playerEnergyCost) >= 0)
         {
             return true;
         }

@@ -21,6 +21,9 @@ public class GameOverJumper : MonoBehaviour {
         float highestAmount = GameManager.instance.getPlayerData().getHighestAmountCollected();
         float currentAmount = ScoreText.runnerScore;
 
+        if (currentAmount > highestAmount)
+            highestAmount = currentAmount;
+
         coinCountText.text = coinsThisGame+"";
         currentAmountText.text = formatCurrencyString(currentAmount);
         highestAmountText.text = formatCurrencyString(highestAmount);

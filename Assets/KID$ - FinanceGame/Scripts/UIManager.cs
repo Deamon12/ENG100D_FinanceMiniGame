@@ -122,6 +122,7 @@ public class UIManager : MonoBehaviour {
         else
         {
             //TODO, show cannot play dialog
+            GameManager.instance.showErrorDialog("Not enough energy");
         }
 
     }

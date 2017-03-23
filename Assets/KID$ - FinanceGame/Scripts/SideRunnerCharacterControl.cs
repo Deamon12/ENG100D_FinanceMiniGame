@@ -33,6 +33,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     private void Start()
     {
+        timeLeft = 25.0f;
         timeStartedWith = timeLeft;
         GameManager.instance.getPlayerData().resetCoinsThisGame();
 

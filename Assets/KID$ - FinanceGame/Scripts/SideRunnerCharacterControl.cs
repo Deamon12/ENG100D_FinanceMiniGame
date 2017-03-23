@@ -29,7 +29,10 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     //Time Counter
     public Text timeText;
-    float timeLeft = 300.0f;
+    float timeLeft = 30.0f;
+
+    public GameObject scoreUI;
+    public GameObject timeUI;
 
     public static int coinsCollectedThisGame;
 
@@ -151,7 +154,9 @@ public class SideRunnerCharacterControl : MonoBehaviour
     {
         if (!gameOver)
         {
-            
+
+            hideScoreAndTime();
+
             //Show stumble animation
             Animator animator = GetComponent<Animator>();
             animator.SetTrigger("stumble");
@@ -176,6 +181,12 @@ public class SideRunnerCharacterControl : MonoBehaviour
         showingPauseUI = !showingPauseUI;
         pauseUI.SetActive(showingPauseUI);
         Time.timeScale = 1;
+    }
+
+    private void hideScoreAndTime()
+    {
+        scoreUI.SetActive(false);
+        timeUI.SetActive(false);
     }
 
 

@@ -97,7 +97,7 @@ public class UIManager : MonoBehaviour {
             }
             else
             {
-                print("energy is full");
+                //print("energy is full");
                 energyCountdown.text = "";
 
                 if (energySparkle.isPlaying)

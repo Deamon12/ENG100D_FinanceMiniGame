@@ -10,17 +10,20 @@ public class JumperManager : MonoBehaviour {
     private int gender;         //1 for female
     private int skinColor;
     private int outfitIndex;
-    
+
+    public Material sunnySky;
+    public Material snowSky;
+    public Material fireSky;
 
     void Start () {
+
+        //RenderSettings.skybox = snowSky;
+
         gender = GameManager.instance.getPlayerData().getGender();
         skinColor = GameManager.instance.getPlayerData().getSkinColor();
         outfitIndex = GameManager.instance.getPlayerData().getOutfitIndex();
-
-        //print("Gender: "+gender);
-        //print("skinColor: " + skinColor);
-        //print("outfitIndex: " + outfitIndex);
-        gender = 1;
+        
+       // gender = 1; //test
 
         if (gender == 1)
         {

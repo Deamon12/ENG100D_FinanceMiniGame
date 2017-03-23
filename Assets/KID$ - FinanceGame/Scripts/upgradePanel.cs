@@ -10,6 +10,7 @@ public class upgradePanel : MonoBehaviour {
 
 	public GameObject model;
 	public Text price;
+	public Button buy;
 
 	// Use this for initialization
 	void Start () {

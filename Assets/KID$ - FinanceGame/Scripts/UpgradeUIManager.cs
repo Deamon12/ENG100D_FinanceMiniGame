@@ -11,6 +11,10 @@ public class UpgradeUIManager : MonoBehaviour {
 	private PlayerData player;
 
 	private Component[] panels;
+	/*private Material[] low;
+	private Material[] mid;
+	private Material[] high;*/
+	//changing material is gameObject.renderer.material = 
 
 	public Text balance;
 
@@ -29,8 +33,7 @@ public class UpgradeUIManager : MonoBehaviour {
 		 * }
 		 */
 
-		view1.SetActive(true);
-		view2.SetActive (false);
+		displaySet2();
 
 		balance.text = "Total: " + player.getBalance();
 

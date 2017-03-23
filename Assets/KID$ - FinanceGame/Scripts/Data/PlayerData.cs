@@ -26,13 +26,12 @@ public class PlayerData
 
     private int coinsCollectedTotal;
     private int coinsCollectedThisGame;
+    private float highestAmountCollected;
+    private int highestCoinsCollectedInAGame;
 
     private int gender;     //0 boy, 1 girl, -1 null
     private int skinColor;  //0 dark, 1 med, 2 light
     private int outfitIndex;
-
-    //private Material faceMaterial;
-    //private Material bodyMaterial;
 
     public PlayerData()
     {
@@ -79,6 +78,12 @@ public class PlayerData
     {
         if (entry.getAmount() < 0 || entry.getAmount() > 0)  //omit 0 entries?
             bankEntryList.Add(entry);
+
+        if(entry.getAmount() > highestAmountCollected)
+        {
+            highestAmountCollected = entry.getAmount();
+        }
+
     }
 
     public float getPlayerEnergy()
@@ -129,6 +134,32 @@ public class PlayerData
     {
         coinsCollectedThisGame += 1;
         coinsCollectedTotal += 1;
+
+        if(coinsCollectedThisGame > highestCoinsCollectedInAGame)
+        {
+            highestCoinsCollectedInAGame = coinsCollectedThisGame;
+        }
+    }
+
+    public void resetCoinsThisGame()
+    {
+        coinsCollectedThisGame = 0;
+    }
+
+    public int getCoinsCollectedTotal()
+    {
+        return coinsCollectedTotal;
+    }
+
+    public int getCoinsCollectedThisGame()
+    {
+        return coinsCollectedThisGame;
+    }
+
+
+    public float getHighestAmountCollected()
+    {
+        return highestAmountCollected;
     }
 
 

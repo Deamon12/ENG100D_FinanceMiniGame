@@ -15,11 +15,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
     private Vector3 m_CamForward;             // The current forward direction of the camera
     private Vector3 m_Move;
     private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
-
-    //public float z_axis = -8;
-	//public float turnSpeed = 0.002f;
-
-    //public Rigidbody rigidBody;
+    
     private bool crouch = false;
 
     private float lastCollisionX = 0f;
@@ -29,16 +25,17 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     //Time Counter
     public Text timeText;
-    float timeLeft = 30.0f;
+    public static float timeLeft = 25.0f;
+    public static float timeStartedWith;
 
     public GameObject scoreUI;
     public GameObject timeUI;
 
-    public static int coinsCollectedThisGame;
-
     private void Start()
     {
-        //startTime = DateTime.Now;
+        timeStartedWith = timeLeft;
+        GameManager.instance.getPlayerData().resetCoinsThisGame();
+
         // get the transform of the main camera
         if (Camera.main != null)
         {
@@ -74,15 +71,16 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     protected void LateUpdate()
     {
-       
+      
     }
 
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
+
         updateTimeCounter();
 
-        //This is necessary to lock positions and rotations...otherwise dude goes all nilly willy.
+        //This is necessary to lock positions and rotations...otherwise dude goes all crazy.
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
         // read horizontal inputs and apply boundary
@@ -129,8 +127,15 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
         if(timeLeft < 0f)
         {
-            doGameOver();
+            doTimeOver();
         }
+        else
+        {
+
+            //SPEED UP CHARACTER OVER TIME
+            m_Character.m_MoveSpeedMultiplier += (Time.deltaTime) / 30;
+        }
+
     }
 
     private void doPauseGame()
@@ -175,7 +180,35 @@ public class SideRunnerCharacterControl : MonoBehaviour
         }
     }
 
-   
+    private void doTimeOver()
+    {
+        if (!gameOver)
+        {
+            
+            hideScoreAndTime();
+
+            //Stop character
+            m_Character.m_MoveSpeedMultiplier = 0;
+            m_Character.m_AnimSpeedMultiplier = 0;
+
+            //Change text
+            gameOverUI.GetComponentInChildren<Text>().text = "Times Up!";
+            
+            //Show game over screen
+            Animator gameOverAnim = gameOverUI.GetComponent<Animator>();
+            gameOverAnim.SetTrigger("game_over");
+
+            BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned", DateTime.Now);
+
+            GameManager.instance.getPlayerData().addBankEntry(be);
+            GameManager.instance.saveGame();
+            
+            gameOver = true;
+            
+        }
+    }
+
+
     private void resumeGame()
     {
         showingPauseUI = !showingPauseUI;

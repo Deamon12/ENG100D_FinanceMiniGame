@@ -106,7 +106,9 @@ public class GameManager : MonoBehaviour
     {
         player = new PlayerData();
         saveGame();
+
         //TODO: Show tutorial?
+        showTutorial();
 
     }
 
@@ -132,12 +134,17 @@ public class GameManager : MonoBehaviour
     }
 
     public void showErrorDialog(String message) {
-
-        //TODO: create new errorDialog from prefab?
+        
         errorDialog.GetComponentInChildren<Text>().text = message;
 
         Animator errorAnim = errorDialog.GetComponent<Animator>();
         errorAnim.SetTrigger("animate");
+    }
+
+
+    private void showTutorial()
+    {
+
     }
 
 }

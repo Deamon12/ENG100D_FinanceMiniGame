@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class PlayerData
@@ -22,6 +23,11 @@ public class PlayerData
     private int coinsCollectedTotal;
     private int coinsCollectedThisGame;
 
+    private int gender;
+
+    private Material faceMaterial;
+    private Material bodyMaterial;
+
     public PlayerData()
     {
         creationDate = DateTime.Now;
@@ -35,7 +41,9 @@ public class PlayerData
         lastEnergyGain = DateTime.Now;
         billList.Add(new Bill("Phone", 3.0f, 24));
         billList.Add(new Bill("Food", 5.0f, 12));
-        billList.Add(new Bill("Upgrade", 2, 3));
+        billList.Add(new Bill("Upgrade", 2, 3));        //test
+
+        gender = -1;
     }
 
     public float getBalance()
@@ -132,6 +140,31 @@ public class PlayerData
     public void payBill(int billIndex)
     {
         billList[billIndex].payBill();
+    }
+
+    public int getGender()
+    {
+        return gender;
+    }
+
+    public void setBodyMaterial(Material body)
+    {
+        bodyMaterial = body;
+    }
+
+    public Material getBodyMaterial()
+    {
+        return bodyMaterial;
+    }
+
+    public void setFaceMaterial(Material face)
+    {
+        faceMaterial = face;
+    }
+
+    public Material getFaceMaterial()
+    {
+        return faceMaterial;
     }
 
 

@@ -52,7 +52,7 @@ public class UpgradeUIManager : MonoBehaviour {
         balance.text = formatCurrencyString(GameManager.instance.getPlayerData().getBalance());
         //? panels = girlView.GetComponents<upgradePanel>();
 
-		balance.text = "Total: $" + player.getBalance();
+		//balance.text = "Total: $" + player.getBalance();
 
 		if (player.getGender() == 1) //female = 1
         {
@@ -112,10 +112,12 @@ public class UpgradeUIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		setUpgrades ();
-		balance.text = "Total: $" + player.getBalance();
-	}
+        //balance.text = "Total: $" + player.getBalance();
+        balance.text = formatCurrencyString(GameManager.instance.getPlayerData().getBalance());
 
-	private void showGirlView() {
+    }
+
+    private void showGirlView() {
         girlView.SetActive(true);
         boyView.SetActive(false);
 	}
@@ -186,7 +188,7 @@ public class UpgradeUIManager : MonoBehaviour {
 				bb3.onClick.AddListener (buyItem4);
 			}
 		} else {
-			bb3.GetComponent<Text> ().text = "Set";
+			//bb3.GetComponent<Text> ().text = "Set";
 			bb3.onClick.RemoveAllListeners();
 			bb3.onClick.AddListener (chosenUpgrade4);
 		}
@@ -211,9 +213,10 @@ public class UpgradeUIManager : MonoBehaviour {
 	}
 
 	private void buyItem4() {
-		BankEntry bought = new BankEntry (-price4, "Bought fourth upgrade", DateTime.Now);
+		BankEntry bought = new BankEntry (-price4, "Upgrade4", DateTime.Now);
 		player.addBankEntry (bought);
 		player.setUpgradeIndex (3);
+        chosenUpgrade4();
 	}
 
 	private void chosenUpgrade1() {
@@ -251,7 +254,7 @@ public class UpgradeUIManager : MonoBehaviour {
 	}
 		
 	private void chosenUpgrade4() {
-		player.setOutfitIndex (10);
+        GameManager.instance.getPlayerData().setOutfitIndex(10); //player.setOutfitIndex (10);
 	}
 
     private String formatCurrencyString(float amount)
@@ -271,10 +274,10 @@ public class UpgradeUIManager : MonoBehaviour {
 
 	private void setFemaleTexture(GameObject player, int outfitIndex, int skinColor)
 	{
-
-		player.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = GameManager.instance.femaleFaceList[skinColor];      //face
-		player.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[1].mainTexture = GameManager.instance.femaleFaceList[skinColor];      //face
-		player.transform.FindChild("FemaleModel").transform.GetComponent<SkinnedMeshRenderer>().materials[2].mainTexture = GameManager.instance.femaleBodyList[outfitIndex];      //Body
+        print("skincolor: "+skinColor);
+		player.transform.FindChild("Female2_Pigtail").transform.GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = GameManager.instance.femaleFaceList[skinColor];      //face
+		player.transform.FindChild("Female2_Pigtail").transform.GetComponent<SkinnedMeshRenderer>().materials[1].mainTexture = GameManager.instance.femaleFaceList[skinColor];      //face
+		player.transform.FindChild("Female2_Pigtail").transform.GetComponent<SkinnedMeshRenderer>().materials[2].mainTexture = GameManager.instance.femaleBodyList[outfitIndex];      //Body
 
 	}
 

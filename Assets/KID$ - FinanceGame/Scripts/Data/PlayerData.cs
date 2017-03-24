@@ -49,7 +49,8 @@ public class PlayerData
         upgradeEarnedList = new List<Upgrade>();
         bankEntryList = new List<BankEntry>();
         upgradesOwnedIndexesOwnded = new List<int>();
-		rewardsClaimed = new bool[30];
+        initupgradesOwnedIndexesOwnded();
+        rewardsClaimed = new bool[30];
 		for (int i = 0; i < rewardsClaimed.Length; i++)
 			rewardsClaimed [i] = false;
 
@@ -57,8 +58,8 @@ public class PlayerData
         playerEnergy = 100;
         lastEnergyGain = DateTime.Now;
         billList.Add(new Bill("Phone", 3.0f, 24));
-        billList.Add(new Bill("Food", 5.0f, 12));
-        billList.Add(new Bill("Upgrade", 2, 3));        //test
+        billList.Add(new Bill("Food", 2, 3));
+        //billList.Add(new Bill("Upgrade", 2, 3));        //test
 
         gender = -1;
         skinColor = -1;
@@ -249,7 +250,13 @@ public class PlayerData
 
     public int getNumUpgrade()
     {
-        return upgradesOwnedIndexesOwnded.Count;
+        int count = 0;
+        for(int a = 0; a < upgradesOwnedIndexesOwnded.Count; a++)
+        {
+            if (upgradesOwnedIndexesOwnded[a] == 1)
+                count++;
+        }
+        return count;
     }
 
     public float getMoneySpent()
@@ -339,13 +346,14 @@ public class PlayerData
 				return true;
 		}
 
-		if (upgradesOwnedIndexesOwnded.Count >= 3.0 && upgradesOwnedIndexesOwnded.Count < 8.0) {
+
+		if (getNumUpgrade()  >= 3.0 && getNumUpgrade() < 8.0) {
 			if (rewardsClaimed [15] == false)
 				return true;
-		} else if (upgradesOwnedIndexesOwnded.Count >= 8.0 && upgradesOwnedIndexesOwnded.Count < 20.0) {
+		} else if (getNumUpgrade() >= 8.0 && getNumUpgrade() < 20.0) {
 			if (rewardsClaimed [16] == false)
 				return true;
-		} else if (upgradesOwnedIndexesOwnded.Count >= 20.0) {
+		} else if (getNumUpgrade() >= 20.0) {
 			if (rewardsClaimed [17] == false)
 				return true;
 		}
@@ -363,6 +371,16 @@ public class PlayerData
             "outfitIndex: " + outfitIndex;
     }
     
+
+
+    private void initupgradesOwnedIndexesOwnded()
+    {
+        for(int a = 0; a < 4; a++)
+        {
+            upgradesOwnedIndexesOwnded.Add(0);
+        }
+    }
+
 	public void setUpgradeIndex(int index) {
 		upgradesOwnedIndexesOwnded [index] = 1;
 	}

@@ -30,9 +30,9 @@ public class JumperManager : MonoBehaviour {
         outfitIndex = GameManager.instance.getPlayerData().getOutfitIndex();
 
 
-        gender = 1;         //test
-        outfitIndex = 9;    //test
-
+        //gender = 1;         //test
+        //outfitIndex = 9;    //test
+        print("outfitIndex: "+outfitIndex );
 
         setupEnvironment();
 

@@ -174,7 +174,9 @@ public class AchievementsCheck : MonoBehaviour {
 		ribbons[i/3].GetComponent<Button>().onClick.RemoveListener(() => something());
 		ribbons[i/3].GetComponent<Button>().interactable = false; 				//disable the button
 		StartCoroutine ( ShowPopup ("you just got $" + tempMoney + " as a reward", 3));
-	}
+        GameManager.instance.saveGame();
+
+    }
 		
 	IEnumerator ShowPopup (string message, float delay)
 	{

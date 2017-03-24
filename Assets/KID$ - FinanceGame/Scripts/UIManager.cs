@@ -30,7 +30,10 @@ public class UIManager : MonoBehaviour {
 	public Button achButton;
 	public Button upgButton;
 	public Image RibbonAlert;
-    
+
+    public Button exitButton;
+
+
     private bool showBankEntries = true;
 
     // Use this for initialization
@@ -46,11 +49,13 @@ public class UIManager : MonoBehaviour {
 
         scrollviewChangeButton.onClick.AddListener(changeView);
         earnButton.onClick.AddListener(earnClick);
+        exitButton.onClick.AddListener(exitGame);
+
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     // These may not be the most efficient way to refresh UI
-	void Update () {
+    void Update () {
         refreshEnergySlider();
         checkForBillPay();
 
@@ -169,5 +174,9 @@ public class UIManager : MonoBehaviour {
         return amount.ToString("C2", nfi);
     }
     
-
+    private void exitGame()
+    {
+        print("exiting...");
+        Application.Quit();
+    }
 }

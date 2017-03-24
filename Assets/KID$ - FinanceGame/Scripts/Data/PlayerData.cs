@@ -12,6 +12,7 @@ public class PlayerData
     private List<BankEntry> bankEntryList;
 
     private List<int> upgradesOwnedIndexesOwnded;
+	private bool[] rewardsClaimed;
 
     private float playerEnergy;
 
@@ -34,6 +35,7 @@ public class PlayerData
     private float balance;
 
     private int numberOfCollisions;
+	private int numOfBillsPaid = 0;
 
     private int gender;     //0 boy, 1 girl, -1 null
     private int skinColor;  //0 dark, 1 med, 2 light
@@ -47,6 +49,9 @@ public class PlayerData
         upgradeEarnedList = new List<Upgrade>();
         bankEntryList = new List<BankEntry>();
         upgradesOwnedIndexesOwnded = new List<int>();
+		rewardsClaimed = new bool[30];
+		for (int i = 0; i < rewardsClaimed.Length; i++)
+			rewardsClaimed [i] = false;
 
         coinsCollectedTotal = 0;
         playerEnergy = 100;
@@ -88,6 +93,7 @@ public class PlayerData
 
         if(entry.getAmount() > highestAmountCollectedInAGame)
         {
+			if(entry.isFromReward() == false)
             highestAmountCollectedInAGame = entry.getAmount();
         }
 
@@ -250,6 +256,101 @@ public class PlayerData
     {
         return totalMoneyEarned - balance;
     }
+
+	public int getNumOfBillsPaid()
+	{
+		return numOfBillsPaid;
+	}
+	public void setRewardsClaimed(int index, bool temp)
+	{
+		rewardsClaimed [index] = temp;
+	}
+
+	public bool getRewardsClaimed(int index)
+	{
+		Debug.Log (rewardsClaimed [index]);
+		return rewardsClaimed [index];
+	}
+		
+	public void setRewardsClaimed(List<bool> temp)
+	{
+		for (int i = 0; i < rewardsClaimed.Length; i++) {
+			rewardsClaimed [i] = temp [i];
+			Debug.Log("status: "+rewardsClaimed[i]);
+		}
+	}
+
+	public bool hasAvailableReward()
+	{
+
+		if (totalMoneyEarned >= 4.0 && totalMoneyEarned < 34.0) {
+			if (rewardsClaimed [0] == false)
+				return true;
+		} else if (totalMoneyEarned >= 34.0 && totalMoneyEarned < 100.0) {
+			if (rewardsClaimed [1] == false)
+				return true;
+		} else if (totalMoneyEarned >= 100.0) {
+			if (rewardsClaimed [2] == false)
+				return true;
+		}
+
+		if (highestAmountCollectedInAGame >= 2 && highestAmountCollectedInAGame< 4.0) {
+			if (rewardsClaimed [3] == false)
+				return true;
+		} else if (highestAmountCollectedInAGame >= 4.0 && highestAmountCollectedInAGame < 6.0) {
+			if (rewardsClaimed [4] == false)
+				return true;
+		} else if (highestAmountCollectedInAGame >= 6.0) {
+			if (rewardsClaimed [5] == false)
+				return true;
+		}
+
+		float temp = totalMoneyEarned - balance;
+		if (temp >= 4.0 && temp < 34.0) {
+			if (rewardsClaimed [6] == false)
+				return true;
+		} else if (temp >= 34.0 && temp < 100.0) {
+			if (rewardsClaimed [7] == false)
+				return true;
+		} else if (temp >= 100.0) {
+			if (rewardsClaimed [8] == false)
+				return true;
+		}
+	
+		if (numOfBillsPaid >= 5.0 && numOfBillsPaid < 15.0) {
+			if (rewardsClaimed [9] == false)
+				return true;
+		} else if (numOfBillsPaid >= 15.0 && numOfBillsPaid < 30.0) {
+			if (rewardsClaimed [10] == false)
+				return true;
+		} else if (numOfBillsPaid >= 30.0) {
+			if (rewardsClaimed [11] == false)
+				return true;
+		}
+
+		if (numberOfCollisions >= 2.0 && numberOfCollisions < 5.0) {
+			if (rewardsClaimed [12] == false)
+				return true;
+		} else if (numberOfCollisions >= 5.0 && numberOfCollisions < 10.0) {
+			if (rewardsClaimed [13] == false)
+				return true;
+		} else if (numberOfCollisions >= 10.0) {
+			if (rewardsClaimed [14] == false)
+				return true;
+		}
+
+		if (upgradesOwnedIndexesOwnded.Count >= 3.0 && upgradesOwnedIndexesOwnded.Count < 8.0) {
+			if (rewardsClaimed [15] == false)
+				return true;
+		} else if (upgradesOwnedIndexesOwnded.Count >= 8.0 && upgradesOwnedIndexesOwnded.Count < 20.0) {
+			if (rewardsClaimed [16] == false)
+				return true;
+		} else if (upgradesOwnedIndexesOwnded.Count >= 20.0) {
+			if (rewardsClaimed [17] == false)
+				return true;
+		}
+		return false;
+}
 
     public String toString() //For debug
     {

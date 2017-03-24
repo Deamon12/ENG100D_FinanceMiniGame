@@ -24,7 +24,12 @@ public class UIManager : MonoBehaviour {
 	public Text transitText;
 
     public Button scrollviewChangeButton;
+	public Image upgImg;
+	public Image achImg;
     public Button earnButton;
+	public Button achButton;
+	public Button upgButton;
+	public Image RibbonAlert;
     
     private bool showBankEntries = true;
 
@@ -32,6 +37,9 @@ public class UIManager : MonoBehaviour {
     void Start () {
 
         setBalanceInfo();
+
+		if (GameManager.instance.getPlayerData ().hasAvailableReward ()) 
+			RibbonAlert.GetComponent<Image> ().enabled = true;
 
         bankEntriesScrollview.SetActive(showBankEntries);
         billPayScrollview.SetActive(!showBankEntries);
@@ -45,6 +53,20 @@ public class UIManager : MonoBehaviour {
 	void Update () {
         refreshEnergySlider();
         checkForBillPay();
+
+		if (GameManager.instance.getPlayerData ().isBillDue ()) {
+			achButton.GetComponent<Button> ().enabled = false;
+			upgImg.GetComponent<Image> ().enabled = true;
+			upgButton.GetComponent<Button> ().enabled = false;
+			achImg.GetComponent<Image> ().enabled = true;
+
+		}
+		else {
+			achButton.GetComponent<Button> ().enabled = true;
+			upgImg.GetComponent<Image> ().enabled = false;
+			upgButton.GetComponent<Button> ().enabled = true;
+			achImg.GetComponent<Image> ().enabled = false;
+		}
 
         setBalanceInfo();
 

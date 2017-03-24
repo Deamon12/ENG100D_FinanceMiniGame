@@ -173,7 +173,7 @@ public class AchievementsCheck : MonoBehaviour {
 		GameManager.instance.getPlayerData ().setRewardsClaimed (i,true);		//set the rewardsClaimed[i] to true;
 		ribbons[i/3].GetComponent<Button>().onClick.RemoveListener(() => something());
 		ribbons[i/3].GetComponent<Button>().interactable = false; 				//disable the button
-		StartCoroutine ( ShowPopup ("you just got $" + tempMoney + " as a reward", 4));
+		StartCoroutine ( ShowPopup ("you just got $" + tempMoney + " as a reward", 3));
 	}
 		
 	IEnumerator ShowPopup (string message, float delay)

@@ -24,24 +24,22 @@ public class AchievementsCheck : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-		/*
+        
 		//setup the text counter under each achievement category dynmacially 
 		Text myRichesCounter = myRichesText.GetComponent<Text> ();
-		myRichesCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/100";
+		myRichesCounter.text = GameManager.instance.getPlayerData().getTotalMoneyEarned().ToString() + "/100";
 		Text bigPlayerCounter = bigPlayerText.GetComponent<Text> ();
-		bigPlayerCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/6";
+		bigPlayerCounter.text = GameManager.instance.getPlayerData().getHighestAmountCollected().ToString() + "/6";
 		Text shopaholicCounter = shopaholicText.GetComponent<Text> ();
-		shopaholicCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/100";
+		shopaholicCounter.text = GameManager.instance.getPlayerData().getMoneySpent().ToString() + "/100";
 		Text responsiblCounter = responsibleText.GetComponent<Text> ();
-		responsiblCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/30";
+		responsiblCounter.text = "0" + "/30";
 		Text clumsynessCounter = clumsynessText.GetComponent<Text> ();
-		clumsynessCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/10";
+		clumsynessCounter.text = GameManager.instance.getPlayerData().getNumOfCollisions().ToString() + "/10";
 		Text iGotPowerCounter = iGotPowerText.GetComponent<Text> ();
-		iGotPowerCounter.text = GameManager.instance.getPlayerData().getBalance().ToString() + "/20";
-		*/
-
-		//test
+		iGotPowerCounter.text = GameManager.instance.getPlayerData().getNumUpgrade().ToString() + "/20";
+        
+		/*
 		Text myRichesCounter = myRichesText.GetComponent<Text> ();
 		myRichesCounter.text = "102" + "/100";
 		Text bigPlayerCounter = bigPlayerText.GetComponent<Text> ();
@@ -54,7 +52,8 @@ public class AchievementsCheck : MonoBehaviour {
 		clumsynessCounter.text = "7" + "/10";
 		Text iGotPowerCounter = iGotPowerText.GetComponent<Text> ();
 		iGotPowerCounter.text = "3" + "/20";
-
+        */
+        
 
 
 
@@ -66,29 +65,20 @@ public class AchievementsCheck : MonoBehaviour {
 		Image clumsynessImage = clumsynessStars.GetComponent<Image>();
 		Image iGotPowerImage = iGotPowerStars.GetComponent<Image>();
 
-		/*
 		//get the counter for each achievement in playerData
-		float myRiches = GameManager.instance.getPlayerData().getBalance();
-		float bigPlayer = GameManager.instance.getPlayerData().getBalance();
-		float shopaholic = GameManager.instance.getPlayerData().getBalance();
-		float responsible = GameManager.instance.getPlayerData().getBalance();
-		float clumsyness = GameManager.instance.getPlayerData().getBalance();
-		float iGotPower = GameManager.instance.getPlayerData().getBalance();
-		*/
-		//testing
-		float myRiches = 102;
-		float bigPlayer = 5;
-		float shopaholic = 40;
-		float responsible = 15;
-		float clumsyness = 7;
-		float iGotPower = 3;
+		float myRiches = GameManager.instance.getPlayerData().getTotalMoneyEarned();
+		float bigPlayer = GameManager.instance.getPlayerData().getHighestAmountCollected();
+		float shopaholic = GameManager.instance.getPlayerData().getMoneySpent();
+        float responsible = 0; //GameManager.instance.getPlayerData().getBalance();
+		float clumsyness = GameManager.instance.getPlayerData().getNumOfCollisions();
+		float iGotPower = GameManager.instance.getPlayerData().getNumUpgrade();
 
 		//checks for total money earned
 		if (myRiches >= 4.0 && myRiches < 34.0)
             myRichesImage.sprite = oneStar;
 		else if (myRiches >= 34.0 && myRiches < 100.0)
             myRichesImage.sprite = twoStars;
-        else
+        else if (myRiches >= 100.0)
             myRichesImage.sprite = threeStars;
 		
 		//checks for the max of money earned in one game
@@ -96,40 +86,40 @@ public class AchievementsCheck : MonoBehaviour {
 			bigPlayerImage.sprite = oneStar;
 		else if (bigPlayer >= 4.0 && bigPlayer < 6.0)
 			bigPlayerImage.sprite = twoStars;
-		else
-			bigPlayerImage.sprite = threeStars;
+        else if (bigPlayer >= 6.0)
+            bigPlayerImage.sprite = threeStars;
 		
 		//checks for money spent
 		if (shopaholic >= 4.0 && shopaholic < 34.0)
 			shopaholicImage.sprite = oneStar;
 		else if (shopaholic >= 34.0 && shopaholic < 100.0)
 			shopaholicImage.sprite = twoStars;
-		else
-			shopaholicImage.sprite = threeStars;
+        else if (shopaholic >= 100.0)
+            shopaholicImage.sprite = threeStars;
 		
 		//checks for number of bills paid
 		if (responsible >= 5 && responsible < 10.0)
 			responsibleImage.sprite = oneStar;
 		else if (responsible >= 15.0 && responsible < 30.0)
 			responsibleImage.sprite = twoStars;
-		else
-			responsibleImage.sprite = threeStars;
+        else if (responsible >= 30.0)
+            responsibleImage.sprite = threeStars;
 		
 		//checks for number of deaths in total
 		if (clumsyness>= 2.0 && clumsyness < 5.0)
 			clumsynessImage.sprite = oneStar;
 		else if (clumsyness >= 5.0 && clumsyness < 10.0)
 			clumsynessImage.sprite = twoStars;
-		else
-			clumsynessImage.sprite = threeStars;
+        else if (clumsyness >= 10.0)
+            clumsynessImage.sprite = threeStars;
 		
 		//checks for number of upgrades purchased
 		if (iGotPower >= 3.0 && iGotPower < 8.0)
 			iGotPowerImage.sprite = oneStar;
 		else if (iGotPower >= 8 && iGotPower < 20.0)
 			iGotPowerImage.sprite = twoStars;
-		else
-			iGotPowerImage.sprite = threeStars;
+        else if (iGotPower >= 20.0)
+            iGotPowerImage.sprite = threeStars;
     }
 	
 	// Update is called once per frame

@@ -25,7 +25,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
 
     //Time Counter
     public Text timeText;
-    public static float timeLeft = 25.0f;
+    public static float timeLeft = 60.0f;
     public static float timeStartedWith;
 
     public GameObject scoreUI;

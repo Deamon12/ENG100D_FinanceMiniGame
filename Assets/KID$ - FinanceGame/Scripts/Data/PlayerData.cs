@@ -31,6 +31,7 @@ public class PlayerData
     private float highestAmountCollectedInAGame;
     private int highestCoinsCollectedInAGame;
     private float totalMoneyEarned;
+    private float balance;
 
     private int numberOfCollisions;
 
@@ -45,6 +46,7 @@ public class PlayerData
         achieveEarnedList = new List<Achievement>();
         upgradeEarnedList = new List<Upgrade>();
         bankEntryList = new List<BankEntry>();
+        upgradesOwnedIndexesOwnded = new List<int>();
 
         coinsCollectedTotal = 0;
         playerEnergy = 100;
@@ -89,7 +91,13 @@ public class PlayerData
             highestAmountCollectedInAGame = entry.getAmount();
         }
 
-        totalMoneyEarned += entry.getAmount();
+        if (entry.getAmount() > 0)
+        {
+            totalMoneyEarned += entry.getAmount();
+        }
+
+        balance += entry.getAmount();
+        
         
 
     }
@@ -231,6 +239,16 @@ public class PlayerData
     public float getTotalMoneyEarned()
     {
         return totalMoneyEarned;
+    }
+
+    public int getNumUpgrade()
+    {
+        return upgradesOwnedIndexesOwnded.Count;
+    }
+
+    public float getMoneySpent()
+    {
+        return totalMoneyEarned - balance;
     }
 
     public String toString() //For debug

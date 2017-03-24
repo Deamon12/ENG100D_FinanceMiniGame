@@ -161,10 +161,16 @@ public class GameManager : MonoBehaviour
     public void showErrorDialog(String message) {
 
         //TODO: create new errorDialog from prefab if dont exist?
-        errorDialog.GetComponentInChildren<Text>().text = message;
 
-        Animator errorAnim = errorDialog.GetComponent<Animator>();
-        errorAnim.SetTrigger("animate");
+        if(errorDialog != null)
+        {
+            errorDialog.GetComponentInChildren<Text>().text = message;
+
+            Animator errorAnim = errorDialog.GetComponent<Animator>();
+            errorAnim.SetTrigger("animate");
+
+        }
+        
     }
 
 

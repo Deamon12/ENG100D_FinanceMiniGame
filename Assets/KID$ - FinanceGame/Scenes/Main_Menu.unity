@@ -241,8 +241,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1538338183}
   m_HandleRect: {fileID: 1538338182}
   m_Direction: 0
-  m_Value: 0.5000012
-  m_Size: 0.87399995
+  m_Value: 0.5000009
+  m_Size: 0.8739999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3751,7 +3751,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f4bdaa238a2b66145b98187a5e58ef95, type: 2}
+  - {fileID: 2100000, guid: 8b36b870a1e48af4bbbce085a13c77b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4533,6 +4533,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d814916e50d370b40862579c1cd8092f, type: 3}
   - {fileID: 2800000, guid: d7fe2d145b450d8479a31e6cd5165cd4, type: 3}
   - {fileID: 2800000, guid: 1198732de98898441baf9119f69e83ae, type: 3}
+  - {fileID: 2800000, guid: f237a3350e666b8488de0c1288b49bfa, type: 3}
+  - {fileID: 2800000, guid: 1e935c9e8a289da4ebfbbeae4b6abb1a, type: 3}
+  - {fileID: 2800000, guid: 921810342a5b6894194ebe8a295438b5, type: 3}
+  - {fileID: 2800000, guid: 10198d78b5d19684ca60457b36918884, type: 3}
+  - {fileID: 2800000, guid: 47d70311b06d6f945ab1cd18d7609b84, type: 3}
   femaleBodyList:
   - {fileID: 2800000, guid: 18273bc5a803adf49a335782424befcc, type: 3}
   - {fileID: 2800000, guid: fd1d2c9bff25366418c709fd22d5ee4b, type: 3}
@@ -4540,6 +4545,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 48c4cc3b26a17c04ebf703661c584e3c, type: 3}
   - {fileID: 2800000, guid: c9a3dfad467dde149b76001c3b9c888f, type: 3}
   - {fileID: 2800000, guid: 1fa5d8ed1443b9f4cb3443bb104cd8de, type: 3}
+  - {fileID: 2800000, guid: 41d811a2a7c61b749a65cf531c8e6f50, type: 3}
+  - {fileID: 2800000, guid: 4df0e0c920a4ed64aa804488a96764cb, type: 3}
+  - {fileID: 2800000, guid: a5248ea33a9df7d4abe6b80e535bd004, type: 3}
+  - {fileID: 2800000, guid: 6539be9a64f3b6f42a9677274e14d7e7, type: 3}
+  - {fileID: 2800000, guid: a30e3fd89a8a08641848d221753d8da9, type: 3}
   maleFaceList:
   - {fileID: 2800000, guid: c74b024e1cb2e3e4988be2af50672968, type: 3}
   - {fileID: 2800000, guid: 7491350ae4545374ebfe2ffac6d9e285, type: 3}

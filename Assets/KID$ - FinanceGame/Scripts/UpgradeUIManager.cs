@@ -27,6 +27,24 @@ public class UpgradeUIManager : MonoBehaviour {
 	public GameObject gp2;
 	public GameObject gp3;
 
+	//Boy buttons
+	public Button bb0;
+	public Button bb1;
+	public Button bb2;
+	public Button bb3;
+
+	//Girl buttons
+	public Button gb0;
+	public Button gb1;
+	public Button gb2;
+	public Button gb3;
+
+	//Button prices
+	public int price1 = 30;
+	public int price2 = 50;
+	public int price3 = 100;
+	public int price4 = 100;
+
 	// Use this for initialization
 	void Start () {
 		player = GameManager.instance.getPlayerData();
@@ -87,35 +105,14 @@ public class UpgradeUIManager : MonoBehaviour {
 			}
         }
 
-		/*
-		//dark
-		if (player.getSkinColor () == 0) {
-			setMaleTexture (bp0, 0, 0);
-			setMaleTexture (bp1, 0, 0);
-			setMaleTexture (bp2, 0, 0);
-			setMaleTexture (bp3, 0, 0);
-		}
-		//medium
-		else if (player.getSkinColor () == 1) {
-			setMaleTexture (bp0, 0, 1);
-			setMaleTexture (bp1, 0, 1);
-			setMaleTexture (bp2, 0, 1);
-			setMaleTexture (bp3, 0, 1);
-		}
-		//light
-		else {
-			setMaleTexture (bp0, 0, 2);
-			setMaleTexture (bp1, 0, 2);
-			setMaleTexture (bp2, 0, 2);
-			setMaleTexture (bp3, 0, 2);
-		}
-		*/
+		setUpgrades ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-
+		setUpgrades ();
+		balance.text = "Total: $" + player.getBalance();
 	}
 
 	private void showGirlView() {
@@ -128,12 +125,133 @@ public class UpgradeUIManager : MonoBehaviour {
         boyView.SetActive(true);
 	}
 		
-	private void setUpgrades() {
-
+	private void showError() {
+		print ("error");
+		GameManager.instance.showErrorDialog ("Not enough money");
 	}
 
-	private void buyItem() {
+	private void setUpgrades() {
+		//Panel 1
+		if (player.getUpgradeIndex (0) == 0) {
+			if (player.getBalance () < price1) {
+				bb0.onClick.RemoveAllListeners ();
+				bb0.onClick.AddListener (showError);
+			} else {
+				bb0.onClick.RemoveAllListeners ();
+				bb0.onClick.AddListener (buyItem1);
+			}
+		} else {
+			bb0.GetComponent<Text> ().text = "Set";
+			bb0.onClick.RemoveAllListeners ();
+			bb0.onClick.AddListener (chosenUpgrade1);
+		}
+
+		//Panel 2
+		if (player.getUpgradeIndex (1) == 0) {
+			if (player.getBalance () < price2) {
+				bb1.onClick.RemoveAllListeners();
+				bb1.onClick.AddListener (showError);
+			} else {
+				bb1.onClick.RemoveAllListeners();
+				bb1.onClick.AddListener (buyItem2);
+			}
+		} else {
+			bb1.GetComponent<Text> ().text = "Set";
+			bb1.onClick.RemoveAllListeners();
+			bb1.onClick.AddListener (chosenUpgrade2);
+		}
+			
+		//Panel 3
+		if (player.getUpgradeIndex (2) == 0) {
+			if (player.getBalance () < price3) {
+				bb2.onClick.RemoveAllListeners();
+				bb2.onClick.AddListener (showError);
+			} else {
+				bb2.onClick.RemoveAllListeners();
+				bb2.onClick.AddListener (buyItem3);
+			}
+		} else {
+			bb2.GetComponent<Text> ().text = "Set";
+			bb2.onClick.RemoveAllListeners();
+			bb2.onClick.AddListener (chosenUpgrade3);
+		}
+
+		//Panel 4
+		if (player.getUpgradeIndex (3) == 0) {
+			if (player.getBalance () < price4) {
+				bb3.onClick.RemoveAllListeners();
+				bb3.onClick.AddListener (showError);
+			} else {
+				bb3.onClick.RemoveAllListeners();
+				bb3.onClick.AddListener (buyItem4);
+			}
+		} else {
+			bb3.GetComponent<Text> ().text = "Set";
+			bb3.onClick.RemoveAllListeners();
+			bb3.onClick.AddListener (chosenUpgrade4);
+		}
+	}
+
+	private void buyItem1() {
+		BankEntry bought = new BankEntry (-price1, "Bought first upgrade", DateTime.Now);
+		player.addBankEntry (bought);
+		player.setUpgradeIndex (0);
+	}
+
+	private void buyItem2() {
+		BankEntry bought = new BankEntry (-price2, "Bought second upgrade", DateTime.Now);
+		player.addBankEntry (bought);
+		player.setUpgradeIndex (1);
+	}
+
+	private void buyItem3() {
+		BankEntry bought = new BankEntry (-price3, "Bought third upgrade", DateTime.Now);
+		player.addBankEntry (bought);
+		player.setUpgradeIndex (2);
+	}
+
+	private void buyItem4() {
+		BankEntry bought = new BankEntry (-price4, "Bought fourth upgrade", DateTime.Now);
+		player.addBankEntry (bought);
+		player.setUpgradeIndex (3);
+	}
+
+	private void chosenUpgrade1() {
+		//dark
+		if (player.getSkinColor () == 0) {
+			player.setOutfitIndex (3);
+		}
+		//medium
+		else if (player.getSkinColor () == 1) {
+			player.setOutfitIndex (4);
+		}
+		//light
+		else {
+			player.setOutfitIndex (5);
+		}
+	}
+
+	private void chosenUpgrade2() {
+		//dark
+		if (player.getSkinColor () == 0) {
+			player.setOutfitIndex (6);
+		}
+		//medium
+		else if (player.getSkinColor () == 1) {
+			player.setOutfitIndex (7);
+		}
+		//light
+		else {
+			player.setOutfitIndex (8);
+		}
+	}
+
+	private void chosenUpgrade3() {
+		player.setOutfitIndex (9);
+	}
 		
+	private void chosenUpgrade4() {
+		player.setOutfitIndex (10);
 	}
 
     private String formatCurrencyString(float amount)

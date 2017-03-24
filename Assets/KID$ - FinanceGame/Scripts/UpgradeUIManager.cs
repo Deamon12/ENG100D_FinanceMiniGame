@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class UpgradeUIManager : MonoBehaviour {
 
 	private PlayerData player;
+	private int gender = 1;
 
-	private Component[] panels;
+	private upgradePanel[] panels;
 	/*private Material[] low;
 	private Material[] mid;
 	private Material[] high;*/
@@ -24,18 +25,17 @@ public class UpgradeUIManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameManager.instance.getPlayerData();
-		/*
-		 * if(player.getGender() == Girl) {
-		 * 	displaySet1()
-		 * }
-		 * else {
-		 *  displaySet2()
-		 * }
-		 */
+		if(gender == 1) {
+			displaySet1();
+		}
+		else {
+			displaySet2();
+		}
+		 
 
 		displaySet2();
 
-		balance.text = "Total: " + player.getBalance();
+		balance.text = "Total: $" + player.getBalance();
 
 		panels = view1.GetComponents<upgradePanel>();
 
@@ -53,6 +53,22 @@ public class UpgradeUIManager : MonoBehaviour {
 	private void displaySet2() {
 		view1.SetActive(false);
 		view2.SetActive(true);
+	}
+
+	private void setUpgrades() {
+		for (int i = 0; i < panels.Length; i++) {
+			int result = 0;
+			int.Parse(panels[i].price, out result);
+			if (result < player.getBalance ()) {
+				panels[i].buy.enabled = false;
+			} else {
+				panels[i].buy.onClick.AddListener(buyItem);
+			}
+		}
+	}
+
+	private void buyItem() {
+		
 	}
 
 }

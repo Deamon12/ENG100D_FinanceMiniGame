@@ -160,7 +160,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
     {
         if (!gameOver)
         {
-
+            
             hideScoreAndTime();
 
             //Show stumble animation
@@ -173,6 +173,7 @@ public class SideRunnerCharacterControl : MonoBehaviour
             
             BankEntry be = new BankEntry(ScoreText.runnerScore, "Earned", DateTime.Now);
 
+            GameManager.instance.getPlayerData().addCollision();
             GameManager.instance.getPlayerData().addBankEntry(be);
             GameManager.instance.saveGame();
 

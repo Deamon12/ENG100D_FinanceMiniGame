@@ -31,7 +31,7 @@ public class JumperManager : MonoBehaviour {
 
 
         gender = 1;         //test
-        outfitIndex = 10;    //test
+        outfitIndex = 9;    //test
 
 
         setupEnvironment();

@@ -11,6 +11,8 @@ public class PlayerData
     private List<Upgrade> upgradeEarnedList;
     private List<BankEntry> bankEntryList;
 
+    private List<int> upgradesOwnedIndexesOwnded;
+
     private float playerEnergy;
 
     private float playerEnergyCost = 25f;
@@ -26,8 +28,11 @@ public class PlayerData
 
     private int coinsCollectedTotal;
     private int coinsCollectedThisGame;
-    private float highestAmountCollected;
+    private float highestAmountCollectedInAGame;
     private int highestCoinsCollectedInAGame;
+    private float totalMoneyEarned;
+
+    private int numberOfCollisions;
 
     private int gender;     //0 boy, 1 girl, -1 null
     private int skinColor;  //0 dark, 1 med, 2 light
@@ -79,10 +84,13 @@ public class PlayerData
         if (entry.getAmount() < 0 || entry.getAmount() > 0)  //omit 0 entries?
             bankEntryList.Add(entry);
 
-        if(entry.getAmount() > highestAmountCollected)
+        if(entry.getAmount() > highestAmountCollectedInAGame)
         {
-            highestAmountCollected = entry.getAmount();
+            highestAmountCollectedInAGame = entry.getAmount();
         }
+
+        totalMoneyEarned += entry.getAmount();
+        
 
     }
 
@@ -159,7 +167,7 @@ public class PlayerData
 
     public float getHighestAmountCollected()
     {
-        return highestAmountCollected;
+        return highestAmountCollectedInAGame;
     }
 
 
@@ -208,6 +216,21 @@ public class PlayerData
     public void setOutfitIndex(int outfitIndex)     //This must match up with skin color
     {
         this.outfitIndex = outfitIndex;
+    }
+
+    public void addCollision()
+    {
+        numberOfCollisions += 1;
+    }
+
+    public int getNumOfCollisions()
+    {
+        return numberOfCollisions;
+    }
+
+    public float getTotalMoneyEarned()
+    {
+        return totalMoneyEarned;
     }
 
     public String toString() //For debug

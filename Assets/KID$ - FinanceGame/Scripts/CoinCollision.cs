@@ -10,10 +10,9 @@ public class CoinCollision : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            Destroy(this.gameObject);
             ScoreText.runnerScore += 0.10f; //TODO variety to coins
-            SideRunnerCharacterControl.coinsCollectedThisGame += 1;
             GameManager.instance.getPlayerData().addCoinToCount();
+            Destroy(this.gameObject);
         }
 
     }

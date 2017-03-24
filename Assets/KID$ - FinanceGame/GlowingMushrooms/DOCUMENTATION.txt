@@ -1,0 +1,5 @@
+Using the large glowing mushrooms is simple: Simply drag a prefab into your scene and adjust the material's "Emission" value to change glow intensity. You may change or remove colliders as needed. 
+
+Note: These mushrooms are intended to be large-scale such as you might see in an underworld cave - tree-sized. That is why they have much detail. But they can also be used for smaller purposes. 
+
+If you wish to sample the rotating product scene simply un-collapse backdrop->rotator and turn off/on the mushroom examples listed there. 

@@ -16,17 +16,22 @@ public class PlayerData
     private float playerEnergyCost = 25f;
     private float playerEnergyGain = 5f;
 
+    private float earnTimeIncrease = 0f;
+    private float earnBonusAmount = 0f;
+    private float earnSpeedIncrease = 0f;
+
     private DateTime creationDate;
     private DateTime lastEnergyGain;
     private DateTime lastEnergyRemove;
 
     private int coinsCollectedTotal;
     private int coinsCollectedThisGame;
+    private float highestAmountCollected;
+    private int highestCoinsCollectedInAGame;
 
-    private int gender;
-
-    private Material faceMaterial;
-    private Material bodyMaterial;
+    private int gender;     //0 boy, 1 girl, -1 null
+    private int skinColor;  //0 dark, 1 med, 2 light
+    private int outfitIndex;
 
     public PlayerData()
     {
@@ -44,6 +49,7 @@ public class PlayerData
         billList.Add(new Bill("Upgrade", 2, 3));        //test
 
         gender = -1;
+        skinColor = -1;
     }
 
     public float getBalance()
@@ -72,6 +78,12 @@ public class PlayerData
     {
         if (entry.getAmount() < 0 || entry.getAmount() > 0)  //omit 0 entries?
             bankEntryList.Add(entry);
+
+        if(entry.getAmount() > highestAmountCollected)
+        {
+            highestAmountCollected = entry.getAmount();
+        }
+
     }
 
     public float getPlayerEnergy()
@@ -81,7 +93,7 @@ public class PlayerData
 
     public bool playerCanEarn()
     {
-        if ((playerEnergy - playerEnergyCost) > 0)
+        if ((playerEnergy - playerEnergyCost) >= 0)
         {
             return true;
         }
@@ -122,6 +134,32 @@ public class PlayerData
     {
         coinsCollectedThisGame += 1;
         coinsCollectedTotal += 1;
+
+        if(coinsCollectedThisGame > highestCoinsCollectedInAGame)
+        {
+            highestCoinsCollectedInAGame = coinsCollectedThisGame;
+        }
+    }
+
+    public void resetCoinsThisGame()
+    {
+        coinsCollectedThisGame = 0;
+    }
+
+    public int getCoinsCollectedTotal()
+    {
+        return coinsCollectedTotal;
+    }
+
+    public int getCoinsCollectedThisGame()
+    {
+        return coinsCollectedThisGame;
+    }
+
+
+    public float getHighestAmountCollected()
+    {
+        return highestAmountCollected;
     }
 
 
@@ -147,33 +185,40 @@ public class PlayerData
         return gender;
     }
 
-    public void setBodyMaterial(Material body)
+    public void setGender(int gender)
     {
-        bodyMaterial = body;
+        this.gender = gender;
+    }
+    
+    public void setSkinTone(int skinColor)
+    {
+        this.skinColor = skinColor;
     }
 
-    public Material getBodyMaterial()
+    public int getSkinColor()
     {
-        return bodyMaterial;
+        return skinColor;
     }
 
-    public void setFaceMaterial(Material face)
+    public int getOutfitIndex()
     {
-        faceMaterial = face;
+        return outfitIndex;
     }
 
-    public Material getFaceMaterial()
+    public void setOutfitIndex(int outfitIndex)     //This must match up with skin color
     {
-        return faceMaterial;
+        this.outfitIndex = outfitIndex;
     }
-
 
     public String toString() //For debug
     {
         return " billList size: " + billList.Count + "\n" +
             "achieveEarnedList: :" + achieveEarnedList.Count + "\n" +
             "upgradeEarnedList: :" + upgradeEarnedList.Count + "\n" +
-            "bankEntryList: :" + bankEntryList.Count;
+            "bankEntryList: :" + bankEntryList.Count + "\n" +
+            "gender: " + gender + "\n" + 
+            "skinColor: " + skinColor + "\n" +
+            "outfitIndex: " + outfitIndex;
     }
     
 
